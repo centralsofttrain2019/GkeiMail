@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <!-- jsp:useBean id="bean" class="bean.Bean" scope="request" -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,9 @@
 <button type="submit" name="name" >OK</button>
 <button type="submit" name="name" >やり直し</button>
 <br>
-<iframe  name="sample" width="1000" height="500">
-この部分はインラインフレームを使用しています。
-</iframe>
+<div style="display:inline-block; padding:15px; border:1px solid; border-radius:10px; word-break:break-all;">
+ここに本文<br>
+本文<br>
+本文</div>
 </body>
 </html>
