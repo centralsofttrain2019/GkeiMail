@@ -5,16 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>テンプレート選択画面</title>
+<link rel="stylesheet" type="text/css" href="/GkeiMail/selectTemplateStyle.css">
 </head>
 <body>
-
+<h2 id="title">テンプレート選択画面</h2>
+<hr>
 <form method="post" action="SelectTemplateServlet">
+
+<div id="atesaki">
 <label>宛先</label>
 <select name="atesaki">
 <option value="0">----</option>
 <option value="1">社内</option>
 <option value="2">取引先</option>
-<option value="3">就活生</option>
+<option value="3">上司</option>
 </select>
 
 <label>内容</label>
@@ -24,8 +28,13 @@
 <option value="2">謝罪</option>
 <option value="3">感謝</option>
 </select>
+</div>
 
+<br>
 <input type="submit" value="次へ">
+</form>
+<form method="get" action="">
+<input type="submit" value="戻る">
 </form>
 </body>
 </html>

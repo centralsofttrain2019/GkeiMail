@@ -6,9 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>テスト用（by安達）</title>
+<script src="/GkeiMail/adtest.js"></script>
 </head>
 <body>
-宛先<%=bean.getAte() %><br>
-内容<%=bean.getNai() %>
+宛先<%=bean.getAtesaki() %><br>
+内容<%=bean.getNaiyou() %>
+<br>
+
+<select name="app" multiple="multiple" size="3">
+<option value="0">項目A</option>
+<option value="1">項目B</option>
+<option value="2">項目C</option>
+</select>
+
 </body>
 </html>
