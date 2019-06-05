@@ -2,20 +2,20 @@ package jp.co.central_soft.train2019.wakaba.bean;
 
 public class SelectTemplateBean {
 
-	private String ate;
-	private String nai;
+	private String atesaki;
+	private String naiyou;
 
-	public String getAte() {
-		return ate;
+	public String getAtesaki() {
+		return atesaki;
 	}
-	public void setAte(String ate) {
-		this.ate = ate;
+	public void setAtesaki(String ate) {
+		this.atesaki = ate;
 	}
-	public String getNai() {
-		return nai;
+	public String getNaiyou() {
+		return naiyou;
 	}
-	public void setNai(String nai) {
-		this.nai = nai;
+	public void setNaiyou(String nai) {
+		this.naiyou = nai;
 	}
 
 
