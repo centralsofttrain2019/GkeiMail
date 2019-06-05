@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>テンプレート選択画面</title>
 </head>
 <body>
 
+<form method="post" action="SelectTemplateServlet">
 <label>宛先</label>
 <select name="atesaki">
 <option value="0">----</option>
@@ -24,8 +25,7 @@
 <option value="3">感謝</option>
 </select>
 
-<form method="post" action="">
-<input type="submit" value="検索">
+<input type="submit" value="次へ">
 </form>
 </body>
 </html>
