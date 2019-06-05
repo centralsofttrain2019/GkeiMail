@@ -10,34 +10,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class TmpDispServlet
+ * Servlet implementation class DispTemplateServlet
  */
-@WebServlet("/TmpDispServlet")
-public class TmpDispServlet extends HttpServlet {
+@WebServlet("/DispTemplateServlet")
+public class DispTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TmpDispServlet() {
+    public DispTemplateServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//String template = request.getParameter("template");
 
-
-		//Service service = new Service();
-		//Bean bean = service.findTemplate();テンプレートをとってくる
+		//Bean bean = new Bean();
+		//bean.setMsg(template);
 
 		//beanをリクエストにセット キー名は「bean」とする
 		//request.setAttribute("bean", bean);
 
 		//JSPに遷移する
-		RequestDispatcher disp = request.getRequestDispatcher("/tmpdisp.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher("/dispTemplate.jsp");
 		disp.forward(request, response);
 	}
 
@@ -45,7 +44,6 @@ public class TmpDispServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
