@@ -32,9 +32,9 @@ public class SelectTemplateServlet extends HttpServlet {
 		TemplateDto dto = sev.findTemplateByKey(1);
 		SelectTemplateBean bean = new SelectTemplateBean();
 
-		bean.setAtesaki(String.valueOf(dto.getTemplateID()));
-		bean.setNaiyou(dto.getTemplateName());
-		bean.setMashimashi(String.valueOf(dto.getMashiMashiValue()));
+		bean.setAtesaki(dto.getAddressTypeID());
+		bean.setNaiyou(dto.getPurposeTypeID());
+		bean.setMashimashi(dto.getMashiMashiValue());
 
 		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("/adtest.jsp");
