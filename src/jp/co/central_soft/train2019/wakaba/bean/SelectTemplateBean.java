@@ -18,5 +18,4 @@ public class SelectTemplateBean {
 		this.naiyou = nai;
 	}
 
-
 }
