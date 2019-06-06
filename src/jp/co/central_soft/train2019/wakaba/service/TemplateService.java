@@ -17,7 +17,7 @@ public class TemplateService
 	}
 
 	public List<TemplateDto> getSortedTemplateList(
-			int addressTypeID, int purposeTypeID, List<String> Keyword, int mashiMashiValue)
+			int addressTypeID, int purposeTypeID, List<String> keywords, int mashiMashiValue)
 					throws ServletException
 	{
 		// TODO ソート済みのテンプレートリストを返すメソッドを実装する
@@ -25,7 +25,7 @@ public class TemplateService
 
 		try(Connection con = null) { // TODO nullはプレースホルダ
 			TemplateDao dao = new TemplateDao(con);
-			list = dao.selectAll();
+			list = dao.findByAddressAndPurposeAndKeywords(addressTypeID, purposeTypeID, keywords);
 		} catch(SQLException e) {
 			throw new ServletException(e);
 		}

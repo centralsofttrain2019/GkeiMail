@@ -41,10 +41,10 @@ public class TemplateDao {
 		return tmpl;
 	}
 
-	public TemplateDto findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
+	public List<TemplateDto> findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
 	{
 		// TODO スタブ
-		TemplateDto tmpl = null;
+		List<TemplateDto> tmpl = null;
 		return tmpl;
 	}
 
