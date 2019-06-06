@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean;
+import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
+import jp.co.central_soft.train2019.wakaba.service.Service;
 
 //テンプレート宛先とか選択する画面のやつ
 @WebServlet("/SelectTemplateServlet")
@@ -24,9 +26,12 @@ public class SelectTemplateServlet extends HttpServlet {
 		String ate = request.getParameter("atesaki");
 		String nai = request.getParameter("naiyou");
 
+		Service sev = new Service();
+		TemplateDto dto = sev.findTemplateByKey(1);
 		SelectTemplateBean bean = new SelectTemplateBean();
-		bean.setAtesaki(ate);
-		bean.setNaiyou(nai);
+
+		bean.setAtesaki(String.valueOf(dto.getTemplateID()));
+		bean.setNaiyou(dto.getTemplateName());
 
 		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("/adtest.jsp");
