@@ -8,15 +8,23 @@
 </head>
 <body>
 
-テンプレート一覧
-<iframe  name="sample" width="500" height="1000">
-この部分はインラインフレームを使用しています。
-</iframe>
+<div class="parent" >
+ <div class="child" style="display: inline-block;">
+テンプレート一覧表示
+<div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
+
+</div>
+ </div>
+ <div class="child" style="display: inline-block;">
 
 サンプル
-<iframe  name="sample" width="500" height="1000">
-この部分はインラインフレームを使用しています。
-</iframe>
+<div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
+
+</div>
+ </div>
+</div>
+
+
 
 <label>宛先</label>
 <select name="atesaki">
@@ -32,7 +40,7 @@
 <option value="1">連絡</option>
 <option value="2">謝罪</option>
 <option value="3">感謝</option>
-</select>
+</select><br>
 
 その他<input name="keyword" type="text" ><br>
 
@@ -42,7 +50,7 @@
 マシマシ<input type="radio" name="mashimashi" value="extreme">
 
 
-<button type="submit" name="name" >再検索</button>
+<button type="submit" name="name" >再検索</button><br>
 
 </body>
 </html>
