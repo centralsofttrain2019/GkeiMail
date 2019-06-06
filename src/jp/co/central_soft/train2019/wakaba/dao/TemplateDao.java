@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 
@@ -40,20 +41,16 @@ public class TemplateDao {
 		return tmpl;
 	}
 
-	public TemplateDto findByAddressAndPurpose(int addressID, int purposeID)
+	public TemplateDto findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
 	{
+		// TODO スタブ
 		TemplateDto tmpl = null;
 		return tmpl;
 	}
 
-	public TemplateDto findFinelyByKeyword(String keyword)
+	public boolean insert()
 	{
-		TemplateDto tmpl = null;
-		return tmpl;
-	}
-
-	public boolean insertTemplate()
-	{
+		// TODO スタブ
 		boolean isSucceed = true;
 		return isSucceed;
 	}
