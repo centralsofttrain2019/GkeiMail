@@ -23,8 +23,10 @@ public class SelectTemplateServlet extends HttpServlet {
 			HttpServletResponse response)
 					throws ServletException, IOException
 	{
+
 		String ate = request.getParameter("atesaki");
 		String nai = request.getParameter("naiyou");
+		String mashi = request.getParameter("mashimashi");
 
 		Service sev = new Service();
 		TemplateDto dto = sev.findTemplateByKey(1);
@@ -32,6 +34,7 @@ public class SelectTemplateServlet extends HttpServlet {
 
 		bean.setAtesaki(String.valueOf(dto.getTemplateID()));
 		bean.setNaiyou(dto.getTemplateName());
+		bean.setMashimashi(String.valueOf(dto.getMashiMashiValue()));
 
 		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("/adtest.jsp");

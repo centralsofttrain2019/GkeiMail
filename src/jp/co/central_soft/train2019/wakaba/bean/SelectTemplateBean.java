@@ -4,6 +4,7 @@ public class SelectTemplateBean {
 
 	private String atesaki;
 	private String naiyou;
+	private String mashimashi;
 
 	public String getAtesaki() {
 		return atesaki;
@@ -17,5 +18,12 @@ public class SelectTemplateBean {
 	public void setNaiyou(String nai) {
 		this.naiyou = nai;
 	}
+	public String getMashimashi() {
+		return mashimashi;
+	}
+	public void setMashimashi(String mashimashi) {
+		this.mashimashi = mashimashi;
+	}
+
 
 }

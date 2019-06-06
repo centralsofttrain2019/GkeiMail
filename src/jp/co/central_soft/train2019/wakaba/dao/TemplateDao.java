@@ -32,6 +32,7 @@ public class TemplateDao {
 			if( true ) {
 				tmpl.setTemplateID(42);
 				tmpl.setTemplateName("hello");
+				tmpl.setMashiMashiValue(1);
 			}
 		//TODO catch
 		} finally {
