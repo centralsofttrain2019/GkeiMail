@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
@@ -13,6 +14,28 @@ public class TemplateDao {
 	private Connection con;
 	private static final String FIND_BY_KEY =
 			"SELECT * FROM Template WHERE TemplateID = ?";
+
+	private static final String INSERT =
+			 "INSERT INTO template ("
+			+"TemplateID,TemplateName,TemplateContent,CreateDate,MashiMashiValue,"
+			+"BuiltInType,AddressTypeID,PurposeTypeID,UserID"
+			+") VALUES ("
+			+"?,?,?,?, ?,?,?,? )";
+
+	private static final String FIND_BY_ADDRESS_PURPOSE =
+			 "SELECT * FROM Template"
+			+" WHERE addressID = ?"
+			+" AND purposeID = ?";
+
+	private static final String KEYWORDS =
+			 "SELECT * FROM keyword";
+
+	private static String FIND_BY_ADDRESS_PURPOSE_KEYWORD =
+			 "SELECT * FROM Template"
+			+" JOIN templatekeyword ON templateID"
+			+" JOIN keyword ON keywordID"
+			+" WHERE (addressID = ? AND purposeID = ?)"
+			+" AND (keywordID = ?)";
 
 	public TemplateDao(Connection con) {
 		super();
@@ -29,12 +52,13 @@ public class TemplateDao {
 		ResultSet rs = pstmt.executeQuery();
 
 		try {
-			if( true ) {
+			if( rs.next() ) {
 				tmpl.setTemplateID(42);
 				tmpl.setTemplateName("hello");
 				tmpl.setMashiMashiValue(1);
 			}
-		//TODO catch
+		} catch(SQLException e) {
+			throw e;
 		} finally {
 			if(rs!=null)
 				rs.close();
@@ -42,17 +66,113 @@ public class TemplateDao {
 		return tmpl;
 	}
 
-	public List<TemplateDto> findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
+	public List<TemplateDto> findByAddressAndPurpose(
+			int addressID, int purposeID )
+					throws SQLException
 	{
-		// TODO スタブ
-		List<TemplateDto> tmpl = null;
-		return tmpl;
+		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
+
+		PreparedStatement pstmt = con.prepareStatement(FIND_BY_ADDRESS_PURPOSE);
+
+		pstmt.setInt(1, addressID);
+		pstmt.setInt(2, purposeID);
+
+		ResultSet rs = pstmt.executeQuery();
+		try
+		{
+			while( rs.next() )
+			{
+				TemplateDto tmp = new TemplateDto();
+				tmp.setAddressTypeID(rs.getInt("AddressTypeID"));
+				tmp.setPurposeTypeID(rs.getInt("PurposeTypeID"));
+				tmpList.add(tmp);
+			}
+		}
+		catch(SQLException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if(rs!=null)
+				rs.close();
+		}
+		return tmpList;
 	}
 
-	public boolean insert()
+	public List<TemplateDto> findByAddressAndPurposeAndKeywords(
+			int addressID, int purposeID, String keyword)
+					throws SQLException
 	{
-		// TODO スタブ
-		boolean isSucceed = true;
-		return isSucceed;
+		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
+
+		PreparedStatement pstmt = con.prepareStatement(KEYWORDS);
+		ResultSet rs = pstmt.executeQuery();
+		int keywordID = -1;
+
+		try
+		{
+			while( rs.next() )
+			{
+				if( keyword.equals(rs.getString("keywordContent")) )
+				{
+					keywordID = rs.getInt("keywordID");
+				}
+			}
+		}
+		catch(SQLException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if(rs!=null)
+				rs.close();
+		}
+
+		PreparedStatement pstmt2 = con.prepareStatement(FIND_BY_ADDRESS_PURPOSE_KEYWORD);
+		pstmt2.setInt(1, addressID);
+		pstmt2.setInt(2, purposeID);
+		pstmt2.setInt(3, keywordID);
+		ResultSet rs2 = pstmt.executeQuery();
+
+		try
+		{
+			while( rs2.next() )
+			{
+				TemplateDto tmp = new TemplateDto();
+				tmp.setAddressTypeID(rs.getInt("AddressTypeID"));
+				tmp.setPurposeTypeID(rs.getInt("PurposeTypeID"));
+				tmpList.add(tmp);
+			}
+		}
+		catch(SQLException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if(rs2!=null)
+				rs2.close();
+		}
+
+		return tmpList;
+	}
+
+	public boolean insert(TemplateDto tmp) throws SQLException
+	{
+		PreparedStatement pstmt = con.prepareStatement(INSERT);
+		pstmt.setInt(1, tmp.getTemplateID());
+		pstmt.setString(2, tmp.getTemplateName());
+		pstmt.setString(3, tmp.getTemplateContent());
+		pstmt.setString(4, tmp.getCreateDate().toString());
+		pstmt.setInt(5, tmp.getMashiMashiValue());
+
+
+		int rows = pstmt.executeUpdate(INSERT);
+		if( rows == 1 ) {
+			return true;
+		}
+		return false;
 	}
 }
