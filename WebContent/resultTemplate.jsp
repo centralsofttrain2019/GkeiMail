@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>テンプレート検索結果画面11</title>
+<title>テンプレート検索結果画面</title>
 </head>
 <body>
 
