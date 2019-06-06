@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>テンプレート確認画面</title>
+<title>テンプレート生成確認画面</title>
 </head>
 <body>
 このテンプレートでよろしいですか？
