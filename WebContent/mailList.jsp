@@ -8,21 +8,20 @@
 </head>
 <body>
 
-<div class="parent" >
- <div class="child" style="display: inline-block;">
-テンプレート一覧表示
+<div style="float:left;width:200px;">
+<b>フォルダー</b>
 <div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
-
 </div>
  </div>
- <div class="child" style="display: inline-block;">
+<div style="float:left;width:200px;">
 
-サンプル
+<b>メール一覧</b>
 <div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
-
 </div>
  </div>
-</div>
+<div style="clear:both;"></div>
+
+
 
 </body>
 </html>
