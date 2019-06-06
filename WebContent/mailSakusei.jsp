@@ -13,14 +13,17 @@ div#subContents {
 	z-index: 20;
 	background: #F7F7F7;
 }
+
 * html div#subContents {
 	position: absolute;
 	top: expression(eval(document.documentElement.scrollTop +100));
 }
+
 .main {
 	width: 70%;
 	margin: 0 auto;
 }
+
 .btn_template {
 	position: absolute;
 	top: 10px;
@@ -40,13 +43,16 @@ div#subContents {
 <title>mailsakusei</title>
 </head>
 <body>
+	<!-- %if(flag = 0){ % -->
 	<p>
 		<a class="btn_template" href="#">テ</a>
 	</p>
+	<!--% } %-->
+
 	<h1>G</h1>
 	<div id="subContents">
 		<ul class="category">
-
+			<li><a href="" title="New">New</a></li>
 			<li><a href="" title="受信箱">受信箱</a></li>
 			<li><a href="" title="下書き">下書き</a></li>
 			<li><a href="" title="送信済み">送信済み</a></li>
