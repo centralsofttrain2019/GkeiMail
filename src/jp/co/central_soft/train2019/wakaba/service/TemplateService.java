@@ -2,10 +2,13 @@ package jp.co.central_soft.train2019.wakaba.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.ServletException;
 
+import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.TemplateDao;
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 
@@ -13,25 +16,41 @@ public class TemplateService
 {
 	public TemplateService()
 	{
-		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
+	private class TemplateComparator implements Comparator<TemplateDto>
+	{
+		private int mashiMashiValue;
+
+		public TemplateComparator(int mashiMashiValue)
+		{
+			this.mashiMashiValue = mashiMashiValue;
+		}
+
+		@Override
+		public int compare(TemplateDto x, TemplateDto y)
+		{
+			int dx = Math.abs(x.getMashiMashiValue() - this.mashiMashiValue);
+			int dy = Math.abs(y.getMashiMashiValue() - this.mashiMashiValue);
+			return -(dx - dy);
+		}
 	}
 
 	public List<TemplateDto> getSortedTemplateList(
-			int addressTypeID, int purposeTypeID, List<String> Keyword, int mashiMashiValue)
+			int addressTypeID, int purposeTypeID, List<String> keywords, int mashiMashiValue)
 					throws ServletException
 	{
-		// TODO ソート済みのテンプレートリストを返すメソッドを実装する
 		List<TemplateDto> list = null;
 
-		try(Connection con = null) { // TODO nullはプレースホルダ
+		try(Connection con = Dao.getConnection()) {
 			TemplateDao dao = new TemplateDao(con);
-			list = dao.selectAll();
-		} catch(SQLException e) {
+			list = dao.findByAddressAndPurposeAndKeywords(addressTypeID, purposeTypeID, keywords);
+		} catch(SQLException | ClassNotFoundException e) {
 			throw new ServletException(e);
 		}
 
-		list.stream().sorted((x, y) ->
-			Math.abs(x.getMashiMashiValue() - mashiMashiValue) - Math.abs(y.getMashiMashiValue() - mashiMashiValue));
+		Collections.sort(list, new TemplateComparator(mashiMashiValue));
+
 		return list;
 	}
 }

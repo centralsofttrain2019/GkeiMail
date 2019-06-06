@@ -32,6 +32,7 @@ public class TemplateDao {
 			if( true ) {
 				tmpl.setTemplateID(42);
 				tmpl.setTemplateName("hello");
+				tmpl.setMashiMashiValue(1);
 			}
 		//TODO catch
 		} finally {
@@ -41,10 +42,10 @@ public class TemplateDao {
 		return tmpl;
 	}
 
-	public TemplateDto findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
+	public List<TemplateDto> findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
 	{
 		// TODO スタブ
-		TemplateDto tmpl = null;
+		List<TemplateDto> tmpl = null;
 		return tmpl;
 	}
 
