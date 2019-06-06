@@ -8,8 +8,8 @@ div#subContents {
 	background: #F7F7F7;
 	padding: 10px;
 	position: fixed;
-
 	z-index: 20;
+	background: #F7F7F7;
 }
 
 * html div#subContents {
@@ -18,29 +18,20 @@ div#subContents {
 }
 
 .main {
-  width: 70%;
-  margin: 0 auto;
+	width: 70%;
+	margin: 0 auto;
 }
 
 .btn_template {
-	width: 60px;
-	height: 38px;
-	background: #FFF;
-	border: 1px solid #2a82a3;
-	border-radius: 70px;
-	-moz-border-radius: 70px;
-	-webkit-border-radius: 70px;
-	color: #2a82a3;
-	padding: 42px 20px 20px;
-	display: block;
+	position: absolute;
+	top: 10px;
+	left: 930px;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
 	text-align: center;
-	font-weight: bold;
-	font-size: 500%;
-	transition: background-color 0.5s ease-in;
-	-webkit-transition: background-color 0.5s ease-in;
-}
-.btn_template:hover {
-	background: #2a82a3;
-	color: #FFF;
-	border: 1px solid #FFF;
+	line-height: 40px;
+	border-radius: 50%;
+	border: solid 1px black;
+	font-size: 150%;
 }
