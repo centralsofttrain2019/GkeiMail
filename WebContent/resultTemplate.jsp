@@ -10,14 +10,14 @@
 
 <div class="parent" >
  <div class="child" style="display: inline-block;">
-テンプレート一覧表示
+<b>テンプレート一覧表示</b>
 <div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
 
 </div>
  </div>
  <div class="child" style="display: inline-block;">
 
-サンプル
+<b>サンプル</b>
 <div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
 
 </div>
@@ -26,7 +26,7 @@
 
 
 
-<label>宛先</label>
+<label><b>宛先</b></label>
 <select name="atesaki">
 <option value="0">----</option>
 <option value="1">社内</option>
@@ -34,7 +34,7 @@
 <option value="3">就活生</option>
 </select>
 
-<label>内容</label>
+<label><b>内容</b></label>
 <select name="naiyou">
 <option value="0">----</option>
 <option value="1">連絡</option>
@@ -42,9 +42,9 @@
 <option value="3">感謝</option>
 </select><br>
 
-その他<input name="keyword" type="text" ><br>
+<b>その他</b><input name="keyword" type="text" ><br>
 
-<label>マシマシ</label>
+<label><b>マシマシ</b></label>
 ふつう<input type="radio" name="mashimashi" value="normal">
 マシ<input type="radio" name="mashimashi" value="hard">
 マシマシ<input type="radio" name="mashimashi" value="extreme">
