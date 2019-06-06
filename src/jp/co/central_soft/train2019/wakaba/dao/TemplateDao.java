@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 
@@ -18,7 +19,8 @@ public class TemplateDao {
 		this.con = con;
 	}
 
-	public TemplateDto findByKey(int id) throws SQLException {
+	public TemplateDto findByKey(int id) throws SQLException
+	{
 		TemplateDto tmpl = new TemplateDto();
 
 		PreparedStatement pstmt = con.prepareStatement(FIND_BY_KEY);
@@ -39,4 +41,17 @@ public class TemplateDao {
 		return tmpl;
 	}
 
+	public TemplateDto findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
+	{
+		// TODO スタブ
+		TemplateDto tmpl = null;
+		return tmpl;
+	}
+
+	public boolean insert()
+	{
+		// TODO スタブ
+		boolean isSucceed = true;
+		return isSucceed;
+	}
 }
