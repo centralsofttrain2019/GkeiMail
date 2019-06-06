@@ -18,7 +18,8 @@ public class TemplateDao {
 		this.con = con;
 	}
 
-	public TemplateDto findByKey(int id) throws SQLException {
+	public TemplateDto findByKey(int id) throws SQLException
+	{
 		TemplateDto tmpl = new TemplateDto();
 
 		PreparedStatement pstmt = con.prepareStatement(FIND_BY_KEY);
@@ -39,4 +40,21 @@ public class TemplateDao {
 		return tmpl;
 	}
 
+	public TemplateDto findByAddressAndPurpose(int addressID, int purposeID)
+	{
+		TemplateDto tmpl = null;
+		return tmpl;
+	}
+
+	public TemplateDto findFinelyByKeyword(String keyword)
+	{
+		TemplateDto tmpl = null;
+		return tmpl;
+	}
+
+	public boolean insertTemplate()
+	{
+		boolean isSucceed = true;
+		return isSucceed;
+	}
 }
