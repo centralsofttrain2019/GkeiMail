@@ -25,8 +25,8 @@ public class SelectTemplateServlet extends HttpServlet {
 		String nai = request.getParameter("naiyou");
 
 		SelectTemplateBean bean = new SelectTemplateBean();
-		bean.setAte(ate);
-		bean.setNai(nai);
+		bean.setAtesaki(ate);
+		bean.setNaiyou(nai);
 
 		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("/adtest.jsp");
