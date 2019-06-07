@@ -10,7 +10,7 @@
 <body>
 <h2 id="title">テンプレート選択画面</h2>
 <hr>
-<form method="post" action="SelectTemplateServlet">
+<form method="post" action="DispTemplateServlet">
 
 <div id="atesaki">
 <label>宛先</label>
