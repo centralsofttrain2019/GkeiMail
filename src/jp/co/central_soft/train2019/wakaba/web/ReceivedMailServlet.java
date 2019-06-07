@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean;;
+import jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean;;
 
 //テンプレート宛先とか選択する画面のやつ
 @WebServlet("/ReceivedMailServlet")
@@ -28,7 +28,7 @@ public class ReceivedMailServlet extends HttpServlet
 
 		//Service sev = new Service();
 		//TemplateDto dto = sev.findTemplateByKey(1);
-		SelectTemplateBean bean = new SelectTemplateBean();
+		DispTemplateBean bean = new DispTemplateBean();
 
 		//bean.setAtesaki(dto.getAddressTypeID());
 		//bean.setNaiyou(dto.getPurposeTypeID());

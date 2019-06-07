@@ -1,7 +1,6 @@
 package jp.co.central_soft.train2019.wakaba.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,9 +13,9 @@ import jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean;
 import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
 import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
-import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 
-@WebServlet("/SelectTemplateServlet")
+//テンプレート宛先とか選択する画面のやつ
+@WebServlet("/DispTemplateServlet")
 public class SelectTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,14 +39,8 @@ public class SelectTemplateServlet extends HttpServlet {
 		bean.putFromDtoToAddressTypes(adDto);
 		bean.putFromDtoToPurposeTypes(puDto);
 
-		TemplateDto teDto = new TemplateDto();
-		teDto.setTemplateID(1);
-		teDto.setTemplateName("上司に圧倒的感謝");
-
-		bean.putFromDtoToTemplates(teDto, new ArrayList<>(), new ArrayList<>());
-
 		request.setAttribute("bean", bean);
-		RequestDispatcher rd = request.getRequestDispatcher("/selectTemplate.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/dispTemplate.jsp");
 		rd.forward(request, response);
 	}
 
