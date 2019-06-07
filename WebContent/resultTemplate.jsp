@@ -11,6 +11,7 @@
 <div style="float:left;width:200px;">
 <b>テンプレート一覧表示</b>
 <div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
+あああああああああああ
 </div>
  </div>
 <div style="float:left;width:200px;">
