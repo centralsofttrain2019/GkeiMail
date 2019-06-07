@@ -61,16 +61,18 @@ div#subContents {
 		</ul>
 		<!--/ #subContents-->
 	</div>
+
 	<div class="main">
 		<div class="box" id="menu01">
 			title<input name="atesaki" type="text"><br> <br>
 			from<input name="kenmei" type="text"><br> <br>
 			<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
-				cols="90"></textarea>
+				cols="90"><!-- % if(){ % --></textarea>
 			<br>
 			<button type="submit" name="name">送信</button>
 			<input type="button" value="戻る" onclick="history.back()">
 		</div>
 	</div>
+
 </body>
 </html>
