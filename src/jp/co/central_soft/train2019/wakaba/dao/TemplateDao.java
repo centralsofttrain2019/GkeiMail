@@ -4,11 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
-=======
 import java.time.LocalDateTime;
 import java.util.ArrayList;
->>>>>>> branch 'master' of https://github.com/centralsofttrain2019/GkeiMail
 import java.util.List;
 
 import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
@@ -19,6 +16,28 @@ public class TemplateDao {
 	private Connection con;
 	private static final String FIND_BY_KEY =
 			"SELECT * FROM Template WHERE TemplateID = ?";
+
+	private static final String INSERT =
+			 "INSERT INTO template ("
+			+"TemplateID,TemplateName,TemplateContent,CreateDate,MashiMashiValue,"
+			+"BuiltInType,AddressTypeID,PurposeTypeID,UserID"
+			+") VALUES ("
+			+"?,?,?,?, ?,?,?,? )";
+
+	private static final String FIND_BY_ADDRESS_PURPOSE =
+			 "SELECT * FROM Template"
+			+" WHERE addressID = ?"
+			+" AND purposeID = ?";
+
+	private static final String KEYWORDS =
+			 "SELECT * FROM keyword";
+
+	private static String FIND_BY_ADDRESS_PURPOSE_KEYWORD =
+			 "SELECT * FROM Template"
+			+" JOIN templatekeyword ON templateID"
+			+" JOIN keyword ON keywordID"
+			+" WHERE (addressID = ? AND purposeID = ?)"
+			+" AND (keywordID = ?)";
 
 	public TemplateDao(Connection con) {
 		super();
@@ -35,11 +54,6 @@ public class TemplateDao {
 		ResultSet rs = pstmt.executeQuery();
 
 		try {
-<<<<<<< HEAD
-			if( true ) {
-				tmpl.setTemplateID(42);
-				tmpl.setTemplateName("hello");
-=======
 			if( rs.next() ) {
 				tmpl.setTemplateID(rs.getInt("templateID"));
 				tmpl.setTemplateName(rs.getString("templateName"));
@@ -51,9 +65,9 @@ public class TemplateDao {
 				tmpl.setAddressTypeID(rs.getInt("addressTypeID"));
 				tmpl.setPurposeTypeID(rs.getInt("purposeTypeID"));
 				tmpl.setUserID(rs.getInt("userID"));
->>>>>>> branch 'master' of https://github.com/centralsofttrain2019/GkeiMail
 			}
-		//TODO catch
+		} catch(SQLException e) {
+			throw e;
 		} finally {
 			if(rs!=null)
 				rs.close();
@@ -61,13 +75,10 @@ public class TemplateDao {
 		return tmpl;
 	}
 
-	public List<TemplateDto> findByAddressAndPurposeAndKeywords(int addressID, int purposeID, List<String> keywords)
+	public List<TemplateDto> findByAddressAndPurpose(
+			int addressID, int purposeID )
+					throws SQLException
 	{
-<<<<<<< HEAD
-		// TODO スタブ
-		List<TemplateDto> tmpl = null;
-		return tmpl;
-=======
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
 
 		PreparedStatement pstmt = con.prepareStatement(FIND_BY_ADDRESS_PURPOSE);
@@ -104,16 +115,12 @@ public class TemplateDao {
 				rs.close();
 		}
 		return tmpList;
->>>>>>> branch 'master' of https://github.com/centralsofttrain2019/GkeiMail
 	}
 
-	public boolean insert()
+	public List<TemplateDto> findByAddressAndPurposeAndKeywords(
+			int addressID, int purposeID, String keyword)
+					throws SQLException
 	{
-<<<<<<< HEAD
-		// TODO スタブ
-		boolean isSucceed = true;
-		return isSucceed;
-=======
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
 
 		PreparedStatement pstmt = con.prepareStatement(KEYWORDS);
@@ -192,6 +199,5 @@ public class TemplateDao {
 			return true;
 		}
 		return false;
->>>>>>> branch 'master' of https://github.com/centralsofttrain2019/GkeiMail
 	}
 }
