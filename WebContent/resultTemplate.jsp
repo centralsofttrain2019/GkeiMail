@@ -46,6 +46,7 @@
 マシ<input type="radio" name="mashimashi" value="hard">
 マシマシ<input type="radio" name="mashimashi" value="extreme">
 
+<br>
 <button type="submit" name="name" >再検索</button><br>
 <button type="submit" name="name" >戻る</button><br>
 
