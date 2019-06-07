@@ -30,9 +30,13 @@
 </select>
 </div>
 
+<<<<<<< HEAD
 その他<input name="keyword" type="text" ><br>
 
 <label>マシマシ</label>
+=======
+<label><b>マシマシ</b></label>
+>>>>>>> branch 'master' of https://github.com/centralsofttrain2019/GkeiMail
 ふつう<input type="radio" name="mashimashi" value="normal">
 マシ<input type="radio" name="mashimashi" value="hard">
 マシマシ<input type="radio" name="mashimashi" value="extreme">
