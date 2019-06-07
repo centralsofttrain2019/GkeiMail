@@ -37,14 +37,14 @@ public class TemplateService
 	}
 
 	public List<TemplateDto> getSortedTemplateList(
-			int addressTypeID, int purposeTypeID, String keyword, int mashiMashiValue)
+			int addressTypeID, int purposeTypeID, List<String> keywords, int mashiMashiValue)
 					throws ServletException
 	{
 		List<TemplateDto> list = null;
 
 		try(Connection con = Dao.getConnection()) {
 			TemplateDao dao = new TemplateDao(con);
-			list = dao.findByAddressAndPurposeAndKeywords(addressTypeID, purposeTypeID, keyword);
+			list = dao.findByAddressAndPurposeAndKeywords(addressTypeID, purposeTypeID, keywords);
 		} catch(SQLException | ClassNotFoundException e) {
 			throw new ServletException(e);
 		}

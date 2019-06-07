@@ -13,7 +13,6 @@
 宛先<%=bean.getAtesaki() %><br>
 内容<%=bean.getNaiyou() %>
 <br>
-マシマシ度<%=bean.getMashimashi() %><br>
 
 <form action="Servlet" method="get">
 <select name="app" size="3" onChange="submit(this.form)">

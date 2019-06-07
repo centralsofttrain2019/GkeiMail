@@ -1,33 +1,21 @@
 package jp.co.central_soft.train2019.wakaba.bean;
 
-import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
-
 public class SelectTemplateBean {
 
-	private int atesaki;
-	private int naiyou;
-	private int mashimashi;
+	private String atesaki;
+	private String naiyou;
 
-	public int getAtesaki() {
+	public String getAtesaki() {
 		return atesaki;
 	}
-	public void setAtesaki(int ate) {
+	public void setAtesaki(String ate) {
 		this.atesaki = ate;
 	}
-	public int getNaiyou() {
+	public String getNaiyou() {
 		return naiyou;
 	}
-	public void setNaiyou(int nai) {
+	public void setNaiyou(String nai) {
 		this.naiyou = nai;
 	}
-	public int getMashimashi() {
-		return mashimashi;
-	}
-	public void setMashimashi(int mashimashi) {
-		this.mashimashi = mashimashi;
-	}
 
-	public void setFromTemplateDto(TemplateDto dto) {
-		// TODO 書いて
-	}
 }

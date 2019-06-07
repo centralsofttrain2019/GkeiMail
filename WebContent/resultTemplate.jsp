@@ -8,22 +8,19 @@
 </head>
 <body>
 
-<div class="parent" >
- <div class="child" style="display: inline-block;">
+<div style="float:left;width:200px;">
 <b>テンプレート一覧表示</b>
 <div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
-
+あああああああああああ
 </div>
  </div>
- <div class="child" style="display: inline-block;">
+<div style="float:left;width:200px;">
 
 <b>サンプル</b>
 <div style="padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
-
 </div>
  </div>
-</div>
-
+<div style="clear:both;"></div>
 
 
 <label><b>宛先</b></label>
