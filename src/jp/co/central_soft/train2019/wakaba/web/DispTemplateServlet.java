@@ -9,48 +9,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class DispTemplateServlet
- */
-@WebServlet("/DispTemplateServlet")
+import jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean;
+import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
+import jp.co.central_soft.train2019.wakaba.service.Service;
+
+//テンプレート宛先とか選択する画面のやつ
+@WebServlet("/SelectTemplateServlet")
 public class DispTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DispTemplateServlet() {
-        super();
-    }
+	protected void doGet(
+			HttpServletRequest request,
+			HttpServletResponse response)
+					throws ServletException, IOException
+	{
+		String ate = request.getParameter("atesaki");
+		String nai = request.getParameter("naiyou");
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String atesakivalue;
-		String naiyouvalue;
-		String masimasivalue;
-		atesakivalue = request.getParameter("atesaki");
-		naiyouvalue = request.getParameter("naiyou");
-		masimasivalue = request.getParameter("mashimashi");
-		System.out.print(atesakivalue + naiyouvalue + masimasivalue);
-		//String template = request.getParameter("template");
+		Service sev = new Service();
+		TemplateDto dto = sev.findTemplateByKey(1);
+		SelectTemplateBean bean = new SelectTemplateBean();
 
-		//Bean bean = new Bean();
-		//bean.setMsg(template);
+		bean.setAtesaki(String.valueOf(dto.getTemplateID()));
+		bean.setNaiyou(dto.getTemplateName());
 
-		//beanをリクエストにセット キー名は「bean」とする
-		//request.setAttribute("bean", bean);
-
-		//JSPに遷移する
-		RequestDispatcher disp = request.getRequestDispatcher("/dispTemplate.jsp");
-		disp.forward(request, response);
+		request.setAttribute("bean", bean);
+		RequestDispatcher rd = request.getRequestDispatcher("/dispTemplate.jsp");
+		rd.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(
+			HttpServletRequest request,
+			HttpServletResponse response)
+					throws ServletException, IOException
+	{
 		doGet(request, response);
 	}
 
