@@ -31,11 +31,11 @@ public class SelectTemplateServlet extends HttpServlet {
 		AddressTypeDto adDto = new AddressTypeDto();
 		adDto.setAddressTypeID(1);
 		adDto.setAddressTypeName("上司");
-		adDto.setBuiltInType(BuiltInTypeEnum.BuiltIn);
+		adDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
 		PurposeTypeDto puDto = new PurposeTypeDto();
 		puDto.setPurposeTypeID(1);
 		puDto.setPurposeTypeName("感謝");
-		puDto.setBuiltInType(BuiltInTypeEnum.BuiltIn);
+		puDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
 
 		bean.putFromDtoToAddressTypes(adDto);
 		bean.putFromDtoToPurposeTypes(puDto);
