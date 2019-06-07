@@ -34,7 +34,7 @@ public class SelectTemplateServlet extends HttpServlet {
 		bean.setNaiyou(dto.getTemplateName());
 
 		request.setAttribute("bean", bean);
-		RequestDispatcher rd = request.getRequestDispatcher("/selectTemplate.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/dispTemplate.jsp");
 		rd.forward(request, response);
 	}
 
