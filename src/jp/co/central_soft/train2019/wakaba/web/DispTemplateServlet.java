@@ -27,6 +27,13 @@ public class DispTemplateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String atesakivalue;
+		String naiyouvalue;
+		String masimasivalue;
+		atesakivalue = request.getParameter("atesaki");
+		naiyouvalue = request.getParameter("naiyou");
+		masimasivalue = request.getParameter("mashimashi");
+		System.out.print(atesakivalue + naiyouvalue + masimasivalue);
 		//String template = request.getParameter("template");
 
 		//Bean bean = new Bean();
