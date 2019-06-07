@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DispTemplateServlet
  */
-@WebServlet("/DispTemplateServlet")
-public class DispTemplateServlet extends HttpServlet {
+@WebServlet("/ResultTemplateServlet")
+public class ResultTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DispTemplateServlet() {
+    public ResultTemplateServlet() {
         super();
     }
 
@@ -43,7 +43,7 @@ public class DispTemplateServlet extends HttpServlet {
 		//request.setAttribute("bean", bean);
 
 		//JSPに遷移する
-		RequestDispatcher disp = request.getRequestDispatcher("/dispTemplate.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher("/resultTemplate.jsp");
 		disp.forward(request, response);
 	}
 

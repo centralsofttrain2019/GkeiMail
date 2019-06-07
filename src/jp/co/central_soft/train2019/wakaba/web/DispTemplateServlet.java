@@ -14,7 +14,7 @@ import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 import jp.co.central_soft.train2019.wakaba.service.Service;
 
 //テンプレート宛先とか選択する画面のやつ
-@WebServlet("/SelectTemplateServlet")
+@WebServlet("/DispTemplateServlet")
 public class DispTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
