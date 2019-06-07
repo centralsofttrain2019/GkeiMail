@@ -13,7 +13,14 @@
 <button type="submit" name="name" >やり直し</button>
 <br>
 <div style="display:inline-block; padding:15px; border:1px solid; border-radius:10px; word-break:break-all;">
-ここにテンプレート<br>
+ここにテンプレート！！！！！！！！！！！！！！！！！！<br>
+本文<br>
+本文<br>
+本文<br>
+本文<br>
+本文<br>
+本文<br>
+本文<br>
 本文<br>
 本文</div>
 </body>
