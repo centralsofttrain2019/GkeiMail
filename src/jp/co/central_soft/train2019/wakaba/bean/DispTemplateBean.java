@@ -1,29 +1,41 @@
 package jp.co.central_soft.train2019.wakaba.bean;
 
-public class DispTemplateBean
-{
-	String atesaki;
-	String naiyou;
-	String masimasi;
-	public String getAtesaki() {
-		return atesaki;
+import java.util.HashMap;
+import java.util.Map;
+
+import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
+import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
+
+public class DispTemplateBean {
+
+	private Map<Integer, String> addressTypes;
+	private Map<Integer, String> purposeTypes;
+
+	public DispTemplateBean() {
+		this.addressTypes = new HashMap<>();
+		this.purposeTypes = new HashMap<>();
 	}
-	public void setAtesaki(String atesaki) {
-		this.atesaki = atesaki;
+	public Map<Integer, String> getAddressTypes() {
+		return this.addressTypes;
 	}
-	public String getNaiyou() {
-		return naiyou;
+	public void setAddressTypes(Map<Integer, String> addressTypes) {
+		this.addressTypes = new HashMap<>();
+		this.addressTypes.putAll(addressTypes);
 	}
-	public void setNaiyou(String naiyou) {
-		this.naiyou = naiyou;
+	public Map<Integer, String> getPurposeTypes() {
+		return this.purposeTypes;
 	}
-	public String getMasimasi() {
-		return masimasi;
-	}
-	public void setMasimasi(String masimasi) {
-		this.masimasi = masimasi;
+	public void setPurposeTypes(Map<Integer, String> purposeTypes) {
+		this.purposeTypes = new HashMap<>();
+		this.purposeTypes.putAll(purposeTypes);
 	}
 
-
+	public void putFromDtoToAddressTypes(AddressTypeDto dto) {
+		this.addressTypes.put(dto.getAddressTypeID(), dto.getAddressTypeName());
+	}
+	public void putFromDtoToPurposeTypes(PurposeTypeDto dto) {
+		this.purposeTypes.put(dto.getPurposeTypeID(), dto.getPurposeTypeName());
+	}
 
 }
+

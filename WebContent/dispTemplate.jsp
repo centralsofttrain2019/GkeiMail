@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.Map.Entry" %>
+<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean" scope="request" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,19 +27,20 @@
 
 
 <label><b>宛先</b></label>
+
 <select name="atesaki">
 <option value="0">----</option>
-<option value="1">社内</option>
-<option value="2">取引先</option>
-<option value="3">就活生</option>
+<% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
+<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+<% } %>
 </select>
 
 <label><b>内容</b></label>
 <select name="naiyou">
 <option value="0">----</option>
-<option value="1">連絡</option>
-<option value="2">謝罪</option>
-<option value="3">感謝</option>
+<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
+<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+<% } %>
 </select><br>
 
 <b>その他</b><input name="keyword" type="text" ><br>
