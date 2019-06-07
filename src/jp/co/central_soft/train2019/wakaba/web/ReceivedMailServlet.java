@@ -2,7 +2,6 @@ package jp.co.central_soft.train2019.wakaba.web;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,19 +25,18 @@ public class ReceivedMailServlet extends HttpServlet
 		String ate = request.getParameter("atesaki");
 		String nai = request.getParameter("naiyou");
 		String mashi = request.getParameter("mashimashi");
-/*
-		Service sev = new Service();
-		TemplateDto dto = sev.findTemplateByKey(1);*/
-		SelectTemplateBean bean = new SelectTemplateBean();
-/*
-		bean.setAtesaki(dto.getAddressTypeID());
-		bean.setNaiyou(dto.getPurposeTypeID());
-		bean.setMashimashi(dto.getMashiMashiValue());
 
-*/
+		//Service sev = new Service();
+		//TemplateDto dto = sev.findTemplateByKey(1);
+		SelectTemplateBean bean = new SelectTemplateBean();
+
+		//bean.setAtesaki(dto.getAddressTypeID());
+		//bean.setNaiyou(dto.getPurposeTypeID());
+		//bean.setMashimashi(dto.getMashiMashiValue());
+
 		request.setAttribute("bean", bean);
-		RequestDispatcher rd = request.getRequestDispatcher("/adtest.jsp");
-		rd.forward(request, response);
+		//RequestDispatcher rd = request.getRequestDispatcher("/adtest.jsp");
+		//rd.forward(request, response);
 	}
 
 	protected void doPost(
