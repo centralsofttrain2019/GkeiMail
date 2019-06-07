@@ -61,3 +61,76 @@ KeywordContent
 VALUES(
 'A'
 );
+
+INSERT
+INTO Template(
+TemplateName,
+TemplateContent,
+MashiMashiValue,
+BuiltInType,
+AddressTypeID,
+PurposeTypeID
+)
+VALUES(
+'A',
+'A',
+1,
+'BuiltIn',
+1,
+1
+);
+
+INSERT
+INTO Template(
+TemplateName,
+TemplateContent,
+MashiMashiValue,
+BuiltInType,
+AddressTypeID,
+PurposeTypeID
+)
+VALUES(
+'B',
+'B',
+3,
+'BuiltIn',
+1,
+1
+);
+
+INSERT
+INTO Template(
+TemplateName,
+TemplateContent,
+MashiMashiValue,
+BuiltInType,
+AddressTypeID,
+PurposeTypeID
+)
+VALUES(
+'C',
+'C',
+2,
+'BuiltIn',
+1,
+2
+);
+
+INSERT
+INTO TemplateKeyword (
+KeywordID,
+TemplateID
+)
+VALUES (
+1,
+1);
+
+INSERT
+INTO TemplateKeyword (
+KeywordID,
+TemplateID
+)
+VALUES (
+1,
+2);
+
