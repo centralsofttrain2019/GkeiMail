@@ -36,8 +36,6 @@
 	マシマシ<input type="radio" name="mashimashi" value="extreme">
 	<br>
 	<input type="submit" value="次へ">
-	<br>
-	<input type="submit" value="次へ">
 </form>
 
 <form method="get" action="">
