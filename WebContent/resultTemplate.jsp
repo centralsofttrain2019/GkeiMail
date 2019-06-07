@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <!-- jsp:useBean id="bean" class="bean.Bean" scope="request" -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>テンプレート検索結果画面</title>
+<title>テンプレート生成確認画面</title>
 </head>
 <body>
+<<<<<<< HEAD
 
 <div style="float:left;width:200px;">
 <b>テンプレート一覧表示</b>
@@ -46,8 +48,19 @@
 マシ<input type="radio" name="mashimashi" value="hard">
 マシマシ<input type="radio" name="mashimashi" value="extreme">
 
-
+<br>
 <button type="submit" name="name" >再検索</button><br>
+<button type="submit" name="name" >戻る</button><br>
 
+=======
+このテンプレートでよろしいですか？
+<button type="submit" name="name" >OK</button>
+<button type="submit" name="name" >やり直し</button>
+<br>
+<div style="display:inline-block; padding:15px; border:1px solid; border-radius:10px; word-break:break-all;">
+ここにテンプレート<br>
+本文<br>
+本文</div>
+>>>>>>> branch 'master' of https://github.com/centralsofttrain2019/GkeiMail
 </body>
 </html>

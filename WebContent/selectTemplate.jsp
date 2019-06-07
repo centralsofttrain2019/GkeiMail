@@ -37,7 +37,6 @@
 
 <br>
 <input type="submit" value="次へ">
-</form>
 
 <form method="get" action="">
 <input type="submit" value="戻る">
