@@ -11,7 +11,7 @@
 <div style="display: inline-block; vertical-align: top;">
 <b>フォルダー</b>
 <div style="width:50px;padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
-ああああああああああああああああああああ
+受信箱
 </div>
 </div>
 
