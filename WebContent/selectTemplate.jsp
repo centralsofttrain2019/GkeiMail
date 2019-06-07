@@ -30,6 +30,11 @@
 </select>
 </div>
 
+<label><b>マシマシ</b></label>
+ふつう<input type="radio" name="mashimashi" value="normal">
+マシ<input type="radio" name="mashimashi" value="hard">
+マシマシ<input type="radio" name="mashimashi" value="extreme">
+
 <br>
 <input type="submit" value="次へ">
 </form>
