@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean;;
+import jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean;
 
 //テンプレート宛先とか選択する画面のやつ
 @WebServlet("/ReceivedMailServlet")
