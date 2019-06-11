@@ -18,7 +18,8 @@ public class AddressTypeDao
 	private static final String FIND_ALL =
 			"SELECT * FROM AddressType";
 
-	public AddressTypeDao(Connection con) {
+	public AddressTypeDao(Connection con)
+	{
 		this.con = con;
 	}
 
