@@ -34,7 +34,7 @@
 <% } %>
 </select>
 </div>
-
+その他<input name="keyword" type="text" ><br>
 <label><b>マシマシ</b></label>
 ふつう<input type="radio" name="mashimashi" value="1">
 マシ<input type="radio" name="mashimashi" value="2">

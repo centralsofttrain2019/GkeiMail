@@ -31,13 +31,17 @@ public class DisplayTemplateListServlet extends HttpServlet {
 
 		TemplateService tmpse = new TemplateService();
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
-		System.out.println(request.getParameter("mashimashi"));
+
 		tmpList = tmpse.getTemplateList(
 				Integer.parseInt(request.getParameter("atesaki")),
 				Integer.parseInt(request.getParameter("naiyou")) ,
-				request.getParameter("naiyou"),
+				request.getParameter("keyword"),
 				Integer.parseInt(request.getParameter("mashimashi")) );
 
+		for(TemplateDto tmpdto : tmpList)
+		{
+			DisplayTemplateListBean dispTmpListBean = new DisplayTemplateListBean();
+		}
 		// TODO ダミーデータ
 
 		AddressTypeDto adDto = new AddressTypeDto();
