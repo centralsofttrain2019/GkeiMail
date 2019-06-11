@@ -5,7 +5,7 @@ BuiltInType
 )
 VALUES(
 '上司',
-'BuiltIn'
+'BUILTIN'
 );
 
 INSERT
@@ -15,7 +15,7 @@ BuiltInType
 )
 VALUES(
 '同僚',
-'BuiltIn'
+'BUILTIN'
 );
 
 INSERT
@@ -27,7 +27,7 @@ BuiltInType
 VALUES(
 '感謝',
 1,
-'BuiltIn'
+'BUILTIN'
 );
 
 INSERT
@@ -39,7 +39,7 @@ BuiltInType
 VALUES(
 '謝罪',
 2,
-'BuiltIn'
+'BUILTIN'
 );
 
 INSERT
@@ -51,7 +51,7 @@ BuiltInType
 VALUES(
 '見舞',
 3,
-'BuiltIn'
+'BUILTIN'
 );
 
 INSERT
@@ -75,7 +75,7 @@ VALUES(
 'A',
 'A',
 1,
-'BuiltIn',
+'BUILTIN',
 1,
 1
 );
@@ -93,7 +93,7 @@ VALUES(
 'B',
 'B',
 3,
-'BuiltIn',
+'BUILTIN',
 1,
 1
 );
@@ -111,7 +111,7 @@ VALUES(
 'C',
 'C',
 2,
-'BuiltIn',
+'BUILTIN',
 1,
 2
 );

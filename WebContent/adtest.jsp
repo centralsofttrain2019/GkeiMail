@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean" scope="request"/>
+<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean" scope="request"/>
 <jsp:useBean id="bean1" class="jp.co.central_soft.train2019.wakaba.bean.Bean" scope="request"/>
 
 <html>
@@ -10,8 +10,6 @@
 <title>テスト用（by安達）</title>
 </head>
 <body>
-宛先<%=bean.getAtesaki() %><br>
-内容<%=bean.getNaiyou() %>
 <br>
 
 <form action="Servlet" method="get">
