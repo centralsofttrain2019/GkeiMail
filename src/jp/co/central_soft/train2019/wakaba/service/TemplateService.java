@@ -40,7 +40,7 @@ public class TemplateService
 		}
 	}
 
-	public List<TemplateDto> getSortedTemplateList(
+	public List<TemplateDto> getTemplateList(
 			int addressTypeID, int purposeTypeID, String keyword, int mashiMashiValue)
 					throws ServletException
 	{
@@ -82,5 +82,11 @@ public class TemplateService
 			throw new ServletException(e);
 		}
 		return ptd;
+	}
+
+	public List<TemplateDto> getTemplateByKey() throws ServletException
+	{
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 }
