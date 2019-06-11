@@ -39,7 +39,7 @@ public class PurposeTypeDao
 				pur.setCreateDate( LocalDateTime.of(
 						rs.getDate("createDate").toLocalDate(),
 						rs.getTime("createDate").toLocalTime()
-						) );
+						));
 //				adr.setSuperType();
 				purList.add(pur);
 			}

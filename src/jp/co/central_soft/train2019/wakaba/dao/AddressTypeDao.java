@@ -39,7 +39,7 @@ public class AddressTypeDao
 				adr.setCreateDate( LocalDateTime.of(
 						rs.getDate("createDate").toLocalDate(),
 						rs.getTime("createDate").toLocalTime()
-						) );
+						));
 //				adr.setSuperType();
 				adrList.add(adr);
 			}
