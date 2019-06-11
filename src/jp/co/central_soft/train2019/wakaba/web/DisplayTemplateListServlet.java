@@ -32,7 +32,7 @@ public class DisplayTemplateListServlet extends HttpServlet {
 		TemplateService tmpse = new TemplateService();
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
 
-		tmpList = tmpse.getTemplateList(
+		tmpList = tmpse.getSortedTemplateList(
 				Integer.parseInt(request.getParameter("atesaki")),
 				Integer.parseInt(request.getParameter("naiyou")) ,
 				request.getParameter("keyword"),
