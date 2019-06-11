@@ -38,7 +38,7 @@ public class TemplateService
 		}
 	}
 
-	public List<TemplateDto> getSortedTemplateList(
+	public List<TemplateDto> getTemplateList(
 			int addressTypeID, int purposeTypeID, String keyword, int mashiMashiValue)
 					throws ServletException
 	{

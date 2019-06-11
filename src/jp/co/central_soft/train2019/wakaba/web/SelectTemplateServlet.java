@@ -32,12 +32,18 @@ public class SelectTemplateServlet extends HttpServlet {
 		adDto.setAddressTypeID(1);
 		adDto.setAddressTypeName("上司");
 		adDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
+
+		AddressTypeDto adDto1 = new AddressTypeDto();
+		adDto1.setAddressTypeID(2);
+		adDto1.setAddressTypeName("社内");
+		adDto1.setBuiltInType(BuiltInTypeEnum.BUILTIN);
 		PurposeTypeDto puDto = new PurposeTypeDto();
 		puDto.setPurposeTypeID(1);
 		puDto.setPurposeTypeName("感謝");
 		puDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
 		SelectTemplateBean bean = new SelectTemplateBean();
 		bean.putFromDtoToAddressTypes(adDto);
+		bean.putFromDtoToAddressTypes(adDto1);
 		bean.putFromDtoToPurposeTypes(puDto);
 
 		request.setAttribute("bean", bean);

@@ -2,6 +2,7 @@ package jp.co.central_soft.train2019.wakaba.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,7 +30,13 @@ public class DisplayTemplateListServlet extends HttpServlet {
 	{
 
 		TemplateService tmpse = new TemplateService();
-		
+		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
+		System.out.println(request.getParameter("mashimashi"));
+		tmpList = tmpse.getTemplateList(
+				Integer.parseInt(request.getParameter("atesaki")),
+				Integer.parseInt(request.getParameter("naiyou")) ,
+				request.getParameter("naiyou"),
+				Integer.parseInt(request.getParameter("mashimashi")) );
 
 		// TODO ダミーデータ
 
