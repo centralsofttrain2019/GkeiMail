@@ -40,7 +40,7 @@ public class PurposeTypeDao
 						rs.getDate("createDate").toLocalDate(),
 						rs.getTime("createDate").toLocalTime()
 						));
-//				adr.setSuperType();
+				pur.setSuperTypeID(rs.getInt("SuperTypeID"));
 				purList.add(pur);
 			}
 		}

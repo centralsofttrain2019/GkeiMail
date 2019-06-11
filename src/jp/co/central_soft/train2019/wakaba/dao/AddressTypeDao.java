@@ -40,7 +40,7 @@ public class AddressTypeDao
 						rs.getDate("createDate").toLocalDate(),
 						rs.getTime("createDate").toLocalTime()
 						));
-//				adr.setSuperType();
+				adr.setSuperTypeID(rs.getInt("SuperTypeID"));
 				adrList.add(adr);
 			}
 		}
