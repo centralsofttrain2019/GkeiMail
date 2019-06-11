@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map.Entry" %>
-<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean" scope="request" />
+<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean" scope="request" />
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 <body>
 <h2 id="title">テンプレート選択画面</h2>
 <hr>
-<form method="post" action="DispTemplateServlet">
+<form method="post" action="DisplayTemplateListServlet">
 
 <div id="atesaki">
 <label>宛先</label>

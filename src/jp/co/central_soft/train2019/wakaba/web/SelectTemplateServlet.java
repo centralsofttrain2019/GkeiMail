@@ -41,7 +41,7 @@ public class SelectTemplateServlet extends HttpServlet {
 		bean.putFromDtoToPurposeTypes(puDto);
 
 		request.setAttribute("bean", bean);
-		RequestDispatcher rd = request.getRequestDispatcher("/dispTemplate.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/selectTemplate.jsp");
 		rd.forward(request, response);
 	}
 

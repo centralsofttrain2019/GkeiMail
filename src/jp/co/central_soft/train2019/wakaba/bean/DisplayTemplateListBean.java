@@ -9,7 +9,7 @@ import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 
-public class DispTemplateBean {
+public class DisplayTemplateListBean {
 
 	public class TemplateData {
 		private int templateID;
@@ -66,7 +66,7 @@ public class DispTemplateBean {
 	private Map<Integer, String> purposeTypes;
 	private List<TemplateData> templates;
 
-	public DispTemplateBean() {
+	public DisplayTemplateListBean() {
 		this.addressTypes = new HashMap<>();
 		this.purposeTypes = new HashMap<>();
 		this.templates = new ArrayList<>();

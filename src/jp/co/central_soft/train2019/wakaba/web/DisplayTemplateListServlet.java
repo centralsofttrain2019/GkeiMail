@@ -10,33 +10,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean;
+import jp.co.central_soft.train2019.wakaba.bean.DisplayTemplateListBean;
 import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
 import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
+import jp.co.central_soft.train2019.wakaba.service.TemplateService;
 
-@WebServlet("/DispTemplateServlet")
-public class DispTemplateServlet extends HttpServlet {
+@WebServlet("/DisplayTemplateListServlet")
+public class DisplayTemplateListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(
 			HttpServletRequest request,
 			HttpServletResponse response)
 					throws ServletException, IOException
 	{
-		DispTemplateBean bean = new DispTemplateBean();
+
+		TemplateService tmpse = new TemplateService();
+		
 
 		// TODO ダミーデータ
+
 		AddressTypeDto adDto = new AddressTypeDto();
 		adDto.setAddressTypeID(1);
 		adDto.setAddressTypeName("上司");
 		adDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
+
 		PurposeTypeDto puDto = new PurposeTypeDto();
 		puDto.setPurposeTypeID(1);
 		puDto.setPurposeTypeName("感謝");
 		puDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
 
+		DisplayTemplateListBean bean = new DisplayTemplateListBean();
 		bean.putFromDtoToAddressTypes(adDto);
 		bean.putFromDtoToPurposeTypes(puDto);
 
@@ -47,10 +54,11 @@ public class DispTemplateServlet extends HttpServlet {
 		bean.putFromDtoToTemplates(teDto, new ArrayList<>(), new ArrayList<>());
 
 		request.setAttribute("bean", bean);
-		RequestDispatcher rd = request.getRequestDispatcher("/selectTemplate.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");
 		rd.forward(request, response);
 	}
 
+	@Override
 	protected void doPost(
 			HttpServletRequest request,
 			HttpServletResponse response)
