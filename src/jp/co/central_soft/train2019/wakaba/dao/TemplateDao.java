@@ -48,7 +48,7 @@ public class TemplateDao {
 	{
 		TemplateDto tmpl = new TemplateDto();
 
-		PreparedStatement pstmt = con.prepareStatement(FIND_BY_KEY);
+		PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_KEY);
 		pstmt.setInt(1, id);
 
 		ResultSet rs = pstmt.executeQuery();
@@ -81,7 +81,7 @@ public class TemplateDao {
 	{
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
 
-		PreparedStatement pstmt = con.prepareStatement(FIND_BY_ADDRESS_PURPOSE);
+		PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_ADDRESS_PURPOSE);
 
 		pstmt.setInt(1, addressID);
 		pstmt.setInt(2, purposeID);
@@ -123,7 +123,7 @@ public class TemplateDao {
 	{
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
 
-		PreparedStatement pstmt = con.prepareStatement(KEYWORDS);
+		PreparedStatement pstmt = this.con.prepareStatement(KEYWORDS);
 		ResultSet rs = pstmt.executeQuery();
 		int keywordID = -1;
 
@@ -147,7 +147,7 @@ public class TemplateDao {
 				rs.close();
 		}
 
-		PreparedStatement pstmt2 = con.prepareStatement(FIND_BY_ADDRESS_PURPOSE_KEYWORD);
+		PreparedStatement pstmt2 = this.con.prepareStatement(FIND_BY_ADDRESS_PURPOSE_KEYWORD);
 		pstmt2.setInt(1, addressID);
 		pstmt2.setInt(2, purposeID);
 		pstmt2.setInt(3, keywordID);
@@ -186,7 +186,7 @@ public class TemplateDao {
 
 	public boolean insert(TemplateDto tmp) throws SQLException
 	{
-		PreparedStatement pstmt = con.prepareStatement(INSERT);
+		PreparedStatement pstmt = this.con.prepareStatement(INSERT);
 		pstmt.setInt(1, tmp.getTemplateID());
 		pstmt.setString(2, tmp.getTemplateName());
 		pstmt.setString(3, tmp.getTemplateContent());

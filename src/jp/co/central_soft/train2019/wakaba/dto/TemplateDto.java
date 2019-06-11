@@ -17,63 +17,63 @@ public class TemplateDto {
 	private int userID;
 
 	public int getTemplateID() {
-		return templateID;
+		return this.templateID;
 	}
 	public void setTemplateID(int templateID) {
 		this.templateID = templateID;
 	}
 
 	public String getTemplateName() {
-		return templateName;
+		return this.templateName;
 	}
 	public void setTemplateName(String templateName) {
 		this.templateName = templateName;
 	}
 
 	public String getTemplateContent() {
-		return templateContent;
+		return this.templateContent;
 	}
 	public void setTemplateContent(String templateContent) {
 		this.templateContent = templateContent;
 	}
 
 	public LocalDateTime getCreateDate() {
-		return createDate;
+		return this.createDate;
 	}
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
 
 	public int getMashiMashiValue() {
-		return mashiMashiValue;
+		return this.mashiMashiValue;
 	}
 	public void setMashiMashiValue(int mashiMashiValue) {
 		this.mashiMashiValue = mashiMashiValue;
 	}
 
 	public BuiltInTypeEnum getBuiltInType() {
-		return builtInType;
+		return this.builtInType;
 	}
 	public void setBuiltInType(BuiltInTypeEnum builtInType) {
 		this.builtInType = builtInType;
 	}
 
 	public int getAddressTypeID() {
-		return addressTypeID;
+		return this.addressTypeID;
 	}
 	public void setAddressTypeID(int addressTypeID) {
 		this.addressTypeID = addressTypeID;
 	}
 
 	public int getPurposeTypeID() {
-		return purposeTypeID;
+		return this.purposeTypeID;
 	}
 	public void setPurposeTypeID(int purposeTypeID) {
 		this.purposeTypeID = purposeTypeID;
 	}
 
 	public int getUserID() {
-		return userID;
+		return this.userID;
 	}
 	public void setUserID(int userID) {
 		this.userID = userID;
