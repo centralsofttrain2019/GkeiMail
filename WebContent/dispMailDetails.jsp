@@ -8,7 +8,7 @@
 </head>
 <body>
 <form method="post" action="DispMailDetailsServlet">
-	<table border="1" width="100%">
+	<table border="1" style="width:100%;">
 		<tr>
 			<td width="80%">title</td>
 			<td width="20%"><input type="submit" value="Re" /></td>
