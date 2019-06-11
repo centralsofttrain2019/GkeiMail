@@ -109,7 +109,7 @@ public class DispTemplateBean {
 		template.setPurposeTypeID(dto1.getPurposeTypeID());
 		//template.setPurposeTypeName();
 		template.setMashiMashiValue(dto1.getMashiMashiValue());
-		templates.add(template);
+		this.templates.add(template);
 	}
 
 }

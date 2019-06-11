@@ -10,6 +10,8 @@ import javax.servlet.ServletException;
 
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.TemplateDao;
+import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
+import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 
 public class TemplateService
@@ -52,5 +54,17 @@ public class TemplateService
 		Collections.sort(list, new TemplateComparator(mashiMashiValue));
 
 		return list;
+	}
+
+	public List<AddressTypeDto> getAddressTypeList() throws ServletException
+	{
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public List<PurposeTypeDto> getPurposeTypeList() throws ServletException
+	{
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 }

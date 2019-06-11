@@ -11,14 +11,10 @@
 <div style="display: inline-block; vertical-align: top;">
 <b>フォルダー</b>
 <div style="width:50px;padding: 100px; margin-bottom: 30px; border: 1px solid #333333;">
-<<<<<<< HEAD
 受信箱<br>
 下書き<br>
 送信済み<br>
 ごみ箱<br>
-=======
-ああああああああああああああああああああ
->>>>>>> branch 'master' of https://github.com/centralsofttrain2019/GkeiMail
 </div>
 </div>
 

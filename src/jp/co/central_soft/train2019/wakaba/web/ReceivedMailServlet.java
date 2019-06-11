@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean;;
+import jp.co.central_soft.train2019.wakaba.bean.DispTemplateBean;
 
 //テンプレート宛先とか選択する画面のやつ
 @WebServlet("/ReceivedMailServlet")
@@ -16,6 +16,7 @@ public class ReceivedMailServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(
 			HttpServletRequest request,
 			HttpServletResponse response)
@@ -39,6 +40,7 @@ public class ReceivedMailServlet extends HttpServlet
 		//rd.forward(request, response);
 	}
 
+	@Override
 	protected void doPost(
 			HttpServletRequest request,
 			HttpServletResponse response)
