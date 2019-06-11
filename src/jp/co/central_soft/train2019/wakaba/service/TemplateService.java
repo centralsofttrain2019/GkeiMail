@@ -8,7 +8,9 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
+import jp.co.central_soft.train2019.wakaba.dao.AddressTypeDao;
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
+import jp.co.central_soft.train2019.wakaba.dao.PurposeTypeDao;
 import jp.co.central_soft.train2019.wakaba.dao.TemplateDao;
 import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
@@ -58,13 +60,27 @@ public class TemplateService
 
 	public List<AddressTypeDto> getAddressTypeList() throws ServletException
 	{
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		List<AddressTypeDto> atd = null;
+		try( Connection con = Dao.getConnection() ){
+			AddressTypeDao dao = new AddressTypeDao(con);
+			atd = dao.findAll();
+		} catch ( ClassNotFoundException|SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
+		return atd;
 	}
 
 	public List<PurposeTypeDto> getPurposeTypeList() throws ServletException
 	{
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		List<PurposeTypeDto> ptd = null;
+		try( Connection con = Dao.getConnection() ){
+			PurposeTypeDao dao = new PurposeTypeDao(con);
+			ptd = dao.findAll();
+		} catch ( ClassNotFoundException|SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
+		return ptd;
 	}
 }
