@@ -16,6 +16,7 @@ import jp.co.central_soft.train2019.wakaba.bean.Bean;
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(
 			HttpServletRequest request,
 			HttpServletResponse response)
@@ -31,6 +32,7 @@ public class Servlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	@Override
 	protected void doPost(
 			HttpServletRequest request,
 			HttpServletResponse response)
