@@ -11,7 +11,7 @@ public class PurposeTypeDto
 	private BuiltInTypeEnum builtInType;
 	// TODO マシマシタイプ
 	private LocalDateTime createDate;
-	private AddressTypeDto superType;
+	private Integer superTypeID;
 	public int getPurposeTypeID() {
 		return this.purposeTypeID;
 	}
@@ -36,11 +36,11 @@ public class PurposeTypeDto
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-	public AddressTypeDto getSuperType() {
-		return this.superType;
+	public Integer getSuperTypeID() {
+		return this.superTypeID;
 	}
-	public void setSuperType(AddressTypeDto superType) {
-		this.superType = superType;
+	public void setSuperTypeID(Integer superTypeID) {
+		this.superTypeID = superTypeID;
 	}
 }
 

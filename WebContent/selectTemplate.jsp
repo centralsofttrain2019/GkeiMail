@@ -13,10 +13,11 @@
 <body>
 <h2 id="title">テンプレート選択画面</h2>
 <hr>
-<form method="post" action="DispTemplateServlet">
+<form method="post" action="DisplayTemplateListServlet">
 
 <div id="atesaki">
 <label>宛先</label>
+
 <select name="atesaki">
 <option value="0">----</option>
 <% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
@@ -25,6 +26,7 @@
 </select>
 
 <label><b>内容</b></label>
+
 <select name="naiyou">
 <option value="0">----</option>
 <% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
@@ -32,11 +34,11 @@
 <% } %>
 </select>
 </div>
-
+その他<input name="keyword" type="text" ><br>
 <label><b>マシマシ</b></label>
-ふつう<input type="radio" name="mashimashi" value="normal">
-マシ<input type="radio" name="mashimashi" value="hard">
-マシマシ<input type="radio" name="mashimashi" value="extreme">
+ふつう<input type="radio" name="mashimashi" value="1">
+マシ<input type="radio" name="mashimashi" value="2">
+マシマシ<input type="radio" name="mashimashi" value="3">
 
 <br>
 <input type="submit" value="次へ">

@@ -40,7 +40,7 @@ public class TemplateService
 		}
 	}
 
-	public List<TemplateDto> getSortedTemplateList(
+	public List<TemplateDto> getTemplateList(
 			int addressTypeID, int purposeTypeID, String keyword, int mashiMashiValue)
 					throws ServletException
 	{
@@ -62,7 +62,7 @@ public class TemplateService
 	{
 		List<AddressTypeDto> atd = null;
 		try( Connection con = Dao.getConnection() ){
-			AddressTypeDao dao = new AddressTypeDao(con);
+			AddressTypeDao dao = new AddressTypeDao();
 			atd = dao.findAll();
 		} catch ( ClassNotFoundException|SQLException e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class TemplateService
 	{
 		List<PurposeTypeDto> ptd = null;
 		try( Connection con = Dao.getConnection() ){
-			PurposeTypeDao dao = new PurposeTypeDao(con);
+			PurposeTypeDao dao = new PurposeTypeDao();
 			ptd = dao.findAll();
 		} catch ( ClassNotFoundException|SQLException e) {
 			e.printStackTrace();
