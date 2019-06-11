@@ -16,7 +16,7 @@ import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 
-@WebServlet("/SelectTemplateServlet")
+@WebServlet("/DispTemplateServlet")
 public class DispTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

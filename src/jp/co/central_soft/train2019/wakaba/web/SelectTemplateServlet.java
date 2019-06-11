@@ -15,16 +15,17 @@ import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 
 //テンプレート宛先とか選択する画面のやつ
-@WebServlet("/DispTemplateServlet")
+@WebServlet("/SelectTemplateServlet")
 public class SelectTemplateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(
 			HttpServletRequest request,
 			HttpServletResponse response)
 					throws ServletException, IOException
 	{
-		SelectTemplateBean bean = new SelectTemplateBean();
+
 
 		// TODO ダミーデータ
 		AddressTypeDto adDto = new AddressTypeDto();
@@ -35,7 +36,7 @@ public class SelectTemplateServlet extends HttpServlet {
 		puDto.setPurposeTypeID(1);
 		puDto.setPurposeTypeName("感謝");
 		puDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
-
+		SelectTemplateBean bean = new SelectTemplateBean();
 		bean.putFromDtoToAddressTypes(adDto);
 		bean.putFromDtoToPurposeTypes(puDto);
 
@@ -44,6 +45,7 @@ public class SelectTemplateServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	@Override
 	protected void doPost(
 			HttpServletRequest request,
 			HttpServletResponse response)
