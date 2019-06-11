@@ -22,6 +22,7 @@ public class TemplateService
 	{
 	}
 
+
 	private class TemplateComparator implements Comparator<TemplateDto>
 	{
 		private int mashiMashiValue;
@@ -82,5 +83,11 @@ public class TemplateService
 			throw new ServletException(e);
 		}
 		return ptd;
+	}
+
+	public List<TemplateDto> getTemplateByKey() throws ServletException
+	{
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 }
