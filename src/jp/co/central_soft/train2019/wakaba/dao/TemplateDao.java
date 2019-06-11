@@ -158,16 +158,16 @@ public class TemplateDao {
 			while( rs2.next() )
 			{
 				TemplateDto tmp = new TemplateDto();
-				tmp.setTemplateID(rs.getInt("templateID"));
-				tmp.setTemplateName(rs.getString("templateName"));
-				tmp.setTemplateContent(rs.getString("templateContent"));
+				tmp.setTemplateID(rs2.getInt("templateID"));
+				tmp.setTemplateName(rs2.getString("templateName"));
+				tmp.setTemplateContent(rs2.getString("templateContent"));
 				tmp.setCreateDate(LocalDateTime.of
-						( rs.getDate("createDate").toLocalDate(), rs.getTime("createDate").toLocalTime()) );
-				tmp.setMashiMashiValue(rs.getInt("mashimashivalue"));
-				tmp.setBuiltInType(BuiltInTypeEnum.valueOf(rs.getString("builtInType")));
-				tmp.setAddressTypeID(rs.getInt("addressTypeID"));
-				tmp.setPurposeTypeID(rs.getInt("purposeTypeID"));
-				tmp.setUserID(rs.getInt("userID"));
+						( rs2.getDate("createDate").toLocalDate(), rs2.getTime("createDate").toLocalTime()) );
+				tmp.setMashiMashiValue(rs2.getInt("mashimashivalue"));
+				tmp.setBuiltInType(BuiltInTypeEnum.valueOf(rs2.getString("builtInType")));
+				tmp.setAddressTypeID(rs2.getInt("addressTypeID"));
+				tmp.setPurposeTypeID(rs2.getInt("purposeTypeID"));
+				tmp.setUserID(rs2.getInt("userID"));
 				tmpList.add(tmp);
 			}
 		}
