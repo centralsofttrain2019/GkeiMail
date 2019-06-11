@@ -51,9 +51,7 @@ public class TemplateDao {
 		PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_KEY);
 		pstmt.setInt(1, id);
 
-		ResultSet rs = pstmt.executeQuery();
-
-		try {
+		try(ResultSet rs = pstmt.executeQuery()) {
 			if( rs.next() ) {
 				tmpl.setTemplateID(rs.getInt("templateID"));
 				tmpl.setTemplateName(rs.getString("templateName"));
@@ -68,9 +66,6 @@ public class TemplateDao {
 			}
 		} catch(SQLException e) {
 			throw e;
-		} finally {
-			if(rs!=null)
-				rs.close();
 		}
 		return tmpl;
 	}
@@ -86,8 +81,7 @@ public class TemplateDao {
 		pstmt.setInt(1, addressID);
 		pstmt.setInt(2, purposeID);
 
-		ResultSet rs = pstmt.executeQuery();
-		try
+		try(ResultSet rs = pstmt.executeQuery())
 		{
 			while( rs.next() )
 			{
@@ -109,11 +103,6 @@ public class TemplateDao {
 		{
 			throw e;
 		}
-		finally
-		{
-			if(rs!=null)
-				rs.close();
-		}
 		return tmpList;
 	}
 
@@ -124,10 +113,9 @@ public class TemplateDao {
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
 
 		PreparedStatement pstmt = this.con.prepareStatement(KEYWORDS);
-		ResultSet rs = pstmt.executeQuery();
 		int keywordID = -1;
 
-		try
+		try(ResultSet rs = pstmt.executeQuery())
 		{
 			while( rs.next() )
 			{
@@ -141,44 +129,33 @@ public class TemplateDao {
 		{
 			throw e;
 		}
-		finally
-		{
-			if(rs!=null)
-				rs.close();
-		}
 
 		PreparedStatement pstmt2 = this.con.prepareStatement(FIND_BY_ADDRESS_PURPOSE_KEYWORD);
 		pstmt2.setInt(1, addressID);
 		pstmt2.setInt(2, purposeID);
 		pstmt2.setInt(3, keywordID);
-		ResultSet rs2 = pstmt.executeQuery();
 
-		try
+		try(ResultSet rs = pstmt.executeQuery())
 		{
-			while( rs2.next() )
+			while( rs.next() )
 			{
 				TemplateDto tmp = new TemplateDto();
-				tmp.setTemplateID(rs2.getInt("templateID"));
-				tmp.setTemplateName(rs2.getString("templateName"));
-				tmp.setTemplateContent(rs2.getString("templateContent"));
+				tmp.setTemplateID(rs.getInt("templateID"));
+				tmp.setTemplateName(rs.getString("templateName"));
+				tmp.setTemplateContent(rs.getString("templateContent"));
 				tmp.setCreateDate(LocalDateTime.of
-						( rs2.getDate("createDate").toLocalDate(), rs2.getTime("createDate").toLocalTime()) );
-				tmp.setMashiMashiValue(rs2.getInt("mashimashivalue"));
-				tmp.setBuiltInType(BuiltInTypeEnum.valueOf(rs2.getString("builtInType")));
-				tmp.setAddressTypeID(rs2.getInt("addressTypeID"));
-				tmp.setPurposeTypeID(rs2.getInt("purposeTypeID"));
-				tmp.setUserID(rs2.getInt("userID"));
+						( rs.getDate("createDate").toLocalDate(), rs.getTime("createDate").toLocalTime()) );
+				tmp.setMashiMashiValue(rs.getInt("mashimashivalue"));
+				tmp.setBuiltInType(BuiltInTypeEnum.valueOf(rs.getString("builtInType")));
+				tmp.setAddressTypeID(rs.getInt("addressTypeID"));
+				tmp.setPurposeTypeID(rs.getInt("purposeTypeID"));
+				tmp.setUserID(rs.getInt("userID"));
 				tmpList.add(tmp);
 			}
 		}
 		catch(SQLException e)
 		{
 			throw e;
-		}
-		finally
-		{
-			if(rs2!=null)
-				rs2.close();
 		}
 
 		return tmpList;
