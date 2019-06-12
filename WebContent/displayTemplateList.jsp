@@ -73,5 +73,6 @@
 <button type="submit" name="name" >決定</button>
 <button type="submit" name="name" >戻る</button><br>
 
+<%=bean.toString() %>
 </body>
 </html>

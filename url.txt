@@ -33,7 +33,6 @@ https://qiita.com/Slowh/items/d0eb17068efe2b9d8bcf
 floatとclear-fix:
 https://www.nxworld.net/tips/css-variable-width-and-fixed-width-layout.html
 https://qiita.com/jshimazu/items/82e163d17f96d012363d
-https://qiita.com/sanstktkrsyhsk/items/8298a47683fd67ad6299
 
 親要素のサイズに広げる:
 https://appstars.jp/archive/14
@@ -41,6 +40,24 @@ https://appstars.jp/archive/14
 marginがはみ出さないようにする:
 http://shanabrian.com/web/html-css-js-technics/css-over-margin.php
 
-ナビゲーションの作成:
-https://m-school.biz/dev/css-coding/004-css-menu.htm
+CSSで中央寄せなど:
+https://www.granfairs.com/blog/staff/centering-by-css
+https://dainashiyesterday.com/post-2575/
+
+inline-blockのずれ:
+https://qiita.com/kiyoami/items/74f2fb1c30d475d35144
+https://www.j-cool.co.jp/blog/?p=2356
+
+角丸をつくる:
+https://www.sejuku.net/blog/54622
+
+input系のカスタマイズ:
+https://coliss.com/articles/build-websites/operation/css/css3-form-styling-cheat-sheet.html
+https://cultureacademia.jp/webcreate/303/
+
+width100%ではみ出す:
+https://ginpen.com/2012/12/05/css-box-model/
+
+width50%で並ばない:
+https://dev-lib.com/inline-block-side-by-side/
 

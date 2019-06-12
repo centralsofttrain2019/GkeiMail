@@ -14,11 +14,13 @@ public class DisplayTemplateListBean {
 	public class TemplateData {
 		private int templateID;
 		private String templateName;
+		private String templateContent;
 		private int addressTypeID;
 		private String addressTypeName;
 		private int purposeTypeID;
 		private String purposeTypeName;
 		private int mashiMashiValue;
+
 		public int getTemplateID() {
 			return this.templateID;
 		}
@@ -27,6 +29,12 @@ public class DisplayTemplateListBean {
 		}
 		public String getTemplateName() {
 			return this.templateName;
+		}
+		public String getTemplateContent() {
+			return templateContent;
+		}
+		public void setTemplateContent(String templateContent) {
+			this.templateContent = templateContent;
 		}
 		public void setTemplateName(String templateName) {
 			this.templateName = templateName;
@@ -61,6 +69,12 @@ public class DisplayTemplateListBean {
 		public void setMashiMashiValue(int mashiMashiValue) {
 			this.mashiMashiValue = mashiMashiValue;
 		}
+		@Override
+		public String toString() {
+			return "TemplateData [templateID=" + templateID + ", templateName=" + templateName + ", templateContent="
+					+ templateContent + "]";
+		}
+
 	}
 	private Map<Integer, String> addressTypes;
 	private Map<Integer, String> purposeTypes;
@@ -71,6 +85,7 @@ public class DisplayTemplateListBean {
 		this.purposeTypes = new HashMap<>();
 		this.templates = new ArrayList<>();
 	}
+
 	public Map<Integer, String> getAddressTypes() {
 		return this.addressTypes;
 	}
@@ -78,6 +93,7 @@ public class DisplayTemplateListBean {
 		this.addressTypes = new HashMap<>();
 		this.addressTypes.putAll(addressTypes);
 	}
+
 	public Map<Integer, String> getPurposeTypes() {
 		return this.purposeTypes;
 	}
@@ -99,17 +115,36 @@ public class DisplayTemplateListBean {
 	public void setTemplates(List<TemplateData> templates) {
 		this.templates = templates;
 	}
-	public void putFromDtoToTemplates(TemplateDto dto1, List<AddressTypeDto> dto2, List<PurposeTypeDto> dto3) {
+
+	public void putFromDtoListToTemplates(List<TemplateDto> dtoList) {
+		for( TemplateDto dto : dtoList ) {
+			putFromDtoToTemplates(dto);
+		}
+	}
+
+	public void putFromDtoToTemplates(TemplateDto dto1
+//			,List<AddressTypeDto> dto2, List<PurposeTypeDto> dto3
+		) {
 		// TODO 作ってない
 		TemplateData template = new TemplateData();
 		template.setTemplateID(dto1.getTemplateID());
 		template.setTemplateName(dto1.getTemplateName());
-		template.setAddressTypeID(dto1.getAddressTypeID());
-		//template.setAddressTypeName();
-		template.setPurposeTypeID(dto1.getPurposeTypeID());
-		//template.setPurposeTypeName();
+		template.setTemplateContent(dto1.getTemplateContent());
 		template.setMashiMashiValue(dto1.getMashiMashiValue());
+
+//		template.setAddressTypeID(dto1.getAddressTypeID());
+//		template.setAddressTypeName(null);
+//
+//		template.setPurposeTypeID(dto1.getPurposeTypeID());
+//		template.setPurposeTypeName(null);
+
 		this.templates.add(template);
+	}
+	@Override
+	public String toString() {
+		return "DisplayTemplateListBean\n"
+				+"addressTypes=" + addressTypes + ", purposeTypes=" + purposeTypes
+				+ "\ntemplates=" + templates.toString();
 	}
 
 }
