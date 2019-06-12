@@ -31,17 +31,22 @@ public class DisplayTemplateListServlet extends HttpServlet {
 
 		TemplateService tmpse = new TemplateService();
 		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
+		List<AddressTypeDto> addList = new ArrayList<AddressTypeDto>();
+		List<PurposeTypeDto> purList = new ArrayList<PurposeTypeDto>();
 
-		tmpList = tmpse.getTemplateList(
-				Integer.parseInt(request.getParameter("atesaki")),
-				Integer.parseInt(request.getParameter("naiyou")) ,
-				request.getParameter("keyword"),
-				Integer.parseInt(request.getParameter("mashimashi")) );
+//		tmpList = tmpse.getTemplateList(
+//				Integer.parseInt(request.getParameter("atesaki")),
+//				Integer.parseInt(request.getParameter("naiyou")) ,
+//				request.getParameter("keyword"),
+//				Integer.parseInt(request.getParameter("mashimashi")) );
+		tmpList = tmpse.getTemplateList(1,1,"A",1);
+//		System.out.print(tmpList);
+//		addList = tmpse.getAddressTypeList();
+//		purList = tmpse.getPurposeTypeList();
 
-		for(TemplateDto tmpdto : tmpList)
-		{
-			DisplayTemplateListBean dispTmpListBean = new DisplayTemplateListBean();
-		}
+		DisplayTemplateListBean bean = new DisplayTemplateListBean();
+	//	bean.putFromDtoToTemplates(tmpList, addList, purList);
+
 		// TODO ダミーデータ
 
 		AddressTypeDto adDto = new AddressTypeDto();
@@ -54,7 +59,6 @@ public class DisplayTemplateListServlet extends HttpServlet {
 		puDto.setPurposeTypeName("感謝");
 		puDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
 
-		DisplayTemplateListBean bean = new DisplayTemplateListBean();
 		bean.putFromDtoToAddressTypes(adDto);
 		bean.putFromDtoToPurposeTypes(puDto);
 
