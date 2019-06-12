@@ -84,9 +84,16 @@ public class TemplateService
 		return ptd;
 	}
 
-	public List<TemplateDto> getTemplateByKey() throws ServletException
+	public TemplateDto getTemplateByKey(int id) throws ServletException
 	{
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		TemplateDto td = null;
+		try( Connection con = Dao.getConnection() ){
+			TemplateDao dao = new TemplateDao(con);
+			td = dao.findByKey(id);
+		} catch ( ClassNotFoundException|SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
+		return td;
 	}
 }
