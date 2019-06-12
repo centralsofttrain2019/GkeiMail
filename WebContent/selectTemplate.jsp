@@ -19,7 +19,7 @@
 <label>宛先</label>
 
 <select name="atesaki">
-<option value="0">----</option>
+<option value="1">----</option>
 <% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
 <option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
 <% } %>
@@ -28,7 +28,7 @@
 <label><b>内容</b></label>
 
 <select name="naiyou">
-<option value="0">----</option>
+<option value="1">----</option>
 <% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
 <option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
 <% } %>

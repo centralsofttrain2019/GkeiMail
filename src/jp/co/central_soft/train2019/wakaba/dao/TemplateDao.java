@@ -27,8 +27,8 @@ public class TemplateDao
 
 	private static final String FIND_BY_ADDRESS_PURPOSE =
 			 "SELECT * FROM Template"
-			+" WHERE addressID = ?"
-			+" AND purposeID = ?";
+			+" WHERE AddressTypeID = ?"
+			+" AND PurposeTypeID = ?";
 
 	private static final String KEYWORDS =
 			 "SELECT * FROM keyword";
@@ -98,19 +98,25 @@ public class TemplateDao
 				while( rs.next() )
 				{
 					TemplateDto tmp = new TemplateDto();
-					tmp.setTemplateID(rs.getInt("templateID"));
-					tmp.setTemplateName(rs.getString("templateName"));
-					tmp.setTemplateContent(rs.getString("templateContent"));
-					tmp.setCreateDate(LocalDateTime.of
-							( rs.getDate("createDate").toLocalDate(), rs.getTime("createDate").toLocalTime()) );
-					tmp.setMashiMashiValue(rs.getInt("mashimashivalue"));
-					tmp.setBuiltInType(BuiltInTypeEnum.valueOf(rs.getString("builtInType")));
-					tmp.setAddressTypeID(rs.getInt("addressTypeID"));
-					tmp.setPurposeTypeID(rs.getInt("purposeTypeID"));
-					tmp.setUserID(rs.getInt("userID"));
+					tmp.setTemplateID(		rs.getInt(1)	);
+					tmp.setTemplateName(	rs.getString(2)	);
+					tmp.setTemplateContent(rs.getString(3));
+					tmp.setCreateDate(
+							LocalDateTime.of(
+									rs.getDate(4).toLocalDate(),
+									rs.getTime(4).toLocalTime()
+									)
+							);
+
+					tmp.setMashiMashiValue(rs.getInt(5));
+					tmp.setBuiltInType(BuiltInTypeEnum.valueOf(rs.getString(6)));
+					tmp.setAddressTypeID(rs.getInt(7));
+					tmp.setPurposeTypeID(rs.getInt(8));
+					tmp.setUserID(rs.getInt(9));
 					tmpList.add(tmp);
 				}
 		}
+		System.out.println("AddressAndPurpose");
 		return tmpList;
 	}
 
@@ -122,8 +128,6 @@ public class TemplateDao
 		int keywordID = -1;
 		try(PreparedStatement pstmt = this.con.prepareStatement(KEYWORDS))
 		{
-
-
 			ResultSet rs = pstmt.executeQuery();
 				while( rs.next() )
 				{
