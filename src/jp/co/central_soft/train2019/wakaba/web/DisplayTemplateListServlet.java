@@ -35,10 +35,10 @@ public class DisplayTemplateListServlet extends HttpServlet {
 				request.getParameter("keyword"),
 				Integer.parseInt(request.getParameter("mashimashi")) );
 //		System.out.print(tmpList);
-//		addList = tmpse.getAddressTypeList();
-//		purList = tmpse.getPurposeTypeList();
+//		List<AddressTypeDto> addList = tmpse.getAddressTypeList();
+//		List<PurposeTypeDto> purList = tmpse.getPurposeTypeList();
 
-	//	bean.putFromDtoToTemplates(tmpList, addList, purList);
+		bean.putFromDtoListToTemplates(tmpList);
 
 		// TODO ダミーデータ
 //		AddressTypeDto adDto = new AddressTypeDto();
