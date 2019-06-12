@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.DisplayTemplateListBean;
+import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
+import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 import jp.co.central_soft.train2019.wakaba.service.TemplateService;
 
@@ -36,6 +38,18 @@ public class DisplayTemplateListServlet extends HttpServlet {
 				Integer.parseInt(request.getParameter("mashimashi")) );
 
 		bean.putFromDtoListToTemplates(tmpList);
+		List<AddressTypeDto> addList = null;
+		List<PurposeTypeDto> purList = null;
+		addList = tmpse.getAddressTypeList();
+		purList = tmpse.getPurposeTypeList();
+		for(AddressTypeDto addDto : addList)
+		{
+			bean.putFromDtoToAddressTypes(addDto);
+		}
+		for(PurposeTypeDto purDto : purList)
+		{
+			bean.putFromDtoToPurposeTypes(purDto);
+		}
 		request.setAttribute("bean", bean);
 		//JSPに遷移する
 		RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");

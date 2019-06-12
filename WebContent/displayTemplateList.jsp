@@ -39,10 +39,6 @@
 
 <select name="atesaki">
 <option value="0">----</option>
-<option value="1">社内</option>
-<option value="2">取引先</option>
-<option value="3">就活生</option>
-<option value="4">上司</option>
 <% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
 <option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
 <% } %>
@@ -51,9 +47,6 @@
 <label><b>内容</b></label>
 <select name="naiyou">
 <option value="0">----</option>
-<option value="1">連絡</option>
-<option value="2">謝罪</option>
-<option value="3">感謝</option>
 <% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
 <option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
 <% } %>
