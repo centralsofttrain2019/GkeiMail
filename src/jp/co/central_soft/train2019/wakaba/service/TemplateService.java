@@ -2,7 +2,6 @@ package jp.co.central_soft.train2019.wakaba.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -49,24 +48,12 @@ public class TemplateService
 
 		try(Connection con = Dao.getConnection()) {
 			TemplateDao dao = new TemplateDao(con);
-//			list = dao.findByAddressAndPurposeAndKeywords(addressTypeID, purposeTypeID, keyword);
-			//TODO ダミーデータ
-			list = new ArrayList<TemplateDto>();
-
-			TemplateDto teDto1 = new TemplateDto();
-			teDto1.setTemplateID(1);
-			teDto1.setTemplateName("上司に圧倒的感謝");
-			teDto1.setTemplateContent("上司に圧倒的感謝コンテンツ");
-			teDto1.setMashiMashiValue(1);
-
-			TemplateDto teDto2 = new TemplateDto();
-			teDto2.setTemplateID(2);
-			teDto2.setTemplateName("部下と圧倒的成長");
-			teDto2.setTemplateContent("部下と圧倒的成長コンテンツ");
-			teDto2.setMashiMashiValue(1);
-
-			list.add(teDto1);
-			list.add(teDto2);
+			if( keyword.equals("") ) {
+				list = dao.findByAddressAndPurpose(addressTypeID, purposeTypeID);
+			} else {
+				list = dao.findByAddressAndPurposeAndKeywords(
+						addressTypeID, purposeTypeID, keyword);
+			}
 
 		} catch(SQLException | ClassNotFoundException e) {
 			throw new ServletException(e);
