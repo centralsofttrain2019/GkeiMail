@@ -24,7 +24,7 @@ public class DisplayTemplateListServlet extends HttpServlet {
 			HttpServletResponse response)
 					throws ServletException, IOException
 	{
-
+		//サービスを取得
 		TemplateService tmpse = new TemplateService();
 		List<TemplateDto> tmpList = null;
 		DisplayTemplateListBean bean = new DisplayTemplateListBean();
@@ -57,8 +57,9 @@ public class DisplayTemplateListServlet extends HttpServlet {
 //		teDto2.setTemplateContent("部下と圧倒的成長コンテンツ");
 
 		bean.putFromDtoListToTemplates(tmpList);
-
+		//beanをリクエストにセット キー名は「bean」とする
 		request.setAttribute("bean", bean);
+		//JSPに遷移する
 		RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");
 		rd.forward(request, response);
 	}
