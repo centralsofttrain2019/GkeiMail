@@ -78,5 +78,12 @@ public class TemplateDto {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
+	@Override
+	public String toString() {
+		return "TemplateDto [templateID=" + templateID + ", templateName=" + templateName + ", templateContent="
+				+ templateContent + ", createDate=" + createDate + ", mashiMashiValue=" + mashiMashiValue
+				+ ", builtInType=" + builtInType + ", addressTypeID=" + addressTypeID + ", purposeTypeID="
+				+ purposeTypeID + ", userID=" + userID + "]";
+	}
 
 }

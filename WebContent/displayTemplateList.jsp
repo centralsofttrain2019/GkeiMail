@@ -18,9 +18,9 @@
 テンプレートを一覧表示
 <form action="Servlet" method="get">
 <select name="app" size="3" onChange="submit(this.form)">
-<option value="0">項目A</option>
-<option value="1">項目B</option>
-<option value="2">項目C</option>
+<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
+<option value="0"><%=bean.getTemplates().get(i).getTemplateName() %></option>
+<%}%>
 </select>
 </form>
 </div>
@@ -73,6 +73,5 @@
 <button type="submit" name="name" >決定</button>
 <button type="submit" name="name" >戻る</button><br>
 
-<%=bean.toString() %>
 </body>
 </html>
