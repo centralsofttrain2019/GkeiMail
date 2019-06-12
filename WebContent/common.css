@@ -4,45 +4,79 @@ body {
 	margin-right: 100px;
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: 14pt;
+	color: #101010;
 }
 
 #header {
 	background-color: #F0FFB5;
 	width: 100%;
 	overflow: hidden;
+	font-size: 125%;
 }
 
 #footer {
 	background-color: #F0FFB5;
 	width: 100%;
 	overflow: hidden;
+	font-size: 75%;
+	text-align: right;
+}
+
+.non-margin {
+	margin: 0;
 }
 
 #navigation {
 	background-color: #BB262E;
+	color: #FAFAFA;
 	width: 100%;
 	overflow: hidden;
+	font-size: 100%;
 }
 
-#navigation ul{
+#navigation .inner {
+	height: 60px;
+}
+
+#navigation .logo {
+    vertical-align: middle;
+	height: 100%;
+}
+
+#navigation ul {
+	display: inline-block;
+    vertical-align: middle;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
-#navigation ul li{
-	list-style: none;
+#navigation ul li {
 	display: inline-block;
+	list-style: none;
 }
+
+#navigation ul li * {
+	width: 140px;
+	height: 60px;
+}
+
 #form {
 	background-color: #BB262E;
+	color: #FAFAFA;
 	width: 100%;
 	overflow: hidden;
+	font-size: 100%;
+	text-align: center;
 }
 
 #main {
+	background-color: #FFEF19;
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	font-size: 100%;
 }
 
 #main:after{
@@ -53,7 +87,9 @@ body {
 
 #sidebar {
 	background-color: #BB262E;
-	width: 200px;
+	color: #FAFAFA;
+	font-size: 125%;
+	width: 300px;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -62,12 +98,12 @@ body {
 	float: left;
 }
 
-#sidebar ul{
+#sidebar ul {
 	margin: 0;
 	padding: 0;
 }
 
-#sidebar ul li{
+#sidebar ul li {
 	list-style: none;
 }
 
@@ -75,23 +111,233 @@ body {
 	width: 100%;
 	height: 100%;
 	float: right;
-	margin-left: -200px;
-	padding-left: 200px;
+	margin-left: -300px;
+	padding-left: 300px;
 	box-sizing: border-box;
+	font-size: 100%;
 }
 
 .content {
-	background-color: #FFEF19;
 	width: 100%;
+	font-size: 100%;
 }
 
 .content-half {
-	background-color: #FFEF19;
 	width: 50%;
+	font-size: 100%;
+	float: left;
+}
+
+.content-half:after{
+	content: "";
+	display: block;
+	clear: both;
 }
 
 .inner {
 	padding: 10px 20px;
+}
+
+.logo {
+	display: inline-block;
+	margin: 0;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.rectangle-button {
+	display: inline-block;
+	font-size: 100%;
+	text-decoration: none;
+	text-align: center;
+	padding: 4px 20px;
+	background-color: #FAFAFA;
+	color: #101010;
+	border: 1px solid #888888;
+}
+
+.rectangle-button:hover {
+	background-color: #F4F4F4;
+	border: 1px solid #666666;
+}
+
+.rounded-rectangle-button {
+	display: inline-block;
+	font-size: 100%;
+	text-decoration: none;
+	text-align: center;
+	padding: 4px 20px;
+	background-color: #FAFAFA;
+	color: #101010;
+	border: 1px solid #888888;
+	border-radius: 10px;
+}
+
+.rounded-rectangle-button:hover {
+	background-color: #F4F4F4;
+	border: 1px solid #666666;
+}
+
+.common-text-box {
+	display: inline-block;
+	margin: 2px 0;
+	vertical-align: top;
+}
+
+.common-text-box input[type="text"] {
+	border: solid 1px #888888;
+	padding: 4px;
+	font-family: Arial;
+	font-size: 90%;
+	color: #101010;
+}
+
+.common-text-box span {
+	font-size: 100%;
+	vertical-align: middle;
+}
+
+.common-text-area {
+	display: inline-block;
+	margin: 2px 0;
+	vertical-align: top;
+}
+
+.common-text-area textarea {
+	border: solid 1px #888888;
+	padding: 4px;
+	font-family: Arial;
+	font-size: 90%;
+}
+
+.common-text-area span {
+	font-size: 100%;
+	vertical-align: top;
+}
+
+.common-radio-button {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.common-radio-button input[type="radio"] {
+	border: solid 1px #888888;
+	margin: 4px 0;
+	padding: 0;
+}
+
+.common-radio-button span {
+	font-size: 90%;
+	vertical-align: middle;
+}
+
+.common-check-box {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.common-check-box input[type="checkbox"] {
+	border: solid 1px #888888;
+	margin: 4px 0;
+	padding: 0;
+}
+
+.common-check-box span {
+	font-size: 90%;
+	vertical-align: middle;
+}
+
+.common-list-box {
+	display: inline-block;
+	margin: 2px 0;
+}
+
+.common-list-box select {
+	border: solid 1px #888888;
+	font-size: 90%;
+	vertical-align: top;
+}
+
+.common-list-box select option {
+	font-size: 100%;
+	margin: 0;
+	padding: 1px 8px;
+	color: #101010;
+}
+
+.common-list-box span {
+	font-size: 100%;
+	vertical-align: top;
+}
+
+.common-combo-box {
+	display: inline-block;
+	margin: 2px 0;
+}
+
+.common-combo-box select {
+	border: solid 1px #888888;
+	padding: 2px 4px;
+	font-size: 90%;
+	vertical-align: top;
+}
+
+.common-combo-box select option {
+	font-size: 100%;
+	color: #101010;
+}
+
+.common-combo-box span {
+	font-size: 100%;
+	vertical-align: middle;
+}
+
+a {
+	color: #5050D0
+}
+
+a:hover {
+	background-color: #F0F0F0;
+}
+
+h1, h2, h3, h4, h5, h6, p, q, pre {
+	margin: 0.25em 0;
+}
+
+h1 {
+	font-size: 1.5em;
+}
+
+h2 {
+	font-size: 1.17em;
+}
+
+h3 {
+	font-size: 1.05em;
+}
+
+.big-button {
+	width: 200px;
+	height: 60px;
+	font-size: 150%;
 }
 
 

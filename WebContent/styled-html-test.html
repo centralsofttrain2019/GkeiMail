@@ -18,16 +18,67 @@
 </div></div>
 
 <div id="navigation"><div class="inner">
+	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
 		<li><button class="rectangle-button">メニュー1</button></li>
 		<li><button class="rectangle-button">メニュー2</button></li>
 		<li><button class="rectangle-button">メニュー3</button></li>
 	</ul>
-	<div class="right-align">
+	<div class="align-right">
+		<span>あああ</span>
 	</div>
 </div></div>
 
 <div id="main">
+	<div id="section">
+		<div class="content"><div class="inner">
+			<h1>レベル1</h1>
+			<h2>レベル2</h2>
+			<h3>レベル3</h3>
+			<p>あいうおえ<br>かきく</p>
+			<p>さしす</p>
+			<a href="#">あいうえおリンク</a><br>
+			<button class="rectangle-button">ボタン</button><br>
+			<button class="rounded-rectangle-button">ボタン</button><br>
+
+			<label class="common-radio-button">
+				<input type="radio" name="radio1">
+				<span>入力2</span>
+			</label>
+			<label class="common-radio-button">
+				<input type="radio" name="radio1">
+				<span>入力3</span>
+			</label>
+			<br>
+
+			<label class="common-check-box">
+				<input type="checkbox" name="checkbox1">
+				<span>入力4</span>
+			</label>
+			<label class="common-check-box">
+				<input type="checkbox" name="checkbox1">
+				<span>入力5</span>
+			</label>
+			<br>
+
+			<label class="common-list-box">
+				<span>リスト</span>
+				<select name="selectbox1" size="4">
+					<option>入力6</option>
+					<option>入力7</option>
+				</select>
+			</label>
+
+			<label class="common-combo-box">
+				<span>コンボ</span>
+				<select name="selectbox2">
+					<option hidden=></option>
+					<option>入力9</option>
+					<option>入力10</option>
+				</select>
+			</label>
+		</div></div>
+	</div>
 	<div id="sidebar"><div class="inner">
 		<ul class="sidebar-menu">
 			<li>メニュー1</li>
@@ -35,36 +86,21 @@
 			<li>メニュー3</li>
 		</ul>
 	</div></div>
-	<div id="section">
-		<div class="content"><div class="inner">
-			<button class="rectangle-button">ボタン</button><br>
-			<button class="rounded-rectangle-button">ボタン</button><br>
-
-			<label for="input2">入力2</label>
-			<input id="input2" class="common-radio-buton" type="radio" name="radio1">
-			<label for="input3">入力3</label>
-			<input id="input3" class="common-radio-buton" type="radio" name="radio1"><br>
-
-			<label for="input4">入力4</label>
-			<input id="input4" class="common-check-box" type="checkbox" name="checkbox1">
-			<label for="input5">入力5</label>
-			<input id="input5" class="common-check-box" type="checkbox" name="checkbox1"><br>
-
-			<select class="common-list-box" name="selectbox1" size="10">
-				<option>入力6</option>
-				<option>入力7</option>
-			</select>
-		</div></div>
-	</div>
 </div>
 
 <div id="form"><div class="inner">
 	<form>
-		<label for="input1">入力1</label>
-		<input id="input1" class="common-textbox" type="text"><br>
-		<label for="input8">入力8</label>
-		<textarea id="input8" rows="10" cols="40"></textarea><br>
-		<button type="submit" name="submit">送信</button>
+		<label class="common-text-box">
+			<span>入力1</span>
+			<input type="text">
+		</label>
+		<br>
+		<label class="common-text-area">
+			<span>入力8</span>
+			<textarea rows="10" cols="40"></textarea>
+		</label>
+		<br>
+		<button class="rectangle-button" type="submit" name="submit">送信</button>
 	</form>
 </div></div>
 
