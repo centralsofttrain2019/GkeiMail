@@ -32,7 +32,7 @@ public class DisplayTemplateListServlet extends HttpServlet {
 		tmpList = tmpse.getTemplateList(
 				Integer.parseInt(request.getParameter("atesaki")),
 				Integer.parseInt(request.getParameter("naiyou")) ,
-				request.getParameter("keyword"),
+				request.getParameter("keyword-1"),
 				Integer.parseInt(request.getParameter("mashimashi")) );
 
 		bean.putFromDtoListToTemplates(tmpList);
