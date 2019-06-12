@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
 import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
 
 public class AddressTypeDao
@@ -35,7 +34,7 @@ public class AddressTypeDao
 				AddressTypeDto adr = new AddressTypeDto();
 				adr.setAddressTypeID(rs.getInt("AddressTypeID"));
 				adr.setAddressTypeName(rs.getString("AddressTypeName"));
-				adr.setBuiltInType( BuiltInTypeEnum.valueOf( rs.getString("BuiltInType") ));
+//				adr.setBuiltInType( BuiltInTypeEnum.valueOf( rs.getString("BuiltInType") ));
 				adr.setCreateDate( LocalDateTime.of(
 						rs.getDate("createDate").toLocalDate(),
 						rs.getTime("createDate").toLocalTime()
