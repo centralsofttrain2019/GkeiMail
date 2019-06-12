@@ -1,10 +1,10 @@
-package jp.co.central_soft.train2019.wakaba.dto;
+package jp.co.central_soft.train2019.wakaba.bean;
 
 import java.time.LocalDateTime;
 
 import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
 
-public class TemplateDto {
+public class CheckTemplateBean {
 
 	private int templateID;
 	private String templateName;
@@ -17,73 +17,57 @@ public class TemplateDto {
 	private int userID;
 
 	public int getTemplateID() {
-		return this.templateID;
+		return templateID;
 	}
 	public void setTemplateID(int templateID) {
 		this.templateID = templateID;
 	}
-
 	public String getTemplateName() {
-		return this.templateName;
+		return templateName;
 	}
 	public void setTemplateName(String templateName) {
 		this.templateName = templateName;
 	}
-
 	public String getTemplateContent() {
-		return this.templateContent;
+		return templateContent;
 	}
 	public void setTemplateContent(String templateContent) {
 		this.templateContent = templateContent;
 	}
-
 	public LocalDateTime getCreateDate() {
-		return this.createDate;
+		return createDate;
 	}
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-
 	public int getMashiMashiValue() {
-		return this.mashiMashiValue;
+		return mashiMashiValue;
 	}
 	public void setMashiMashiValue(int mashiMashiValue) {
 		this.mashiMashiValue = mashiMashiValue;
 	}
-
 	public BuiltInTypeEnum getBuiltInType() {
-		return this.builtInType;
+		return builtInType;
 	}
 	public void setBuiltInType(BuiltInTypeEnum builtInType) {
 		this.builtInType = builtInType;
 	}
-
 	public int getAddressTypeID() {
-		return this.addressTypeID;
+		return addressTypeID;
 	}
 	public void setAddressTypeID(int addressTypeID) {
 		this.addressTypeID = addressTypeID;
 	}
-
 	public int getPurposeTypeID() {
-		return this.purposeTypeID;
+		return purposeTypeID;
 	}
 	public void setPurposeTypeID(int purposeTypeID) {
 		this.purposeTypeID = purposeTypeID;
 	}
-
 	public int getUserID() {
-		return this.userID;
+		return userID;
 	}
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	@Override
-	public String toString() {
-		return "TemplateDto [templateID=" + templateID + ", templateName=" + templateName + ", templateContent="
-				+ templateContent + ", createDate=" + createDate + ", mashiMashiValue=" + mashiMashiValue
-				+ ", builtInType=" + builtInType + ", addressTypeID=" + addressTypeID + ", purposeTypeID="
-				+ purposeTypeID + ", userID=" + userID + "]";
-	}
-
 }

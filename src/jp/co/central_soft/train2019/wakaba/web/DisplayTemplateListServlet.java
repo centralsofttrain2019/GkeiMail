@@ -1,7 +1,6 @@
 package jp.co.central_soft.train2019.wakaba.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.DisplayTemplateListBean;
-import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
-import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
-import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
 import jp.co.central_soft.train2019.wakaba.service.TemplateService;
 
@@ -28,47 +24,45 @@ public class DisplayTemplateListServlet extends HttpServlet {
 			HttpServletResponse response)
 					throws ServletException, IOException
 	{
-
+		//サービスを取得
 		TemplateService tmpse = new TemplateService();
-		List<TemplateDto> tmpList = new ArrayList<TemplateDto>();
-		List<AddressTypeDto> addList = new ArrayList<AddressTypeDto>();
-		List<PurposeTypeDto> purList = new ArrayList<PurposeTypeDto>();
+		List<TemplateDto> tmpList = null;
+		DisplayTemplateListBean bean = new DisplayTemplateListBean();
 
-//		tmpList = tmpse.getTemplateList(
-//				Integer.parseInt(request.getParameter("atesaki")),
-//				Integer.parseInt(request.getParameter("naiyou")) ,
-//				request.getParameter("keyword"),
-//				Integer.parseInt(request.getParameter("mashimashi")) );
-		tmpList = tmpse.getTemplateList(1,1,"A",1);
+		tmpList = tmpse.getTemplateList(
+				Integer.parseInt(request.getParameter("atesaki")),
+				Integer.parseInt(request.getParameter("naiyou")) ,
+				request.getParameter("keyword"),
+				Integer.parseInt(request.getParameter("mashimashi")) );
 //		System.out.print(tmpList);
 //		addList = tmpse.getAddressTypeList();
 //		purList = tmpse.getPurposeTypeList();
 
-		DisplayTemplateListBean bean = new DisplayTemplateListBean();
 	//	bean.putFromDtoToTemplates(tmpList, addList, purList);
 
 		// TODO ダミーデータ
-
-		AddressTypeDto adDto = new AddressTypeDto();
-		adDto.setAddressTypeID(1);
-		adDto.setAddressTypeName("上司");
-		adDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
-
-		PurposeTypeDto puDto = new PurposeTypeDto();
-		puDto.setPurposeTypeID(1);
-		puDto.setPurposeTypeName("感謝");
-		puDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
-
-		bean.putFromDtoToAddressTypes(adDto);
-		bean.putFromDtoToPurposeTypes(puDto);
-
-		TemplateDto teDto = new TemplateDto();
-		teDto.setTemplateID(1);
-		teDto.setTemplateName("上司に圧倒的感謝");
-
-		bean.putFromDtoToTemplates(teDto, new ArrayList<>(), new ArrayList<>());
+//		AddressTypeDto adDto = new AddressTypeDto();
+//		adDto.setAddressTypeID(1);
+//		adDto.setAddressTypeName("上司");
+//		adDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
+//
+//		PurposeTypeDto puDto = new PurposeTypeDto();
+//		puDto.setPurposeTypeID(1);
+//		puDto.setPurposeTypeName("感謝");
+//		puDto.setBuiltInType(BuiltInTypeEnum.BUILTIN);
+//
+//		TemplateDto teDto1 = new TemplateDto();
+//		teDto1.setTemplateID(1);
+//		teDto1.setTemplateName("上司に圧倒的感謝");
+//		teDto1.setTemplateContent("上司に圧倒的感謝コンテンツ");
+//
+//		TemplateDto teDto2 = new TemplateDto();
+//		teDto2.setTemplateID(2);
+//		teDto2.setTemplateName("部下と圧倒的成長");
+//		teDto2.setTemplateContent("部下と圧倒的成長コンテンツ");
 
 		request.setAttribute("bean", bean);
+		//JSPに遷移する
 		RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");
 		rd.forward(request, response);
 	}

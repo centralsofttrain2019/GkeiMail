@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<title>メール系テスト</title>
+<meta name="description" content="テストHTML">
+
+<style>
+	.inline-block {
+		display: inline-block;
+	}
+	.width-fixed-list {
+		width: 200px;
+	}
+</style>
+
+</head>
+
+<body>
+
+<div id="header"><div class="inner">
+	<p class="non-margin">G系メール</p>
+</div></div>
+
+<div id="main">
+	<div class="section">
+		<div class="content-half"><div class="inner">
+			<h1>テンプレート選択</h1>
+			<form class="align-center" id="template_form" action="/GkeiMail/template-test.html?" method="post">
+				<div class="align-left inline-block">
+					<label class="common-list-box">
+						<span>宛先</span>
+						<select class="width-fixed-list" name="selectbox1" size="4">
+							<option>上司</option>
+							<option>同僚</option>
+						</select>
+					</label>
+					<label class="common-list-box">
+						<span>内容</span>
+						<select class="width-fixed-list" name="selectbox1" size="4">
+							<option>謝罪</option>
+							<option>感謝</option>
+						</select>
+					</label>
+				</div>
+			</form>
+		</div></div>
+		<div class="content-half"><div class="inner">
+			<h1>もう一つ</h1>
+		</div></div>
+	</div>
+</div>
+
+<div id="form"><div class="inner">
+	<button class="rounded-rectangle-button big-button" type="button" name="submit"
+			onclick="javascript:template_form.submit()">
+		送信
+	</button>
+</div></div>
+
+<div id="footer"><div class="inner">
+	<p class="non-margin">Copyrightアンコちゃん</p>
+</div></div>
+
+</body>
+
+</html>
+
