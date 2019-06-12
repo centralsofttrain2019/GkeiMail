@@ -62,7 +62,7 @@ public class TemplateService
 	{
 		List<AddressTypeDto> atd = null;
 		try( Connection con = Dao.getConnection() ){
-			AddressTypeDao dao = new AddressTypeDao();
+			AddressTypeDao dao = new AddressTypeDao(con);
 			atd = dao.findAll();
 		} catch ( ClassNotFoundException|SQLException e) {
 			e.printStackTrace();
@@ -75,12 +75,18 @@ public class TemplateService
 	{
 		List<PurposeTypeDto> ptd = null;
 		try( Connection con = Dao.getConnection() ){
-			PurposeTypeDao dao = new PurposeTypeDao();
+			PurposeTypeDao dao = new PurposeTypeDao(con);
 			ptd = dao.findAll();
 		} catch ( ClassNotFoundException|SQLException e) {
 			e.printStackTrace();
 			throw new ServletException(e);
 		}
 		return ptd;
+	}
+
+	public List<TemplateDto> getTemplateByKey() throws ServletException
+	{
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 }
