@@ -34,6 +34,11 @@ public class DisplayTemplateListServlet extends HttpServlet {
 				Integer.parseInt(request.getParameter("naiyou")) ,
 				request.getParameter("keyword"),
 				Integer.parseInt(request.getParameter("mashimashi")) );
+//		System.out.print(tmpList);
+//		addList = tmpse.getAddressTypeList();
+//		purList = tmpse.getPurposeTypeList();
+
+	//	bean.putFromDtoToTemplates(tmpList, addList, purList);
 
 		// TODO ダミーデータ
 //		AddressTypeDto adDto = new AddressTypeDto();
@@ -56,8 +61,6 @@ public class DisplayTemplateListServlet extends HttpServlet {
 //		teDto2.setTemplateName("部下と圧倒的成長");
 //		teDto2.setTemplateContent("部下と圧倒的成長コンテンツ");
 
-		bean.putFromDtoListToTemplates(tmpList);
-		//beanをリクエストにセット キー名は「bean」とする
 		request.setAttribute("bean", bean);
 		//JSPに遷移する
 		RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");
