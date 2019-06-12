@@ -1,52 +1,129 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.Map.Entry" %>
 <jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean" scope="request" />
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>テンプレート選択画面</title>
-<link rel="stylesheet" type="text/css" href="/GkeiMail/selectTemplateStyle.css">
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<title>テンプレート選択画面 - G系メール</title>
+<meta name="description" content="G系メール">
+
+<style>
+	.inline-block {
+		display: inline-block;
+	}
+	.type-list {
+		width: 200px;
+		margin-right: 20px;
+	}
+	.type-list-last {
+		margin-right: 0;
+	}
+	.keyword-textbox {
+		width: 130px;
+	}
+	.wide-margin {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#template_form {
+		font-size: 125%;
+	}
+	#template_form .span-narrow {
+		display: inline-block;
+		width: 60px;
+	}
+	#template_form .span-wide {
+		display: inline-block;
+		width: 120px;
+	}
+</style>
+
 </head>
 <body>
-<h2 id="title">テンプレート選択画面</h2>
-<hr>
-<form method="post" action="DisplayTemplateListServlet">
 
-<div id="atesaki">
-<label>宛先</label>
+<div id="header"><div class="inner">
+	<p class="non-margin">G系メール（テンプレート選択）</p>
+</div></div>
 
-<select name="atesaki">
-<option value="1">----</option>
-<% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
-<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
-<% } %>
-</select>
+<div id="main">
+	<div class="section">
+		<div class="content"><div class="inner">
+			<h1>テンプレート選択</h1>
+			<div class="align-center">
+				<form id="template_form" class="align-left inline-block" method="post" action="DisplayTemplateListServlet">
+					<label class="common-list-box wide-margin">
+						<span class="span-narrow">宛先</span>
+						<select class="type-list" name="atesaki" size="8">
+							<% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
+							<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+							<% } %>
+						</select>
+					</label>
 
-<label><b>内容</b></label>
+					<label class="common-list-box wide-margin">
+						<span class="span-narrow">内容</span>
+						<select class="type-list type-list-last" name="naiyou" size="8">
+							<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
+							<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+							<% } %>
+						</select>
+					</label>
 
-<select name="naiyou">
-<option value="1">----</option>
-<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
-<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
-<% } %>
-</select>
+					<br>
+
+					<label class="common-text-box wide-margin">
+						<span class="span-wide">その他</span>
+						<input class="keyword-textbox" type="text" name="keyword-1">
+						<input class="keyword-textbox" type="text" name="keyword-2">
+						<input class="keyword-textbox" type="text" name="keyword-3">
+					</label>
+
+					<br>
+
+					<div class="inline-block wide-margin">
+						<span class="span-wide">マシマシ度</span>
+						<label class="common-radio-button">
+							<span>ふつう</span>
+							<input type="radio" name="mashimashi" value="1">
+						</label>
+						<label class="common-radio-button">
+							<span>マシ</span>
+							<input type="radio" name="mashimashi" value="2">
+						</label>
+						<label class="common-radio-button">
+							<span>マシマシ</span>
+							<input type="radio" name="mashimashi" value="3">
+						</label>
 </div>
-その他<input name="keyword" type="text" ><br>
-<label><b>マシマシ</b></label>
-ふつう<input type="radio" name="mashimashi" value="1">
-マシ<input type="radio" name="mashimashi" value="2">
-マシマシ<input type="radio" name="mashimashi" value="3">
 
 <br>
-<input type="submit" value="次へ">
-</form>
 
-<form method="get" action="">
-<input type="submit" value="戻る">
+					<div class="inline-block wide-margin">
+						<span class="span-wide">時候</span>
+						<label class="common-check-box">
+							<input type="checkbox" name="jikou">
+						</label>
+					</div>
 </form>
+			</div>
+		</div></div>
+	</div>
+</div>
+
+<div id="form"><div class="inner">
+	<button class="rounded-rectangle-button big-button" type="button" name="submit"
+			onclick="javascript:template_form.submit()">
+		検索
+	</button>
+</div></div>
+
+<div id="footer"><div class="inner">
+	<p class="non-margin">© 2019 アンコちゃんチーム</p>
+</div></div>
 
 </body>
 </html>
