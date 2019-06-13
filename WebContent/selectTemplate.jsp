@@ -88,7 +88,7 @@
 					<br>
 
 					<div class="inline-block wide-margin">
-						<span class="span-wide"></span>
+						<span class="span-wide">マシマシ度</span>
 						<label class="common-radio-button">
 							<span>ふつう</span>
 							<input type="radio" name="mashimashi" value="1" checked="checked">
