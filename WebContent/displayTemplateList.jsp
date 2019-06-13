@@ -55,7 +55,7 @@
 <b>その他</b><input name="keyword" type="text" ><br>
 
 <label><b>マシマシ</b></label>
-ふつう<input type="radio" name="mashimashi" value="normal">
+ふつう<input type="radio" name="mashimashi" value="normal" checked="checked">
 マシ<input type="radio" name="mashimashi" value="hard">
 マシマシ<input type="radio" name="mashimashi" value="extreme">
 <br>

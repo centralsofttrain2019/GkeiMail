@@ -65,6 +65,7 @@
 					</label>
 
 					<label class="common-list-box wide-margin">
+
 						<span class="span-narrow">内容</span>
 						<select class="type-list type-list-last" name="naiyou" size="8">
 							<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
@@ -72,6 +73,8 @@
 							<% } %>
 						</select>
 					</label>
+
+					<div id="output"></div>
 
 					<br>
 
@@ -85,10 +88,10 @@
 					<br>
 
 					<div class="inline-block wide-margin">
-						<span class="span-wide">マシマシ度</span>
+						<span class="span-wide"></span>
 						<label class="common-radio-button">
 							<span>ふつう</span>
-							<input type="radio" name="mashimashi" value="1">
+							<input type="radio" name="mashimashi" value="1" checked="checked">
 						</label>
 						<label class="common-radio-button">
 							<span>マシ</span>
@@ -98,7 +101,7 @@
 							<span>マシマシ</span>
 							<input type="radio" name="mashimashi" value="3">
 						</label>
-</div>
+					</div>
 
 <br>
 

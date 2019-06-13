@@ -27,11 +27,11 @@ public class SelectTemplateServlet extends HttpServlet {
 					throws ServletException, IOException
 	{
 		SelectTemplateBean bean = new SelectTemplateBean();
-		TemplateService tmpse = new TemplateService();
-		List<AddressTypeDto> addList = null;
-		List<PurposeTypeDto> purList = null;
-		addList = tmpse.getAddressTypeList();
-		purList = tmpse.getPurposeTypeList();
+		TemplateService tmpService = new TemplateService();
+
+		List<AddressTypeDto> addList = tmpService.getAddressTypeList();
+		List<PurposeTypeDto> purList = tmpService.getPurposeTypeList();
+
 		for(AddressTypeDto addDto : addList)
 		{
 			bean.putFromDtoToAddressTypes(addDto);
