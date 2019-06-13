@@ -55,6 +55,7 @@
 			<h1>テンプレート選択</h1>
 			<div class="align-center">
 				<form id="template_form" class="align-left inline-block" method="post" action="test">
+				<!-- <form id="template_form" class="align-left inline-block" method="post" action="DisplayTemplateListServlet"> -->
 					<label class="common-list-box wide-margin">
 						<span class="span-narrow">宛先</span>
 						<select class="type-list" name="atesaki" size="8">
@@ -88,7 +89,7 @@
 					<br>
 
 					<div class="inline-block wide-margin">
-						<span class="span-wide"></span>
+						<span class="span-wide">マシマシ度</span>
 						<label class="common-radio-button">
 							<span>ふつう</span>
 							<input type="radio" name="mashimashi" value="1" checked="checked">
