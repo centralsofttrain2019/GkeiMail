@@ -60,7 +60,7 @@
 			<form id="template_form" class="clear-fix" method="post" action="CheckTemplateServlet"
 					style="position: relative;">
 				<label class="common-list-box wide-margin">
-					<select class="template-list wide" name="app" size="3">
+					<select class="template-list wide" name="app" size="10">
 					<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
 					<option value="<%= bean.getTemplates().get(i).getTemplateID() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
 					<%}%>
@@ -82,35 +82,56 @@
 	</div>
 </div>
 
+<div id="main">
+	<div class="section">
+		<div class="content"><div class="inner">
+			<label><b>宛先</b></label>
+			<label class="common-combo-box">
+				<select name="atesaki">
+					<option value="0">----</option>
+					<% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
+					<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+					<% } %>
+				</select>
+			</label>
 
-<label><b>宛先</b></label>
+			<label><b>内容</b></label>
+			<label class="common-combo-box">
+				<select name="naiyou">
+					<option value="0">----</option>
+					<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
+					<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+					<% } %>
+				</select><br>
+			</label>
+			<b>その他</b><input name="keyword" type="text" ><br>
 
-<select name="atesaki">
-<option value="0">----</option>
-<% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
-<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
-<% } %>
-</select>
+			<b>マシマシ</b>
+			<label class="common-radio-button">
+				<input type="radio" name="mashimashi" value="normal" checked="checked">
+				<span>ふつう</span>
+				</label>
+				<label class="common-radio-button">
+				<input type="radio" name="mashimashi" value="hard">
+				<span>マシ</span>
+				</label>
+				<label class="common-radio-button">
+				<input type="radio" name="mashimashi" value="extreme">
+				<span>マシマシ</span>
+				</label>
+			<br>
 
-<label><b>内容</b></label>
-<select name="naiyou">
-<option value="0">----</option>
-<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
-<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
-<% } %>
-</select><br>
 
-<b>その他</b><input name="keyword" type="text" ><br>
-
-<label><b>マシマシ</b></label>
-ふつう<input type="radio" name="mashimashi" value="normal" checked="checked">
-マシ<input type="radio" name="mashimashi" value="hard">
-マシマシ<input type="radio" name="mashimashi" value="extreme">
-<br>
-
-<b>時候</b><input name="keyword" type="checkbox" ><br>
-
-<button class="rounded-rectangle-button" type="submit" name="name" >再検索</button><br>
+			<label class="common-check-box">
+				<b>時候</b>
+				<input name="keyword" type="checkbox" >
+			</label>
+			<br>
+			<button class="rounded-rectangle-button" type="submit" name="name" >再検索</button><br>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div id="form"><div class="inner">
 	<button class="rounded-rectangle-button big-button" type="button" name="submit"
@@ -127,4 +148,3 @@
 </body>
 
 </html>
-
