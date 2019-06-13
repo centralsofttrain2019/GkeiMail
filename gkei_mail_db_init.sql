@@ -26,7 +26,7 @@ BuiltInType
 )
 VALUES(
 '感謝',
-1,
+'',
 'BUILTIN'
 );
 
@@ -38,7 +38,7 @@ BuiltInType
 )
 VALUES(
 '謝罪',
-2,
+'',
 'BUILTIN'
 );
 
@@ -50,7 +50,7 @@ BuiltInType
 )
 VALUES(
 '見舞',
-3,
+'',
 'BUILTIN'
 );
 
