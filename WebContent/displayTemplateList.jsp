@@ -1,38 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.Map.Entry" %>
 <jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DisplayTemplateListBean" scope="request" />
 
 <!DOCTYPE html>
+
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>テンプレート検索結果画面</title>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<title>テンプレート検索結果画面 - G系メール</title>
+<meta name="description" content="G系メール">
+
+<style>
+	.inline-block {
+		display: inline-block;
+	}
+	.template-list {
+		width: 100%;
+	}
+	.keyword-textbox {
+		width: 130px;
+	}
+	.wide-margin {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.wide {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+</style>
+
 </head>
+
 <body>
 
-<div style="float:left;width:200px;">
-<b>テンプレート一覧</b><br>
-<button type="submit" name="name" >ソート基準</button><br>
-<div style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333;">
-テンプレートを一覧表示
-<form action="CheckTemplateServlet" method="get">
-<select name="app" size="3" onChange="submit(this.form)">
-<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
-<option value="<%= bean.getTemplates().get(i).getTemplateID() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
-<%}%>
-</select>
-</form>
-</div>
- </div>
-<div style="float:left;width:200px;">
+<div id="header"><div class="inner">
+	<p class="non-margin">G系メール（テンプレート検索結果）</p>
+</div></div>
 
-<b>プレビュー</b>
+<div id="main">
+	<div class="section">
+		<div class="content-half"><div class="inner">
+			<h1>テンプレート一覧</h1><br>
+
+			<label class="common-combo-box wide-margin float-right">
+				<span>ソート基準</span>
+				<select name="sort">
+					<option value="0" hidden=></option>
+					<option value="1">マシマシ度一致率</option>
+				</select>
+			</label>
+
+			<form id="template_form" class="clear-fix" method="post" action="CheckTemplateServlet"
+					style="position: relative;">
+				<label class="common-list-box wide-margin">
+					<select class="template-list wide" name="app" size="3">
+					<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
+					<option value="<%= bean.getTemplates().get(i).getTemplateID() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
+					<%}%>
+					</select>
+				</label>
+			</form>
+
+		</div></div>
+
+		<div class="content-half"><div class="inner">
+
+<h1>プレビュー</h1>
 <div style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333;">
 プレビュー画面
 </div>
- </div>
 <div style="clear:both;"></div>
+
+		</div></div>
+	</div>
+</div>
 
 
 <label><b>宛先</b></label>
@@ -62,9 +110,21 @@
 
 <b>時候</b><input name="keyword" type="checkbox" ><br>
 
-<button type="submit" name="name" >再検索</button><br>
-<button type="submit" name="name" >決定</button>
-<button type="submit" name="name" >戻る</button><br>
+<button class="rounded-rectangle-button" type="submit" name="name" >再検索</button><br>
+
+<div id="form"><div class="inner">
+	<button class="rounded-rectangle-button big-button" type="button" name="submit"
+			onclick="javascript:template_form.submit()">
+		決定
+	</button>
+	<button class="rounded-rectangle-button big-button" type="button" name="return">戻る</button>
+</div></div>
+
+<div id="footer"><div class="inner">
+	<p class="non-margin">© 2019 アンコちゃんチーム</p>
+</div></div>
 
 </body>
+
 </html>
+

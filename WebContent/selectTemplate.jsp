@@ -103,7 +103,7 @@
 						</label>
 					</div>
 
-<br>
+					<br>
 
 					<div class="inline-block wide-margin">
 						<span class="span-wide">時候</span>
