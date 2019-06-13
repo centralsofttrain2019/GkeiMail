@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
+import jp.co.central_soft.train2019.wakaba.domain.MashiMashiTypeEnum;
 import jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto;
 
 public class PurposeTypeDao
@@ -36,6 +37,7 @@ public class PurposeTypeDao
 				pur.setPurposeTypeID( rs.getInt("PurposeTypeID") );
 				pur.setPurposeTypeName(rs.getString("PurposeTypeName"));
 				pur.setBuiltInType( BuiltInTypeEnum.valueOf( rs.getString("BuiltInType") ));
+				pur.setMashiMashiType( MashiMashiTypeEnum.valueOf( rs.getString("MashiMashiType") ));
 				pur.setCreateDate( LocalDateTime.of(
 						rs.getDate("createDate").toLocalDate(),
 						rs.getTime("createDate").toLocalTime()
