@@ -98,7 +98,7 @@
 							<span>マシマシ</span>
 							<input type="radio" name="mashimashi" value="3">
 						</label>
-</div>
+					</div>
 
 <br>
 
@@ -108,7 +108,7 @@
 							<input type="checkbox" name="jikou">
 						</label>
 					</div>
-</form>
+				</form>
 			</div>
 		</div></div>
 	</div>
