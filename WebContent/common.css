@@ -163,6 +163,10 @@ body {
 	float: right;
 }
 
+.clear-fix {
+	clear: both;
+}
+
 .rectangle-button {
 	display: inline-block;
 	font-size: 100%;
