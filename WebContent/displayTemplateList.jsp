@@ -16,10 +16,10 @@
 <button type="submit" name="name" >ソート基準</button><br>
 <div style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333;">
 テンプレートを一覧表示
-<form action="Servlet" method="get">
+<form action="CheckTemplateServlet" method="get">
 <select name="app" size="3" onChange="submit(this.form)">
 <% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
-<option value="0"><%=bean.getTemplates().get(i).getTemplateName() %></option>
+<option value="<%= bean.getTemplates().get(i).getTemplateID() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
 <%}%>
 </select>
 </form>
