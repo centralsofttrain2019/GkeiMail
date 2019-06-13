@@ -3,13 +3,14 @@ package jp.co.central_soft.train2019.wakaba.dto;
 import java.time.LocalDateTime;
 
 import jp.co.central_soft.train2019.wakaba.domain.BuiltInTypeEnum;
+import jp.co.central_soft.train2019.wakaba.domain.MashiMashiTypeEnum;
 
 public class PurposeTypeDto
 {
 	private int purposeTypeID;
 	private String purposeTypeName;
 	private BuiltInTypeEnum builtInType;
-	// TODO マシマシタイプ
+	private MashiMashiTypeEnum mashiMashiType;
 	private LocalDateTime createDate;
 	private Integer superTypeID;
 	public int getPurposeTypeID() {
@@ -29,6 +30,12 @@ public class PurposeTypeDto
 	}
 	public void setBuiltInType(BuiltInTypeEnum builtInType) {
 		this.builtInType = builtInType;
+	}
+	public MashiMashiTypeEnum getMashiMashiType() {
+		return this.mashiMashiType;
+	}
+	public void setMashiMashiType(MashiMashiTypeEnum mashiMashiType) {
+		this.mashiMashiType = mashiMashiType;
 	}
 	public LocalDateTime getCreateDate() {
 		return this.createDate;
