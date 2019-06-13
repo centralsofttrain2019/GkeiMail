@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.Map.Entry" %>
+<%@ page import="jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto" %>
 <jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.SelectTemplateBean" scope="request" />
 
 <!DOCTYPE html>
@@ -42,6 +43,18 @@
 	}
 </style>
 
+<script>
+var purposeTypes = {};
+<% for (PurposeTypeDto purposeType: bean.getPurList()) { %>
+	purposeTypes[<%= purposeType.getPurposeTypeID() %>] = {
+		name: '<%=purposeType.getMashiMashiType().getName() %>',
+		element1: '<%=purposeType.getMashiMashiType().getElement1() %>',
+		element2: '<%=purposeType.getMashiMashiType().getElement2() %>',
+		element3: '<%=purposeType.getMashiMashiType().getElement3() %>',
+	}
+<% } %>
+</script>
+
 </head>
 <body>
 
@@ -59,23 +72,42 @@
 					<label class="common-list-box wide-margin">
 						<span class="span-narrow">宛先</span>
 						<select class="type-list" name="atesaki" size="8">
-							<% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
-							<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+							<% for ( int i = 0; i < bean.getAddList().size() ; i++  ){%>
+							<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getAddList().get(i).getAddressTypeName() %></option>
 							<% } %>
+							<%-- <% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
+							<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+							<% } %> --%>
 						</select>
 					</label>
 
 					<label class="common-list-box wide-margin">
 
 						<span class="span-narrow">内容</span>
-						<select class="type-list type-list-last" name="naiyou" size="8">
-							<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
-							<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+						<select class="type-list type-list-last" name="naiyou" size="8" onchange="hoge(this.value)">
+							<% for ( int i = 0; i < bean.getPurList().size() ; i++  ){%>
+							<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getPurList().get(i).getPurposeTypeName() %></option>
 							<% } %>
+
+<%-- 							<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %> --%>
+<%-- 							<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option> --%>
+<%-- 							<% } %> --%>
 						</select>
 					</label>
 
-					<div id="output"></div>
+					<script>
+					var hoge = function(num){
+						var el = document.getElementById("preview");
+						el.innerHTML = purposeTypes[num].name;
+						var el = document.getElementById("element1");
+						el.innerHTML = purposeTypes[num].element1;
+						var el = document.getElementById("element2");
+						el.innerHTML = purposeTypes[num].element2;
+						var el = document.getElementById("element3");
+						el.innerHTML = purposeTypes[num].element3;
+
+					}
+					</script>
 
 					<br>
 
@@ -89,17 +121,17 @@
 					<br>
 
 					<div class="inline-block wide-margin">
-						<span class="span-wide">マシマシ度</span>
+						<span class="span-wide" id="preview">マシマシ度</span>
 						<label class="common-radio-button">
-							<span>ふつう</span>
+							<span id ="element1">ふつう</span>
 							<input type="radio" name="mashimashi" value="1" checked="checked">
 						</label>
 						<label class="common-radio-button">
-							<span>マシ</span>
+							<span id ="element2">マシ</span>
 							<input type="radio" name="mashimashi" value="2">
 						</label>
 						<label class="common-radio-button">
-							<span>マシマシ</span>
+							<span id ="element3">マシマシ</span>
 							<input type="radio" name="mashimashi" value="3">
 						</label>
 					</div>
