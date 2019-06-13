@@ -28,9 +28,13 @@ public class CreateMailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/mailSakusei.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
+		RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 		rd.forward(request, response);
+//		RequestDispatcher rd = request.getRequestDispatcher("/mailSakusei.jsp");
+//		rd.forward(request, response);
 	}
 
 	/**

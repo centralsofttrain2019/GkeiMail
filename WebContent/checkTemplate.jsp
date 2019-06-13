@@ -41,21 +41,23 @@
 		</div>
 	</div>
 
-	<form action="CreateMailServlet" method="post">
-		<div id="form">
-			<div class="inner">
-				<p>
-					<button class="rounded-rectangle-button big-button" type="button"
-						name="ok" value="ok">OK</button>
-					<button class="rounded-rectangle-button big-button" type="button"
-						name="no" value="no">やり直す</button>
-				</p>
-				<div style="text-align: right;">
-					<button class="rounded-rectangle-button"  type="submit" name="iine">☆いいね</button>
-				</div>
+	<div id="form">
+		<div class="inner">
+			<div>
+			<form action="CreateMailServlet" method="post">
+				<button class="rounded-rectangle-button big-button" type="submit"
+					name="ok" value="ok">OK</button>
+			</form>
+			<form action="DisplayTemplateListServlet" method="post">
+				<button class="rounded-rectangle-button big-button" type="submit"
+					name="no" value="no">やり直す</button>
+			</form>
+			</div>
+			<div style="text-align: right;">
+				<button class="rounded-rectangle-button"  type="submit" name="iine">☆いいね</button>
 			</div>
 		</div>
-	</form>
+	</div>
 
 </body>
 </html>

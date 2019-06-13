@@ -138,12 +138,18 @@ var showPreview = function(str){
 	</div>
 </div>
 
+<form id="return_form" method="post" action="SelectTemplateServlet">
+</form>
+
 <div id="form"><div class="inner">
 	<button class="rounded-rectangle-button big-button" type="button" name="submit"
 			onclick="javascript:template_form.submit()">
 		決定
 	</button>
-	<button class="rounded-rectangle-button big-button" type="button" name="return">戻る</button>
+	<button class="rounded-rectangle-button big-button" type="button" name="return"
+			onclick="javascript:return_form.submit()">
+		戻る
+	</button>
 </div></div>
 
 <div id="footer"><div class="inner">
