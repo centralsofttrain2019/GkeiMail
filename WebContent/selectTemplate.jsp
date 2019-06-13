@@ -67,8 +67,8 @@ var purposeTypes = {};
 		<div class="content"><div class="inner">
 			<h1>テンプレート選択</h1>
 			<div class="align-center">
-				<form id="template_form" class="align-left inline-block" method="post" action="test">
-				<!-- <form id="template_form" class="align-left inline-block" method="post" action="DisplayTemplateListServlet"> -->
+				<!-- <form id="template_form" class="align-left inline-block" method="post" action="test"> -->
+				<form id="template_form" class="align-left inline-block" method="post" action="DisplayTemplateListServlet">
 					<label class="common-list-box wide-margin">
 						<span class="span-narrow">宛先</span>
 						<select class="type-list" name="atesaki" size="8">
