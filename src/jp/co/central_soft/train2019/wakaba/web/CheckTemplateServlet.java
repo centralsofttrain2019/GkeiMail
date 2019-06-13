@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.CheckTemplateBean;
-import jp.co.central_soft.train2019.wakaba.dto.TemplateDto;
-import jp.co.central_soft.train2019.wakaba.service.TemplateService;
 
 /**
  * Servlet implementation class DispTemplateServlet
@@ -33,13 +31,14 @@ public class CheckTemplateServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int app = Integer.parseInt(request.getParameter("app"));
+		//int app = Integer.parseInt(request.getParameter("app"));
 
-		TemplateService service = new TemplateService();
+		//TemplateService service = new TemplateService();
 		CheckTemplateBean bean = new CheckTemplateBean();
+		bean.setTemplateContent(request.getParameter("app"));
 
-		TemplateDto dto = service.getTemplateByKey(app);
-		bean.setTemplateContent(dto.getTemplateContent());
+		//TemplateDto dto = service.getTemplateByKey(app);
+		//bean.setTemplateContent(dto.getTemplateContent());
 
 		request.setAttribute("bean", bean);
 		RequestDispatcher disp = request.getRequestDispatcher("/checkTemplate.jsp");
