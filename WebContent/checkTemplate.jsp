@@ -49,8 +49,14 @@
 					name="ok" value="ok">OK</button>
 			</form>
 			<form action="DisplayTemplateListServlet" method="post">
+				<input name="atesaki" value="1" style="display: none">
+				<input name="naiyou" value="1" style="display: none">
+				<input name="keyword-1" value="A" style="display: none">
+				<input name="mashimashi" value="1" style="display: none">
 				<button class="rounded-rectangle-button big-button" type="submit"
-					name="no" value="no">やり直す</button>
+					name="no" value="no">
+					やり直す
+				</button>
 			</form>
 			</div>
 			<div style="text-align: right;">
