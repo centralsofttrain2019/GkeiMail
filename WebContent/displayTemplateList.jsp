@@ -35,7 +35,12 @@
 		right: 0;
 	}
 </style>
-
+<script>
+var showPreview = function(str){
+	var el = document.getElementById("preview");
+	el.innerHTML = str;
+}
+</script>
 </head>
 
 <body>
@@ -60,9 +65,9 @@
 			<form id="template_form" class="clear-fix" method="post" action="CheckTemplateServlet"
 					style="position: relative;">
 				<label class="common-list-box wide-margin">
-					<select class="template-list wide" name="app" size="10">
+					<select class="template-list wide" name="app" size="10" onchange="showPreview(this.value)">
 					<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
-					<option value="<%= bean.getTemplates().get(i).getTemplateID() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
+					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
 					<%}%>
 					</select>
 				</label>
@@ -74,7 +79,7 @@
 
 <h1>プレビュー</h1>
 <div style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333;">
-プレビュー画面
+<span id="preview">プレビュー</span>
 </div>
 <div style="clear:both;"></div>
 
