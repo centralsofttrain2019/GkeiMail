@@ -78,12 +78,27 @@ public class DisplayTemplateListBean {
 	}
 	private Map<Integer, String> addressTypes;
 	private Map<Integer, String> purposeTypes;
+	private List<AddressTypeDto> addList ;
+	private List<PurposeTypeDto> purList ;
 	private List<TemplateData> templates;
 
 	public DisplayTemplateListBean() {
 		this.addressTypes = new HashMap<>();
 		this.purposeTypes = new HashMap<>();
 		this.templates = new ArrayList<>();
+	}
+
+	public List<AddressTypeDto> getAddList() {
+		return addList;
+	}
+	public void setAddList(List<AddressTypeDto> addList) {
+		this.addList = addList;
+	}
+	public List<PurposeTypeDto> getPurList() {
+		return purList;
+	}
+	public void setPurList(List<PurposeTypeDto> purList) {
+		this.purList = purList;
 	}
 
 	public Map<Integer, String> getAddressTypes() {

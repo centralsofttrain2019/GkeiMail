@@ -42,6 +42,8 @@ public class DisplayTemplateListServlet extends HttpServlet {
 		List<PurposeTypeDto> purList = null;
 		addList = tmpse.getAddressTypeList();
 		purList = tmpse.getPurposeTypeList();
+		bean.setAddList(addList);
+		bean.setPurList(purList);
 		for(AddressTypeDto addDto : addList)
 		{
 			bean.putFromDtoToAddressTypes(addDto);
