@@ -109,16 +109,19 @@ var purposeTypes = {};
 					<div class="inline-block wide-margin">
 						<span class="span-wide" id="preview"><%=bean.getPurList().get(0).getMashiMashiType().getName() %></span>
 						<label class="common-radio-button">
-							<span id ="element1"><%=bean.getPurList().get(0).getMashiMashiType().getElement1() %></span>
 							<input type="radio" name="mashimashi" value="1" checked="checked">
+							<span id ="element1"><%=bean.getPurList().get(0).getMashiMashiType().getElement1() %></span>
+
 						</label>
 						<label class="common-radio-button">
-							<span id ="element2"><%=bean.getPurList().get(0).getMashiMashiType().getElement2() %></span>
 							<input type="radio" name="mashimashi" value="2">
+							<span id ="element2"><%=bean.getPurList().get(0).getMashiMashiType().getElement2() %></span>
+
 						</label>
 						<label class="common-radio-button">
-							<span id ="element3"><%=bean.getPurList().get(0).getMashiMashiType().getElement3() %></span>
 							<input type="radio" name="mashimashi" value="3">
+							<span id ="element3"><%=bean.getPurList().get(0).getMashiMashiType().getElement3() %></span>
+
 						</label>
 
 						<script>
