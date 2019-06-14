@@ -37,6 +37,7 @@ public class CheckTemplateServlet extends HttpServlet {
 		CheckTemplateBean bean = new CheckTemplateBean();
 		bean.setTemplateContent(request.getParameter("app"));
 
+
 		//TemplateDto dto = service.getTemplateByKey(app);
 		//bean.setTemplateContent(dto.getTemplateContent());
 

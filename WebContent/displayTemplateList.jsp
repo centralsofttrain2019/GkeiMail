@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.Map.Entry" %>
+<%@ page import="jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto" %>
 <jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DisplayTemplateListBean" scope="request" />
 
 <!DOCTYPE html>
@@ -41,6 +42,17 @@
 	}
 </style>
 <script>
+var purposeTypes = {};
+<% for (PurposeTypeDto purposeType: bean.getPurList()) { %>
+	purposeTypes[<%= purposeType.getPurposeTypeID() %>] = {
+		name: '<%=purposeType.getMashiMashiType().getName() %>',
+		element1: '<%=purposeType.getMashiMashiType().getElement1() %>',
+		element2: '<%=purposeType.getMashiMashiType().getElement2() %>',
+		element3: '<%=purposeType.getMashiMashiType().getElement3() %>',
+	}
+<% } %>
+</script>
+<script>
 var showPreview = function(str){
 	var el = document.getElementById("preview");
 	el.innerHTML = str;
@@ -76,6 +88,7 @@ var showPreview = function(str){
 					<%}%>
 					</select>
 				</label>
+				<%request.setAttribute("keyword-1", "A"); %>
 			</form>
 
 		</div></div>
@@ -98,36 +111,47 @@ var showPreview = function(str){
 			<label><b>宛先</b></label>
 			<label class="common-combo-box">
 				<select name="atesaki">
-					<option value="0">----</option>
-					<% for(Entry<Integer, String> entry: bean.getAddressTypes().entrySet()) { %>
-					<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+					<% for ( int i = 0; i < bean.getAddList().size() ; i++  ){%>
+						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getAddList().get(i).getAddressTypeName() %></option>
 					<% } %>
 				</select>
 			</label>
 
 			<label><b>内容</b></label>
 			<label class="common-combo-box">
-				<select name="naiyou">
-					<option value="0">----</option>
-					<% for(Entry<Integer, String> entry: bean.getPurposeTypes().entrySet()) { %>
-					<option value="<%=entry.getKey() %>"><%=entry.getValue() %></option>
+				<select name="naiyou" onchange="mashimashi(this.value)">
+					<% for ( int i = 0; i < bean.getPurList().size() ; i++  ){%>
+						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getPurList().get(i).getPurposeTypeName() %></option>
 					<% } %>
 				</select><br>
 			</label>
+			<script>
+					var mashimashi = function(num){
+						var el = document.getElementById("name");
+						el.innerHTML = purposeTypes[num].name;
+						var el = document.getElementById("element1");
+						el.innerHTML = purposeTypes[num].element1;
+						var el = document.getElementById("element2");
+						el.innerHTML = purposeTypes[num].element2;
+						var el = document.getElementById("element3");
+						el.innerHTML = purposeTypes[num].element3;
+
+					}
+					</script>
 			<b>その他</b><input name="keyword" type="text" ><br>
 
-			<b>マシマシ</b>
+			<b id="name">マシマシ</b>
 			<label class="common-radio-button">
 				<input type="radio" name="mashimashi" value="normal" checked="checked">
-				<span>ふつう</span>
+				<span id="element1">ふつう</span>
 				</label>
 				<label class="common-radio-button">
 				<input type="radio" name="mashimashi" value="hard">
-				<span>マシ</span>
+				<span id="element2">マシ</span>
 				</label>
 				<label class="common-radio-button">
 				<input type="radio" name="mashimashi" value="extreme">
-				<span>マシマシ</span>
+				<span id="element3">マシマシ</span>
 				</label>
 			<br>
 
