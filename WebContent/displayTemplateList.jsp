@@ -78,7 +78,7 @@ var showPreview = function(str){
 				<label class="common-list-box wide-margin block">
 					<select class="template-list" name="app" size="10" onchange="showPreview(this.value)">
 					<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
-					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
+					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"<%if(i == 0){%>selected<%}%>> <%=bean.getTemplates().get(i).getTemplateName() %></option>
 					<%}%>
 					</select>
 				</label>
@@ -159,7 +159,7 @@ var showPreview = function(str){
 			<h1>プレビュー</h1>
 			<div class="preview-view"
 					style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333; background-color: #FAFAFA">
-				<span id="preview">プレビュー</span>
+				<span id="preview"><%=bean.getTemplates().get(0).getTemplateContent() %></span>
 			</div>
 			<div style="clear:both;"></div>
 
