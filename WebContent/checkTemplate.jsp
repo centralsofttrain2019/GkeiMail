@@ -33,7 +33,7 @@
 					<h1>テンプレート選択</h1>
 					<div style="text-align: center;">
 						<div
-							style="text-aline: left; display: inline-block; background: white; width: 80%; height: 500px; padding: 15px; border: 1px solid; border-radius: 10px; word-break: break-all;">
+							style="text-align: left; display: inline-block; background: white; width: 80%; height: 500px; padding: 15px; border: 1px solid; border-radius: 10px; word-break: break-all;">
 							<%=bean.getTemplateContent()%></div>
 					</div>
 				</div>
