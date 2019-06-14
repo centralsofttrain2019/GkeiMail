@@ -24,6 +24,9 @@
 	.template-list {
 		width: 100%;
 	}
+	.preview-view {
+		height: 400px;
+	}
 	.keyword-textbox {
 		width: 130px;
 	}
@@ -154,7 +157,8 @@ var showPreview = function(str){
 		<div class="content-half"><div class="inner">
 
 			<h1>プレビュー</h1>
-			<div style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333;">
+			<div class="preview-view"
+					style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333; background-color: #FAFAFA">
 				<span id="preview">プレビュー</span>
 			</div>
 			<div style="clear:both;"></div>
