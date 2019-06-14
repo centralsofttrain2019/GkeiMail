@@ -26,7 +26,7 @@ BuiltInType
 )
 VALUES(
 '感謝',
-'TYPE',
+'KATASA',
 'BUILTIN'
 );
 
@@ -38,7 +38,7 @@ BuiltInType
 )
 VALUES(
 '謝罪',
-'TYPE',
+'ABURA',
 'BUILTIN'
 );
 
@@ -50,7 +50,7 @@ BuiltInType
 )
 VALUES(
 '見舞',
-'TYPE',
+'YASAI',
 'BUILTIN'
 );
 
