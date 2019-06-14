@@ -66,8 +66,8 @@ var showPreview = function(str){
 			<label class="common-combo-box wide-margin float-right">
 				<span>ソート基準</span>
 				<select name="sort">
-					<option value="0" hidden=></option>
-					<option value="1">マシマシ度一致率</option>
+					<option value="0">マシマシ度一致率</option>
+					<option value="1" hidden=></option>
 				</select>
 			</label>
 
