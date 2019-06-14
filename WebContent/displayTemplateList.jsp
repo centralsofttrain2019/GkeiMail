@@ -35,6 +35,11 @@
 		left: 0;
 		right: 0;
 	}
+	#template_form:before {
+		content: "";
+		display: block;
+		padding-top: 100%;
+	}
 </style>
 <script>
 var purposeTypes = {};
