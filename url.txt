@@ -61,3 +61,12 @@ https://ginpen.com/2012/12/05/css-box-model/
 width50%で並ばない:
 https://dev-lib.com/inline-block-side-by-side/
 
+position系:
+https://www.koushinclub.com/blog/1453.html
+https://saruwakakun.com/html-css/basic/relative-absolute-fixed
+https://am-yu.net/2013/10/06/css-percent/
+
+入力ボックスのプレースホルダ（薄い文字）:
+https://weback.net/htmlcss/1284/
+
+
