@@ -95,20 +95,6 @@ var purposeTypes = {};
 						</select>
 					</label>
 
-					<script>
-					var hoge = function(num){
-						var el = document.getElementById("preview");
-						el.innerHTML = purposeTypes[num].name;
-						var el = document.getElementById("element1");
-						el.innerHTML = purposeTypes[num].element1;
-						var el = document.getElementById("element2");
-						el.innerHTML = purposeTypes[num].element2;
-						var el = document.getElementById("element3");
-						el.innerHTML = purposeTypes[num].element3;
-
-					}
-					</script>
-
 					<br>
 
 					<label class="common-text-box wide-margin">
@@ -121,19 +107,33 @@ var purposeTypes = {};
 					<br>
 
 					<div class="inline-block wide-margin">
-						<span class="span-wide" id="preview">マシマシ度</span>
+						<span class="span-wide" id="preview"><%=bean.getPurList().get(0).getMashiMashiType().getName() %></span>
 						<label class="common-radio-button">
-							<span id ="element1">ふつう</span>
+							<span id ="element1"><%=bean.getPurList().get(0).getMashiMashiType().getElement1() %></span>
 							<input type="radio" name="mashimashi" value="1" checked="checked">
 						</label>
 						<label class="common-radio-button">
-							<span id ="element2">マシ</span>
+							<span id ="element2"><%=bean.getPurList().get(0).getMashiMashiType().getElement2() %></span>
 							<input type="radio" name="mashimashi" value="2">
 						</label>
 						<label class="common-radio-button">
-							<span id ="element3">マシマシ</span>
+							<span id ="element3"><%=bean.getPurList().get(0).getMashiMashiType().getElement3() %></span>
 							<input type="radio" name="mashimashi" value="3">
 						</label>
+
+						<script>
+						var hoge = function(num){
+							var el = document.getElementById("preview");
+							el.innerHTML = purposeTypes[num].name;
+							var el = document.getElementById("element1");
+							el.innerHTML = purposeTypes[num].element1;
+							var el = document.getElementById("element2");
+							el.innerHTML = purposeTypes[num].element2;
+							var el = document.getElementById("element3");
+							el.innerHTML = purposeTypes[num].element3;
+
+						}
+						</script>
 					</div>
 
 					<br>
