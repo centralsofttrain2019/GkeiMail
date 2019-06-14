@@ -78,7 +78,7 @@ var showPreview = function(str){
 				<label class="common-list-box wide-margin block">
 					<select class="template-list" name="app" size="10" onchange="showPreview(this.value)">
 					<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
-					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
+					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"<%if(i == 0){%>selected<%}%>> <%=bean.getTemplates().get(i).getTemplateName() %></option>
 					<%}%>
 					</select>
 				</label>
@@ -116,18 +116,18 @@ var showPreview = function(str){
 			<br>
 
 			<div>
-				<span id="name">マシマシ</span>
+				<span id="name"><%=bean.getPurList().get(0).getMashiMashiType().getName() %></span>
 				<label class="common-radio-button">
+					<span id="element1"><%=bean.getPurList().get(0).getMashiMashiType().getElement1() %></span>
 					<input type="radio" name="mashimashi" value="normal" checked="checked">
-					<span id="element1">ふつう</span>
 				</label>
 				<label class="common-radio-button">
+					<span id="element2"><%=bean.getPurList().get(0).getMashiMashiType().getElement2() %></span>
 					<input type="radio" name="mashimashi" value="hard">
-					<span id="element2">マシ</span>
 				</label>
 				<label class="common-radio-button">
+					<span id="element3"><%=bean.getPurList().get(0).getMashiMashiType().getElement3() %></span>
 					<input type="radio" name="mashimashi" value="extreme">
-					<span id="element3">マシマシ</span>
 				</label>
 				<script>
 						var mashimashi = function(num){
@@ -159,7 +159,7 @@ var showPreview = function(str){
 			<h1>プレビュー</h1>
 			<div class="preview-view"
 					style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333; background-color: #FAFAFA">
-				<span id="preview">プレビュー</span>
+				<span id="preview"><%=bean.getTemplates().get(0).getTemplateContent() %></span>
 			</div>
 			<div style="clear:both;"></div>
 
