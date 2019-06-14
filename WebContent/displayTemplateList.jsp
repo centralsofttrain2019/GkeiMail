@@ -49,6 +49,7 @@ var showPreview = function(str){
 	el.innerHTML = str;
 }
 </script>
+
 </head>
 
 <body>
@@ -78,7 +79,10 @@ var showPreview = function(str){
 					<%}%>
 					</select>
 				</label>
-				<%request.setAttribute("keyword-1", "A"); %>
+				<input type="hidden" name="atesaki" value="<%=bean.getAtesaki() %>">
+				<input type="hidden" name="naiyou" value="<%=bean.getNaiyou() %>">
+				<input type="hidden" name="keyword-1" value="<%=bean.getKeyword1() %>">
+				<input type="hidden" name="mashimashi" value="<%=bean.getMashimashi() %>">
 			</form>
 
 			<hr>

@@ -15,6 +15,10 @@ public class CheckTemplateBean {
 	private int addressTypeID;
 	private int purposeTypeID;
 	private int userID;
+	private int atesaki;
+	private int naiyou;
+	private String keyword1;
+	private int mashimashi;
 
 	public int getTemplateID() {
 		return templateID;
@@ -70,4 +74,29 @@ public class CheckTemplateBean {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
+	public int getAtesaki() {
+		return atesaki;
+	}
+	public void setAtesaki(int atesaki) {
+		this.atesaki = atesaki;
+	}
+	public int getNaiyou() {
+		return naiyou;
+	}
+	public void setNaiyou(int naiyou) {
+		this.naiyou = naiyou;
+	}
+	public String getKeyword1() {
+		return keyword1;
+	}
+	public void setKeyword1(String keyword1) {
+		this.keyword1 = keyword1;
+	}
+	public int getMashimashi() {
+		return mashimashi;
+	}
+	public void setMashimashi(int mashimashi) {
+		this.mashimashi = mashimashi;
+	}
+
 }

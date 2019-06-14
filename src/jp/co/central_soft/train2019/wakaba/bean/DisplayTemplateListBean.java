@@ -81,6 +81,10 @@ public class DisplayTemplateListBean {
 	private List<AddressTypeDto> addList ;
 	private List<PurposeTypeDto> purList ;
 	private List<TemplateData> templates;
+	private int atesaki;
+	private int naiyou;
+	private String keyword1;
+	private int mashimashi;
 
 	public DisplayTemplateListBean() {
 		this.addressTypes = new HashMap<>();
@@ -115,6 +119,38 @@ public class DisplayTemplateListBean {
 	public void setPurposeTypes(Map<Integer, String> purposeTypes) {
 		this.purposeTypes = new HashMap<>();
 		this.purposeTypes.putAll(purposeTypes);
+	}
+
+	public int getAtesaki() {
+		return atesaki;
+	}
+
+	public void setAtesaki(int atesaki) {
+		this.atesaki = atesaki;
+	}
+
+	public int getNaiyou() {
+		return naiyou;
+	}
+
+	public void setNaiyou(int naiyou) {
+		this.naiyou = naiyou;
+	}
+
+	public String getKeyword1() {
+		return keyword1;
+	}
+
+	public void setKeyword1(String keyword1) {
+		this.keyword1 = keyword1;
+	}
+
+	public int getMashimashi() {
+		return mashimashi;
+	}
+
+	public void setMashimashi(int mashimashi) {
+		this.mashimashi = mashimashi;
 	}
 
 	public void putFromDtoToAddressTypes(AddressTypeDto dto) {
