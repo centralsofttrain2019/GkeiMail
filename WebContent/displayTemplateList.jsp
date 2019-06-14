@@ -18,6 +18,9 @@
 	.inline-block {
 		display: inline-block;
 	}
+	.block {
+		display: block;
+	}
 	.template-list {
 		width: 100%;
 	}
@@ -27,18 +30,6 @@
 	.wide-margin {
 		margin-top: 10px;
 		margin-bottom: 10px;
-	}
-	.wide {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-	}
-	#template_form:before {
-		content: "";
-		display: block;
-		padding-top: 100%;
 	}
 </style>
 <script>
@@ -79,10 +70,9 @@ var showPreview = function(str){
 				</select>
 			</label>
 
-			<form id="template_form" class="clear-fix" method="post" action="CheckTemplateServlet"
-					style="position: relative;">
-				<label class="common-list-box wide-margin">
-					<select class="template-list wide" name="app" size="10" onchange="showPreview(this.value)">
+			<form id="template_form" class="clear-fix" method="post" action="CheckTemplateServlet">
+				<label class="common-list-box wide-margin block">
+					<select class="template-list" name="app" size="10" onchange="showPreview(this.value)">
 					<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
 					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"> <%=bean.getTemplates().get(i).getTemplateName() %></option>
 					<%}%>
@@ -91,25 +81,10 @@ var showPreview = function(str){
 				<%request.setAttribute("keyword-1", "A"); %>
 			</form>
 
-		</div></div>
+			<hr>
 
-		<div class="content-half"><div class="inner">
-
-<h1>プレビュー</h1>
-<div style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333;">
-<span id="preview">プレビュー</span>
-</div>
-<div style="clear:both;"></div>
-
-		</div></div>
-	</div>
-</div>
-
-<div id="main">
-	<div class="section">
-		<div class="content"><div class="inner">
-			<label><b>宛先</b></label>
 			<label class="common-combo-box">
+				<span>宛先</span>
 				<select name="atesaki">
 					<% for ( int i = 0; i < bean.getAddList().size() ; i++  ){%>
 						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getAddList().get(i).getAddressTypeName() %></option>
@@ -117,58 +92,73 @@ var showPreview = function(str){
 				</select>
 			</label>
 
-			<label><b>内容</b></label>
 			<label class="common-combo-box">
+				<span>内容</span>
 				<select name="naiyou" onchange="mashimashi(this.value)">
 					<% for ( int i = 0; i < bean.getPurList().size() ; i++  ){%>
 						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getPurList().get(i).getPurposeTypeName() %></option>
 					<% } %>
 				</select><br>
 			</label>
-			<script>
-					var mashimashi = function(num){
-						var el = document.getElementById("name");
-						el.innerHTML = purposeTypes[num].name;
-						var el = document.getElementById("element1");
-						el.innerHTML = purposeTypes[num].element1;
-						var el = document.getElementById("element2");
-						el.innerHTML = purposeTypes[num].element2;
-						var el = document.getElementById("element3");
-						el.innerHTML = purposeTypes[num].element3;
-
-					}
-					</script>
-			<b>その他</b><input name="keyword" type="text" ><br>
-
-			<b id="name">マシマシ</b>
-			<label class="common-radio-button">
-				<input type="radio" name="mashimashi" value="normal" checked="checked">
-				<span id="element1">ふつう</span>
-				</label>
-				<label class="common-radio-button">
-				<input type="radio" name="mashimashi" value="hard">
-				<span id="element2">マシ</span>
-				</label>
-				<label class="common-radio-button">
-				<input type="radio" name="mashimashi" value="extreme">
-				<span id="element3">マシマシ</span>
-				</label>
 			<br>
 
+			<label class="">
+				<span>その他</span>
+				<input name="keyword" type="text">
+			</label>
+			<br>
+
+			<div>
+				<span id="name">マシマシ</span>
+				<label class="common-radio-button">
+					<input type="radio" name="mashimashi" value="normal" checked="checked">
+					<span id="element1">ふつう</span>
+				</label>
+				<label class="common-radio-button">
+					<input type="radio" name="mashimashi" value="hard">
+					<span id="element2">マシ</span>
+				</label>
+				<label class="common-radio-button">
+					<input type="radio" name="mashimashi" value="extreme">
+					<span id="element3">マシマシ</span>
+				</label>
+				<script>
+						var mashimashi = function(num){
+							var el = document.getElementById("name");
+							el.innerHTML = purposeTypes[num].name;
+							var el = document.getElementById("element1");
+							el.innerHTML = purposeTypes[num].element1;
+							var el = document.getElementById("element2");
+							el.innerHTML = purposeTypes[num].element2;
+							var el = document.getElementById("element3");
+							el.innerHTML = purposeTypes[num].element3;
+
+						}
+				</script>
+			</div>
 
 			<label class="common-check-box">
-				<b>時候</b>
+				<span>時候</span>
 				<input name="keyword" type="checkbox" >
 			</label>
 			<br>
+
 			<button class="rounded-rectangle-button" type="submit" name="name" >再検索</button><br>
+
+		</div></div>
+
+		<div class="content-half"><div class="inner">
+
+			<h1>プレビュー</h1>
+			<div style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333;">
+				<span id="preview">プレビュー</span>
 			</div>
-		</div>
+			<div style="clear:both;"></div>
+
+		</div></div>
 	</div>
 </div>
 
-<form id="return_form" method="post" action="SelectTemplateServlet">
-</form>
 
 <div id="form"><div class="inner">
 	<button class="rounded-rectangle-button big-button" type="button" name="submit"
@@ -179,6 +169,9 @@ var showPreview = function(str){
 			onclick="javascript:return_form.submit()">
 		戻る
 	</button>
+
+	<form id="return_form" method="post" action="SelectTemplateServlet">
+	</form>
 </div></div>
 
 <div id="footer"><div class="inner">
