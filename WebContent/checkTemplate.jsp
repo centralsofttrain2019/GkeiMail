@@ -33,7 +33,7 @@
 					<h1>テンプレート選択</h1>
 					<div style="text-align: center;">
 						<div
-							style="display: inline-block; background: white; width: 80%; height: 500px; padding: 15px; border: 1px solid; border-radius: 10px; word-break: break-all;">
+							style="text-aline: left; display: inline-block; background: white; width: 80%; height: 500px; padding: 15px; border: 1px solid; border-radius: 10px; word-break: break-all;">
 							<%=bean.getTemplateContent()%></div>
 					</div>
 				</div>
@@ -41,23 +41,28 @@
 		</div>
 	</div>
 
+	<form id="OK_form" action="CreateMailServlet" method="post">
+	</form>
+
+	<form id="NO_form" action="DisplayTemplateListServlet" method="post">
+		<input name="atesaki" value="<%=bean.getAtesaki() %>" style="display: none">
+		<input name="naiyou" value="<%=bean.getNaiyou() %>" style="display: none">
+		<input name="keyword-1" value="<%=bean.getKeyword1() %>" style="display: none">
+		<input name="mashimashi" value="<%=bean.getMashimashi() %>" style="display: none">
+	</form>
 	<div id="form">
 		<div class="inner">
 			<div class="align-left inline-block">
-			<form action="CreateMailServlet" method="post">
-				<button class="rounded-rectangle-button big-button" type="submit"
-					name="ok" value="ok">OK</button>
-			</form>
-			<form action="DisplayTemplateListServlet" method="post">
-				<input name="atesaki" value="<%=bean.getAtesaki() %>" style="display: none">
-				<input name="naiyou" value="<%=bean.getNaiyou() %>" style="display: none">
-				<input name="keyword-1" value="<%=bean.getKeyword1() %>" style="display: none">
-				<input name="mashimashi" value="<%=bean.getMashimashi() %>" style="display: none">
-				<button class="rounded-rectangle-button big-button" type="submit"
-					name="no" value="no">
+				<button class="rounded-rectangle-button big-button" type="button"
+					name="ok" value="ok"
+					onclick="javascript:OK_form.submit()">
+					OK</button>
+
+				<button class="rounded-rectangle-button big-button" type="button"
+					name="no" value="no"
+					onclick="javascript:NO_form.submit()">
 					やり直す
 				</button>
-			</form>
 			</div>
 			<div style="text-align: right;">
 				<button class="rounded-rectangle-button"  type="submit" name="iine">☆いいね</button>
