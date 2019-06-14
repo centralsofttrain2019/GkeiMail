@@ -45,6 +45,8 @@
 	</form>
 
 	<form id="NO_form" action="DisplayTemplateListServlet" method="post">
+<!-- 		DisplayTemplateListServletの呼び出し -->
+<!-- 		そのために宛先や内容の値を再入力しています -->
 		<input name="atesaki" value="<%=bean.getAtesaki() %>" style="display: none">
 		<input name="naiyou" value="<%=bean.getNaiyou() %>" style="display: none">
 		<input name="keyword-1" value="<%=bean.getKeyword1() %>" style="display: none">
