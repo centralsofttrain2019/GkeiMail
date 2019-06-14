@@ -49,10 +49,10 @@
 					name="ok" value="ok">OK</button>
 			</form>
 			<form action="DisplayTemplateListServlet" method="post">
-				<input name="atesaki" value="1" style="display: none">
-				<input name="naiyou" value="1" style="display: none">
-				<input name="keyword-1" value="A" style="display: none">
-				<input name="mashimashi" value="1" style="display: none">
+				<input name="atesaki" value="<%=bean.getAtesaki() %>" style="display: none">
+				<input name="naiyou" value="<%=bean.getNaiyou() %>" style="display: none">
+				<input name="keyword-1" value="<%=bean.getKeyword1() %>" style="display: none">
+				<input name="mashimashi" value="<%=bean.getMashimashi() %>" style="display: none">
 				<button class="rounded-rectangle-button big-button" type="submit"
 					name="no" value="no">
 					やり直す
@@ -64,6 +64,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

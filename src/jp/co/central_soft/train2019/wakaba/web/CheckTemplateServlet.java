@@ -28,6 +28,7 @@ public class CheckTemplateServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -35,8 +36,12 @@ public class CheckTemplateServlet extends HttpServlet {
 
 		//TemplateService service = new TemplateService();
 		CheckTemplateBean bean = new CheckTemplateBean();
-		bean.setTemplateContent(request.getParameter("app"));
+		bean.setAtesaki( Integer.parseInt( request.getParameter("atesaki") ));
+		bean.setNaiyou( Integer.parseInt( request.getParameter("naiyou") ));
+		bean.setKeyword1( request.getParameter("keyword-1"));
+		bean.setMashimashi( Integer.parseInt(request.getParameter("mashimashi")));
 
+		bean.setTemplateContent(request.getParameter("app"));
 
 		//TemplateDto dto = service.getTemplateByKey(app);
 		//bean.setTemplateContent(dto.getTemplateContent());

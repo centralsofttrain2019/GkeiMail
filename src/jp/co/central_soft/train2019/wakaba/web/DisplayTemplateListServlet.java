@@ -31,11 +31,16 @@ public class DisplayTemplateListServlet extends HttpServlet {
 		List<TemplateDto> tmpList = null;
 		DisplayTemplateListBean bean = new DisplayTemplateListBean();
 
+		int atesaki = Integer.parseInt(request.getParameter("atesaki"));
+		int naiyou = Integer.parseInt(request.getParameter("naiyou"));
+		String keyword1 = request.getParameter("keyword-1");
+		int mashimashi = Integer.parseInt(request.getParameter("mashimashi"));
 		tmpList = tmpse.getTemplateList(
-				Integer.parseInt(request.getParameter("atesaki")),
-				Integer.parseInt(request.getParameter("naiyou")) ,
-				request.getParameter("keyword-1"),
-				Integer.parseInt(request.getParameter("mashimashi")) );
+				atesaki,
+				 naiyou,
+				keyword1,
+				mashimashi
+				 );
 
 		bean.putFromDtoListToTemplates(tmpList);
 		List<AddressTypeDto> addList = null;
@@ -52,6 +57,10 @@ public class DisplayTemplateListServlet extends HttpServlet {
 		{
 			bean.putFromDtoToPurposeTypes(purDto);
 		}
+		bean.setAtesaki(atesaki);
+		bean.setNaiyou(naiyou);
+		bean.setKeyword1(keyword1);
+		bean.setMashimashi(mashimashi);
 		request.setAttribute("bean", bean);
 		//JSPに遷移する
 		RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");
