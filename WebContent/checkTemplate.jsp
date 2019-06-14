@@ -43,7 +43,7 @@
 
 	<div id="form">
 		<div class="inner">
-			<div>
+			<div class="align-left inline-block">
 			<form action="CreateMailServlet" method="post">
 				<button class="rounded-rectangle-button big-button" type="submit"
 					name="ok" value="ok">OK</button>

@@ -31,7 +31,8 @@ public class SelectTemplateServlet extends HttpServlet {
 
 		List<AddressTypeDto> addList = tmpService.getAddressTypeList();
 		List<PurposeTypeDto> purList = tmpService.getPurposeTypeList();
-
+		bean.setAddList(addList);
+		bean.setPurList(purList);
 		for(AddressTypeDto addDto : addList)
 		{
 			bean.putFromDtoToAddressTypes(addDto);

@@ -83,6 +83,7 @@ var showPreview = function(str){
 					<%}%>
 					</select>
 				</label>
+				<%request.setAttribute("keyword-1", "A"); %>
 			</form>
 
 		</div></div>
@@ -105,20 +106,18 @@ var showPreview = function(str){
 			<label><b>宛先</b></label>
 			<label class="common-combo-box">
 				<select name="atesaki">
-					<option value="0">----</option>
 					<% for ( int i = 0; i < bean.getAddList().size() ; i++  ){%>
-							<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getAddList().get(i).getAddressTypeName() %></option>
-							<% } %>
+						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getAddList().get(i).getAddressTypeName() %></option>
+					<% } %>
 				</select>
 			</label>
 
 			<label><b>内容</b></label>
 			<label class="common-combo-box">
 				<select name="naiyou" onchange="mashimashi(this.value)">
-					<option value="0">----</option>
 					<% for ( int i = 0; i < bean.getPurList().size() ; i++  ){%>
-							<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getPurList().get(i).getPurposeTypeName() %></option>
-							<% } %>
+						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getPurList().get(i).getPurposeTypeName() %></option>
+					<% } %>
 				</select><br>
 			</label>
 			<script>

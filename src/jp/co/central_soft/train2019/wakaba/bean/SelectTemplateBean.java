@@ -1,6 +1,7 @@
 package jp.co.central_soft.train2019.wakaba.bean;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import jp.co.central_soft.train2019.wakaba.dto.AddressTypeDto;
@@ -10,6 +11,23 @@ public class SelectTemplateBean {
 
 	private Map<Integer, String> addressTypes;
 	private Map<Integer, String> purposeTypes;
+	private List<AddressTypeDto> addList ;
+	private List<PurposeTypeDto> purList ;
+
+
+	public List<AddressTypeDto> getAddList() {
+		return addList;
+	}
+	public void setAddList(List<AddressTypeDto> addList) {
+		this.addList = addList;
+	}
+	public List<PurposeTypeDto> getPurList() {
+		return purList;
+	}
+	public void setPurList(List<PurposeTypeDto> purList) {
+		this.purList = purList;
+	}
+
 
 	public SelectTemplateBean() {
 		this.addressTypes = new HashMap<>();
