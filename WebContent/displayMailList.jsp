@@ -8,7 +8,7 @@
 
 <meta charset="utf-8">
 <link rel="stylesheet" href="common.css">
-<title>メール表示一覧画面</title>
+<title>メール一覧表示画面</title>
 <meta name="description" content="テストHTML">
 
 <style>
@@ -24,6 +24,14 @@
 	.non-margin {
 		margin: 0;
 	}
+	.sidebar-button {
+		color: #FAFAFA;
+		text-decoration: none;
+	}
+	#button-return {
+	}
+	#button-reply {
+	}
 </style>
 
 </head>
@@ -37,8 +45,8 @@
 <div id="navigation"><div class="inner">
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
-		<li><button class="rounded-rectangle-button">新規作成</button></li>
-		<li><button class="rounded-rectangle-button">ごみ箱</button></li>
+		<li><button id="button-new" class="rectangle-button">新規作成</button></li>
+		<li><button id="button-trash" class="rectangle-button">ごみ箱</button></li>
 	</ul>
 	<div class="float-right">
 		<form>
@@ -64,15 +72,15 @@
 	</div>
 	<div id="sidebar"><div class="inner">
 		<ul class="sidebar-menu">
-			<li>受信箱</li>
-			<li>下書き</li>
-			<li>送信済み</li>
+			<li><a class="sidebar-button" href="javascript:void(0)">受信箱</a></li>
+			<li><a class="sidebar-button" href="javascript:void(0)">下書き</a></li>
+			<li><a class="sidebar-button" href="javascript:void(0)">送信済み</a></li>
 		</ul>
 	</div></div>
 </div>
 
 <div id="footer"><div class="inner">
-	<p class="non-margin">Copyrightアンコちゃん</p>
+	<p class="non-margin">© 2019 アンコちゃんチーム</p>
 </div></div>
 
 </body>
