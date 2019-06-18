@@ -18,7 +18,7 @@ public class CreateMailServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String button = request.getParameter("button");
-		if(button.equals("send")) {
+		if (button.equals("send")) {
 			String atesaki = request.getParameter("atesaki");
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
@@ -29,9 +29,6 @@ public class CreateMailServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/DisplayTemplateListServlet");
 			rd.forward(request, response);
 		}
-
-
-
 		RequestDispatcher rd = request.getRequestDispatcher("/createMail.jsp");
 		rd.forward(request, response);
 	}
