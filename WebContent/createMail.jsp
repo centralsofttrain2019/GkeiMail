@@ -59,11 +59,7 @@
 				宛先<input name="atesaki" type="text" size="80"><br> <br>
 				件名<input name="kenmei" type="text" size="80"><br> <br>
 				<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
-					cols="90">
-<%-- 					<%if(bean.getContent() != null) {%> --%>
-<%-- 					<%=bean.getContent() %> --%>
-<%-- 					<% } %> --%>
-				</textarea>
+					cols="90"><%if(bean.getContent() != null) {%><%=bean.getContent() %><% } %></textarea>
 				<br>
 			</div></div>
 		</div>

@@ -20,9 +20,11 @@ public class CreateMailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		//0遷移元のページによってfromPageの値を変更してくださいby安達
 		String fromPage = request.getParameter("fromPage");
 		RequestDispatcher rd = null;
 		if (fromPage.equals("send")) {
+			//1メール送信時の動作
 			String atesaki = request.getParameter("atesaki");
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
@@ -33,6 +35,7 @@ public class CreateMailServlet extends HttpServlet {
 			rd = request.getRequestDispatcher("/DisplayMailListServlet");
 		}
 		else if(fromPage.equals("template")) {
+			//2テンプレート確認画面からメール本文にテンプレートを挿入するときの動作
 			String content = request.getParameter("content");
 
 			CreateMailBean bean = new CreateMailBean();
