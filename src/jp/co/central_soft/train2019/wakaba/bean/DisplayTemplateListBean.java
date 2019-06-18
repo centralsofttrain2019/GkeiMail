@@ -85,12 +85,27 @@ public class DisplayTemplateListBean {
 	private int naiyou;
 	private String keyword1;
 	private int mashimashi;
+	private List<String> mashiList;
 
 	public DisplayTemplateListBean() {
 		this.addressTypes = new HashMap<>();
 		this.purposeTypes = new HashMap<>();
 		this.templates = new ArrayList<>();
 	}
+
+
+
+	public List<String> getMashiList() {
+		return mashiList;
+	}
+
+
+
+	public void setMashiList(List<String> mashiList) {
+		this.mashiList = mashiList;
+	}
+
+
 
 	public List<AddressTypeDto> getAddList() {
 		return addList;

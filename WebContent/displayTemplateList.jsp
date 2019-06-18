@@ -45,6 +45,8 @@ var purposeTypes = {};
 		element3: '<%=purposeType.getMashiMashiType().getElement3() %>',
 	}
 <% } %>
+
+
 </script>
 <script>
 var showPreview = function(str){
@@ -65,7 +67,7 @@ var showPreview = function(str){
 	<div class="section">
 		<div class="content-half"><div class="inner">
 			<h1>テンプレート一覧</h1><br>
-
+			<h2> 宛先:(<%=bean.getAddList().get(bean.getAtesaki()-1).getAddressTypeName()%>)内容:(<%=bean.getPurList().get(bean.getNaiyou()-1).getPurposeTypeName()%>)</br>マシマシ度:(<%=bean.getMashiList().get(bean.getMashimashi() -1 ) %>)</h2><br>
 			<label class="common-combo-box wide-margin float-right">
 				<span>ソート基準</span>
 				<select name="sort">
@@ -78,7 +80,7 @@ var showPreview = function(str){
 				<label class="common-list-box wide-margin block">
 					<select class="template-list" name="app" size="10" onchange="showPreview(this.value)">
 					<% for ( int i = 0; i < bean.getTemplates().size() ; i++  ){%>
-					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"<%if(i == 0){%>selected<%}%>> <%=bean.getTemplates().get(i).getTemplateName() %></option>
+					<option value="<%= bean.getTemplates().get(i).getTemplateContent() %>"<%if(i == 0){%>selected<%}%>> <%=bean.getTemplates().get(i).getTemplateName() %>(<%=bean.getMashiList().get(bean.getTemplates().get(i).getMashiMashiValue() -1 ) %>)</option>
 					<%}%>
 					</select>
 				</label>
@@ -94,7 +96,7 @@ var showPreview = function(str){
 				<span>宛先</span>
 				<select name="atesaki">
 					<% for ( int i = 0; i < bean.getAddList().size() ; i++  ){%>
-						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getAddList().get(i).getAddressTypeName() %></option>
+						<option value="<%=i+1 %>"<%if(i == bean.getAtesaki() - 1){%>selected<%}%>><%=bean.getAddList().get(i).getAddressTypeName() %></option>
 					<% } %>
 				</select>
 			</label>
@@ -103,7 +105,7 @@ var showPreview = function(str){
 				<span>内容</span>
 				<select name="naiyou" onchange="mashimashi(this.value)">
 					<% for ( int i = 0; i < bean.getPurList().size() ; i++  ){%>
-						<option value="<%=i+1 %>"<%if(i == 0){%>selected<%}%>><%=bean.getPurList().get(i).getPurposeTypeName() %></option>
+						<option value="<%=i+1 %>"<%if(i == bean.getNaiyou() - 1){%>selected<%}%>><%=bean.getPurList().get(i).getPurposeTypeName() %></option>
 					<% } %>
 				</select><br>
 			</label>
@@ -119,15 +121,15 @@ var showPreview = function(str){
 				<span id="name"><%=bean.getPurList().get(0).getMashiMashiType().getName() %></span>
 				<label class="common-radio-button">
 					<span id="element1"><%=bean.getPurList().get(0).getMashiMashiType().getElement1() %></span>
-					<input type="radio" name="mashimashi" value="normal" checked="checked">
+					<input type="radio" name="mashimashi" value="1" checked="checked">
 				</label>
 				<label class="common-radio-button">
 					<span id="element2"><%=bean.getPurList().get(0).getMashiMashiType().getElement2() %></span>
-					<input type="radio" name="mashimashi" value="hard">
+					<input type="radio" name="mashimashi" value="2" >
 				</label>
 				<label class="common-radio-button">
 					<span id="element3"><%=bean.getPurList().get(0).getMashiMashiType().getElement3() %></span>
-					<input type="radio" name="mashimashi" value="extreme">
+					<input type="radio" name="mashimashi" value="3" >
 				</label>
 				<script>
 						var mashimashi = function(num){

@@ -36,7 +36,7 @@ public class TemplateService
 		{
 			int dx = Math.abs(x.getMashiMashiValue() - this.mashiMashiValue);
 			int dy = Math.abs(y.getMashiMashiValue() - this.mashiMashiValue);
-			return -(dx - dy);
+			return (dx - dy);
 		}
 	}
 
@@ -48,9 +48,12 @@ public class TemplateService
 
 		try(Connection con = Dao.getConnection()) {
 			TemplateDao dao = new TemplateDao(con);
-			if( keyword.equals("") ) {
+			if( keyword.equals("") )
+			{
 				list = dao.findByAddressAndPurpose(addressTypeID, purposeTypeID);
-			} else {
+			}
+			else
+			{
 				list = dao.findByAddressAndPurposeAndKeywords(
 						addressTypeID, purposeTypeID, keyword);
 			}
@@ -101,5 +104,31 @@ public class TemplateService
 			throw new ServletException(e);
 		}
 		return td;
+	}
+
+	public AddressTypeDto getAddressTypeByKey(int id) throws ServletException
+	{
+		AddressTypeDto addressDto = null;
+		try( Connection con = Dao.getConnection() ){
+			AddressTypeDao dao = new AddressTypeDao(con);
+			addressDto = dao.findByKey(id);
+		} catch ( ClassNotFoundException|SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
+		return addressDto;
+	}
+
+	public PurposeTypeDto getPurposeTypeByKey(int id) throws ServletException
+	{
+		PurposeTypeDto purposeDto = null;
+		try( Connection con = Dao.getConnection() ){
+			PurposeTypeDao dao = new PurposeTypeDao(con);
+			purposeDto = dao.findByKey(id);
+		} catch ( ClassNotFoundException|SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
+		return purposeDto;
 	}
 }

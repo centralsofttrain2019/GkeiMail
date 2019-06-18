@@ -1,6 +1,7 @@
 package jp.co.central_soft.train2019.wakaba.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -30,7 +31,6 @@ public class DisplayTemplateListServlet extends HttpServlet {
 		TemplateService tmpse = new TemplateService();
 		List<TemplateDto> tmpList = null;
 		DisplayTemplateListBean bean = new DisplayTemplateListBean();
-
 		int atesaki = Integer.parseInt(request.getParameter("atesaki"));
 		int naiyou = Integer.parseInt(request.getParameter("naiyou"));
 		String keyword1 = request.getParameter("keyword-1");
@@ -41,30 +41,40 @@ public class DisplayTemplateListServlet extends HttpServlet {
 				keyword1,
 				mashimashi
 				 );
-
 		bean.putFromDtoListToTemplates(tmpList);
-		List<AddressTypeDto> addList = null;
-		List<PurposeTypeDto> purList = null;
-		addList = tmpse.getAddressTypeList();
-		purList = tmpse.getPurposeTypeList();
+		List<AddressTypeDto> addList = tmpse.getAddressTypeList();
+		List<PurposeTypeDto> purList = tmpse.getPurposeTypeList();
+
+
+
 		bean.setAddList(addList);
 		bean.setPurList(purList);
-		for(AddressTypeDto addDto : addList)
-		{
-			bean.putFromDtoToAddressTypes(addDto);
-		}
-		for(PurposeTypeDto purDto : purList)
-		{
-			bean.putFromDtoToPurposeTypes(purDto);
-		}
+
 		bean.setAtesaki(atesaki);
 		bean.setNaiyou(naiyou);
 		bean.setKeyword1(keyword1);
 		bean.setMashimashi(mashimashi);
+
+		List<String> mashiList = new ArrayList<String>();
+		mashiList.add(bean.getPurList().get(bean.getNaiyou() -1 ).getMashiMashiType().getElement1());
+		mashiList.add(bean.getPurList().get(bean.getNaiyou() -1 ).getMashiMashiType().getElement2());
+		mashiList.add(bean.getPurList().get(bean.getNaiyou() -1 ).getMashiMashiType().getElement3());
+
+		bean.setMashiList(mashiList);
+		System.out.print(mashiList.toString());
 		request.setAttribute("bean", bean);
-		//JSPに遷移する
-		RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");
-		rd.forward(request, response);
+		if(bean.getTemplates().size() == 0)
+		{
+			RequestDispatcher rd = request.getRequestDispatcher("/error.jsp");
+			rd.forward(request, response);
+		}
+		else
+		{
+			//JSPに遷移する
+			RequestDispatcher rd = request.getRequestDispatcher("/displayTemplateList.jsp");
+			rd.forward(request, response);
+		}
+
 	}
 
 	@Override
