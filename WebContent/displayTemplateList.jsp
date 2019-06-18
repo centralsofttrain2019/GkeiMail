@@ -67,7 +67,7 @@ var showPreview = function(str){
 	<div class="section">
 		<div class="content-half"><div class="inner">
 			<h1>テンプレート一覧</h1><br>
-			<h2> 宛先:(<%=bean.getAddList().get(bean.getAtesaki()-1).getAddressTypeName()%>)内容:(<%=bean.getPurList().get(bean.getNaiyou()-1).getPurposeTypeName()%>)</br>マシマシ度:(<%=bean.getMashiList().get(bean.getMashimashi() -1 ) %>)</h2><br>
+			<h2> 宛先:(<%=bean.getAddList().get(bean.getAtesaki()-1).getAddressTypeName()%>)内容:(<%=bean.getPurList().get(bean.getNaiyou()-1).getPurposeTypeName()%>)<br>マシマシ度:(<%=bean.getMashiList().get(bean.getMashimashi() -1 ) %>)</h2><br>
 			<label class="common-combo-box wide-margin float-right">
 				<span>ソート基準</span>
 				<select name="sort">
