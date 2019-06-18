@@ -9,3 +9,6 @@ https://qiita.com/yoh-nak/items/bff51637fa4f558b37ac
 
 JavaMailの受信と送信サンプル
 http://a4dosanddos.hatenablog.com/entry/2015/04/16/014901
+
+simpleMailを用いてGmailでの送信方法
+https://github.com/bbottema/simple-java-mail/issues/23
