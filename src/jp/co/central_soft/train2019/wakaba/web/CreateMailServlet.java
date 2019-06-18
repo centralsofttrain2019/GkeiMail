@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.central_soft.train2019.wakaba.service.MailService;
+
 @WebServlet("/CreateMailServlet")
 public class CreateMailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,8 +25,8 @@ public class CreateMailServlet extends HttpServlet {
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
 
-			//MailService service = new MailService();
-			//service.sendMail(atesaki,kenmei,honbun,1);
+			MailService service = new MailService();
+			service.sendMail(atesaki,kenmei,honbun,1);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/DisplayTemplateListServlet");
 			rd.forward(request, response);

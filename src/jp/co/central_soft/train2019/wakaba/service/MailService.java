@@ -11,7 +11,7 @@ import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
 
 public class MailService
 {
-	public void sendMail(int id) throws ServletException
+	public void sendMail(String atesaki, String kenmei, String honbun, int id) throws ServletException
 	{
 		MailServerDto serverDto = this.getServerInformation(id);
 
