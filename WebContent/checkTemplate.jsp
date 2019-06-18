@@ -42,6 +42,8 @@
 	</div>
 
 	<form id="OK_form" action="CreateMailServlet" method="post">
+		<input type="hidden" name="fromPage" value="template">
+		<input type="hidden" name="content" value="<%=bean.getTemplateContent() %>">
 	</form>
 
 	<form id="NO_form" action="DisplayTemplateListServlet" method="post">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.CreateMailBean" scope="request"/>
 <html>
 <head>
 <link rel="stylesheet" href="common.css">
@@ -46,7 +47,7 @@
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
 		<li><button id="button-return" class="rectangle-button">戻る</button></li>
-		<li><button id="button-send" name="button" value="send" class="rectangle-button">メール送信</button></li>
+		<li><button id="button-send" name="fromPage" value="send" class="rectangle-button">メール送信</button></li>
 		<li><button id="select-template" class="rectangle-button temp">テンプレート選択</button></li>
 	</ul>
 	</div></div>
@@ -57,7 +58,11 @@
 				宛先<input name="atesaki" type="text" size="80"><br> <br>
 				件名<input name="kenmei" type="text" size="80"><br> <br>
 				<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
-					cols="90"></textarea>
+					cols="90">
+<%-- 					<%if(bean.getContent() != null) {%> --%>
+<%-- 					<%=bean.getContent() %> --%>
+<%-- 					<% } %> --%>
+				</textarea>
 				<br>
 			</div></div>
 		</div>
