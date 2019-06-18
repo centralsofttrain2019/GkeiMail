@@ -3,27 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-div#subContents {
-	width: 10%;
-	height: 100%;
-	background: #F7F7F7;
-	padding: 10px;
-	position: fixed;
-	z-index: 20;
-	background: #F7F7F7;
-}
+<link rel="stylesheet" href="common.css">
+<style>
 
-* html div#subContents {
-	position: absolute;
-	top: expression(eval(document.documentElement.scrollTop +100));
+.non-margin {
+	margin: 0;
 }
-
-.main {
-	width: 70%;
-	margin: 0 auto;
-}
-
 .btn_template {
 	position: absolute;
 	top: 10px;
@@ -37,42 +22,58 @@ div#subContents {
 	border: solid 1px black;
 	font-size: 150%;
 }
+.sidebar-button {
+	color: #FAFAFA;
+	text-decoration: none;
+}
+.temp {
+	word-break: keep-all;
+	font-size: 70%;
+}
 </style>
 
 <meta charset="UTF-8">
-<title>mailsakusei</title>
+<meta name="description" content="G系メール">
+<title>メール作成画面</title>
 </head>
 <body>
-	<!-- %if(flag = 0){ % -->
-	<p>
-		<a class="btn_template" href="#">テ</a>
-	</p>
-	<!--% } %-->
-
-	<h1>G</h1>
-	<div id="subContents">
-		<ul class="category">
-			<li><a href="" title="New">New</a></li>
-			<li><a href="" title="受信箱">受信箱</a></li>
-			<li><a href="" title="下書き">下書き</a></li>
-			<li><a href="" title="送信済み">送信済み</a></li>
-			<li><a href="" title="ゴミ箱">ゴミ箱</a></li>
-			<!--/ .category-->
-		</ul>
-		<!--/ #subContents-->
-	</div>
-
-	<div class="main">
-		<div class="box" id="menu01">
-			title<input name="atesaki" type="text"><br> <br>
-			from<input name="kenmei" type="text"><br> <br>
-			<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
-				cols="90"><!-- % if(){ % --></textarea>
-			<br>
-			<button type="submit" name="name">送信</button>
-			<input type="button" value="戻る" onclick="history.back()">
+	<div id="header">
+		<div class="inner">
+		<p class="non-margin">G系メール(メール作成画面)</p>
 		</div>
 	</div>
+	<div id="navigation"><div class="inner">
+	<img class="logo" src="./logo.png" alt="logo-image" />
+	<ul>
+		<li><button id="button-return" class="rectangle-button">戻る</button></li>
+		<li><button id="button-send" name="button" value="send" class="rectangle-button">メール送信</button></li>
+		<li><button id="select-template" class="rectangle-button temp">テンプレート選択</button></li>
+	</ul>
+	</div></div>
 
+	<div id="main">
+		<div id="section">
+			<div class="content"><div class="inner">
+				宛先<input name="atesaki" type="text" size="80"><br> <br>
+				件名<input name="kenmei" type="text" size="80"><br> <br>
+				<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
+					cols="90"></textarea>
+				<br>
+			</div></div>
+		</div>
+		<div id="sidebar"><div class="inner">
+			<ul class="sidebar-menu">
+				<li><a href="" class="sidebar-button">受信箱</a></li>
+				<li><a href="" class="sidebar-button">下書き</a></li>
+				<li><a href="" class="sidebar-button">送信済み</a></li>
+			</ul>
+		</div></div>
+	</div>
+
+	<div id="footer">
+		<div class="inner">
+		<p class="non-margin">© 2019 アンコちゃんチーム</p>
+		</div>
+	</div>
 </body>
 </html>
