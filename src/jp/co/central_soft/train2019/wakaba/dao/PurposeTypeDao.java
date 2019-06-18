@@ -19,6 +19,11 @@ public class PurposeTypeDao
 	private static final String FIND_ALL =
 			"SELECT * FROM PurposeType";
 
+	private static final String FIND_BY_KEY =
+			"SELECT * "
+			+ "FROM PurposeType "
+			+ "WHERE PurposeTypeID = ?";
+
 	public PurposeTypeDao(Connection con)
 	{
 		this.con = con;
@@ -51,5 +56,22 @@ public class PurposeTypeDao
 			throw e;
 		}
 		return purList;
+	}
+
+	public PurposeTypeDto findByKey(int id) throws SQLException
+	{
+		PurposeTypeDto purposeDto = new PurposeTypeDto();
+
+		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_KEY) )
+		{
+			pstmt.setInt(1, id);
+
+			ResultSet rs = pstmt.executeQuery();
+			if( rs.next() )
+			{
+				purposeDto.setPurposeTypeName(rs.getString("PurposeTypeName"));
+			}
+		}
+		return purposeDto;
 	}
 }

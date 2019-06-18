@@ -18,6 +18,11 @@ public class AddressTypeDao
 	private static final String FIND_ALL =
 			"SELECT * FROM AddressType";
 
+	private static final String FIND_BY_KEY =
+			"SELECT * "
+			+ "FROM AddressType "
+			+ "WHERE AddressTypeID = ?";
+
 	public AddressTypeDao(Connection con)
 	{
 		this.con = con;
@@ -49,5 +54,22 @@ public class AddressTypeDao
 			throw e;
 		}
 		return adrList;
+	}
+
+	public AddressTypeDto findByKey(int id) throws SQLException
+	{
+		AddressTypeDto addressDto = new AddressTypeDto();
+
+		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_KEY) )
+		{
+			pstmt.setInt(1, id);
+
+			ResultSet rs = pstmt.executeQuery();
+			if( rs.next() )
+			{
+				addressDto.setAddressTypeName(rs.getString("AddressTypeName"));
+			}
+		}
+		return addressDto;
 	}
 }
