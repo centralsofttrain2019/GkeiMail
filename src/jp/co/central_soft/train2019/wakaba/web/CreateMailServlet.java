@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.central_soft.train2019.wakaba.bean.CreateMailBean;
 import jp.co.central_soft.train2019.wakaba.service.MailService;
 
 @WebServlet("/CreateMailServlet")
@@ -19,8 +20,9 @@ public class CreateMailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String button = request.getParameter("button");
-		if (button.equals("send")) {
+		String fromPage = request.getParameter("fromPage");
+		RequestDispatcher rd = null;
+		if (fromPage.equals("send")) {
 			String atesaki = request.getParameter("atesaki");
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
@@ -28,10 +30,17 @@ public class CreateMailServlet extends HttpServlet {
 			MailService service = new MailService();
 			service.sendMail(atesaki,kenmei,honbun,1);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/DisplayTemplateListServlet");
-			rd.forward(request, response);
+			rd = request.getRequestDispatcher("/DisplayTemplateListServlet");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/createMail.jsp");
+		else if(fromPage.equals("template")) {
+			String content = request.getParameter("content");
+
+			CreateMailBean bean = new CreateMailBean();
+			bean.setContent(content);
+
+			request.setAttribute("bean", bean);
+			rd = request.getRequestDispatcher("/createMail.jsp");
+		}
 		rd.forward(request, response);
 	}
 
