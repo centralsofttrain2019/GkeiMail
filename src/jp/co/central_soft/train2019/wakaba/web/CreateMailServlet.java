@@ -44,6 +44,10 @@ public class CreateMailServlet extends HttpServlet {
 			request.setAttribute("bean", bean);
 			rd = request.getRequestDispatcher("/createMail.jsp");
 		}
+		else {
+			//3新規作成、返信、その他のときの処理
+			rd = request.getRequestDispatcher("/createMail.jsp");
+		}
 		rd.forward(request, response);
 	}
 
