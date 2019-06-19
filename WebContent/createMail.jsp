@@ -50,7 +50,7 @@
 		<button id="button-return" class="rectangle-button">戻る</button></form></li>
 		<li><form id="send_form" action="CreateMailServlet" method="post">
 		<button id="button-send" name="fromPage" value="send" class="rectangle-button" onclick="submit()">メール送信</button></form></li>
-		<li><button id="select-template" class="rectangle-button temp">テンプレート選択</button></li>
+		<li><button id="select-template" class="rectangle-button temp"><%=bean.getTemplateBottonLabel()%></button></li>
 	</ul>
 	</div></div>
 
