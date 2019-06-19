@@ -33,8 +33,8 @@ public class MailServerDao
 			if( rs.next() )
 			{
 				serverDto.setSMTPServer(rs.getString("SMTPServer"));
-				System.out.println(serverDto.getPOPServer());
 				serverDto.setSMTPPort(rs.getInt("SMTPPort"));
+				System.out.println("SMTPServer"+ serverDto.getSMTPServer() + "Port" + serverDto.getSMTPPort());
 			}
 		}
 		return serverDto;

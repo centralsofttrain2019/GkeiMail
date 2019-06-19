@@ -46,7 +46,8 @@
 	<div id="navigation"><div class="inner">
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
-		<li><button id="button-return" class="rectangle-button">戻る</button></li>
+		<li><form action="DisplayMailListServlet" method="post">
+		<button id="button-return" class="rectangle-button">戻る</button></form></li>
 		<li><form id="send_form" action="CreateMailServlet" method="post">
 		<button id="button-send" name="fromPage" value="send" class="rectangle-button" onclick="submit()">メール送信</button></form></li>
 		<li><button id="select-template" class="rectangle-button temp">テンプレート選択</button></li>
@@ -59,11 +60,7 @@
 				宛先<input name="atesaki" type="text" size="80"><br> <br>
 				件名<input name="kenmei" type="text" size="80"><br> <br>
 				<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
-					cols="90">
-<%-- 					<%if(bean.getContent() != null) {%> --%>
-<%-- 					<%=bean.getContent() %> --%>
-<%-- 					<% } %> --%>
-				</textarea>
+					cols="90"><%if(bean.getContent() != null) {%><%=bean.getContent() %><% } %></textarea>
 				<br>
 			</div></div>
 		</div>

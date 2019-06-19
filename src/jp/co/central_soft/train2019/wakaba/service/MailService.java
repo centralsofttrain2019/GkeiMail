@@ -1,15 +1,17 @@
 package jp.co.central_soft.train2019.wakaba.service;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 
+import org.simplejavamail.converter.EmailConverter;
 import org.simplejavamail.email.Email;
 import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.Mailer;
 import org.simplejavamail.mailer.MailerBuilder;
-import org.simplejavamail.mailer.config.TransportStrategy;
 
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
@@ -35,26 +37,32 @@ public class MailService
 			e.printStackTrace();
 			throw new ServletException(e);
 		}
-		System.out.println(serverDto.getPOPServer() + serverDto.getPOPPort());
 		return serverDto;
 	}
 
 	 private static void sendBySimpleJavaMail(String atesaki, String kenmei, String honbun,MailServerDto serverDto)
 	 {
-	        Email email = EmailBuilder.startingBlank()
-	                .from("kikutaro_from", "kunita.test@gmail.com")
-	                .to("kikutaro_to", atesaki)
-	                .withSubject(kenmei)
-	                .withPlainText(honbun)
+		 	Email email = EmailBuilder.startingBlank()
+	                .from("kikutaro_from", "tibikuribo@gmail.com")
+	                .to("kikutaro_to", "kunita.test@gmail.com")
+	                .withSubject("Test subject")
+	                .withPlainText("Fxxkin'")
 	                .buildEmail();
+		 	try {
+				EmailConverter.emailToMimeMessage(email)
+						.writeTo(System.out);
+			} catch (IOException | MessagingException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 	        Mailer mailer = MailerBuilder
-	                .withSMTPServer(serverDto.getSMTPServer(), serverDto.getSMTPPort(),	"kunita.test@gmail.com","aa11aa11")
-	                .withTransportStrategy(TransportStrategy.SMTP_TLS)
-	                .withProxy("socksproxy.host.com", 1080, "proxy user", "proxy password")
-	                .withSessionTimeout(10 * 1000)
-	                .clearEmailAddressCriteria() // turns off email validation
+	                .withSMTPServer("smtp.gmail.com", 587,"tibikuribo@gmail.com","yu0716ya")
+//	                .withTransportStrategy(TransportStrategy.SMTP_TLS)
+//	                .withProxy("socksproxy.host.com", 1080, "proxy user", "proxy password")
+//	                .withSessionTimeout(10 * 1000)
+//	                .clearEmailAddressCriteria() // turns off email validation
 //	                .withProperty("mail.smtp.sendpartial", true)
-	                .withDebugLogging(true)
+//	                .withDebugLogging(true)
 	                .buildMailer();
 	        mailer.sendMail(email);
 	  }

@@ -22,7 +22,9 @@ public class CreateMailServlet extends HttpServlet {
 
 		String fromPage = request.getParameter("fromPage");
 		RequestDispatcher rd = null;
+		System.out.println(fromPage);
 		if (fromPage.equals("send")) {
+			System.out.println("aa");
 			String atesaki = request.getParameter("atesaki");
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
@@ -39,6 +41,10 @@ public class CreateMailServlet extends HttpServlet {
 			bean.setContent(content);
 
 			request.setAttribute("bean", bean);
+			rd = request.getRequestDispatcher("/createMail.jsp");
+		}
+		else {
+			//3新規作成、返信、その他のときの処理
 			rd = request.getRequestDispatcher("/createMail.jsp");
 		}
 		rd.forward(request, response);

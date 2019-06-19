@@ -20,7 +20,7 @@ dependencies {
 	tomcat 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42',
 	       'org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2',
 	       'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.42'
-	providedRuntime fileTree(dir: 'WebContent/WEB-INF/lib', include: '*.jar')
+	api fileTree(dir: 'WebContent/WEB-INF/lib', include: '*.jar')
 }
 
 sourceCompatibility = '1.8'
