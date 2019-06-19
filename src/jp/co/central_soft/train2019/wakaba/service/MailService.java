@@ -3,7 +3,6 @@ package jp.co.central_soft.train2019.wakaba.service;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -17,6 +16,7 @@ import org.simplejavamail.mailer.MailerBuilder;
 
 import jp.co.central_soft.train2019.wakaba.bean.MailDto;
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
+import jp.co.central_soft.train2019.wakaba.dao.MailDao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
 import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
 
@@ -70,8 +70,15 @@ public class MailService
 	        mailer.sendMail(email);
 	  }
 
-	public List<MailDto> getMailList(int userID) {
-		// TODO ダミーデータを返却
-		return new ArrayList<MailDto>() { { add(new MailDto()); } };
+	public List<MailDto> getMailList(int userID) throws ServletException
+	{
+		List<MailDto> dtos = null;
+		try( Connection con = Dao.getConnection() ){
+			MailDao dao = new MailDao(con);
+			dtos = dao.findByUserID(userID);
+		} catch ( ClassNotFoundException | SQLException e ) {
+			throw new ServletException(e);
+		}
+		return dtos;
 	}
 }
