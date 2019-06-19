@@ -3,10 +3,10 @@ package jp.co.central_soft.train2019.wakaba.domain;
 public enum MashiMashiTypeEnum
 {
 
-	YASAI("野菜","野菜","ふつう","マシ","マシマシ"),
-	ABURA("油","油","ふつう","マシ","マシマシ"),
-	KARAME("からめ","う","ふつう","マシ","マシマシ"),
-	KATASA("かたさ","え","ふつう","硬め","バリカタ");
+	YASAI("野菜","(丁寧度)","ふつう","マシ","マシマシ"),
+	ABURA("油","(申し訳なさ)","ふつう","マシ","マシマシ"),
+	KARAME("からめ","(う)","ふつう","マシ","マシマシ"),
+	KATASA("かたさ","(丁寧度)","ふつう","硬め","バリカタ");
 
 	private String name,description,element1,element2,element3;
 
