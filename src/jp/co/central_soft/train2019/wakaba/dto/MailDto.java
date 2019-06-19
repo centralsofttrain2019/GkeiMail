@@ -15,7 +15,7 @@ public class MailDto
 	String keywords;
 	String comments;
 	LocalDateTime date;
-	String mimeVension;
+	String mimeVersion;
 	List<MailContentDto> contents;
 	public int getMailID() {
 		return this.mailID;
@@ -77,11 +77,11 @@ public class MailDto
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
-	public String getMimeVension() {
-		return this.mimeVension;
+	public String getMimeVersion() {
+		return this.mimeVersion;
 	}
-	public void setMimeVension(String mimeVension) {
-		this.mimeVension = mimeVension;
+	public void setMimeVersion(String mimeVension) {
+		this.mimeVersion = mimeVension;
 	}
 	public List<MailContentDto> getContents() {
 		return this.contents;
