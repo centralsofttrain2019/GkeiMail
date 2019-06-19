@@ -20,7 +20,4 @@ public class CreateMailBean {
 	public void setTemplateBottonLabel(String templateBottonLabel) {
 		this.templateBottonLabel = templateBottonLabel;
 	}
-
-
-
 }
