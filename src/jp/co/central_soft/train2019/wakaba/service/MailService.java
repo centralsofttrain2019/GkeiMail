@@ -15,6 +15,7 @@ import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.Mailer;
 import org.simplejavamail.mailer.MailerBuilder;
 
+import jp.co.central_soft.train2019.wakaba.bean.MailDto;
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
 import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
@@ -73,4 +74,9 @@ public class MailService
 	                .buildMailer();
 	        mailer.sendMail(email);
 	  }
+
+	public List<MailDto> getMailList(int userID) {
+		// TODO ダミーデータを返却
+		return new ArrayList<MailDto>() { { add(new MailDto()); } };
+	}
 }
