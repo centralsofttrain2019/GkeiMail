@@ -191,7 +191,6 @@ public class DisplayTemplateListBean {
 	public void putFromDtoToTemplates(TemplateDto dto1
 //			,List<AddressTypeDto> dto2, List<PurposeTypeDto> dto3
 		) {
-		// TODO 作ってない
 		TemplateData template = new TemplateData();
 		template.setTemplateID(dto1.getTemplateID());
 		template.setTemplateName(dto1.getTemplateName());

@@ -43,7 +43,7 @@ public class SelectTemplateServlet extends HttpServlet {
 			bean.putFromDtoToPurposeTypes(purDto);
 		}
 //		bean.setAddressTypes(addList);
-//		// TODO ダミーデータ
+//		// ダミーデータ
 //		AddressTypeDto adDto = new AddressTypeDto();
 //		adDto.setAddressTypeID(1);
 //		adDto.setAddressTypeName("上司");

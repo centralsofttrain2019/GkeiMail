@@ -20,14 +20,12 @@ public class test extends HttpServlet {
      */
     public test() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		System.out.println("atesaki:" + request.getParameter("atesaki") + "naiyou:" + request.getParameter("naiyou") + "masimasi:" + "keyword:" +request.getParameter("keyword-1")+ "keyword:" +request.getParameter("keyword-2")+ "keyword:" +request.getParameter("keyword-3"));
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -36,7 +34,6 @@ public class test extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
