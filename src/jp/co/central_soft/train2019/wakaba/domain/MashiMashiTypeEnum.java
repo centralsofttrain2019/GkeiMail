@@ -2,6 +2,7 @@ package jp.co.central_soft.train2019.wakaba.domain;
 
 public enum MashiMashiTypeEnum
 {
+
 	YASAI("野菜","野菜","ふつう","マシ","マシマシ"),
 	ABURA("油","油","ふつう","マシ","マシマシ"),
 	KARAME("からめ","う","ふつう","マシ","マシマシ"),
