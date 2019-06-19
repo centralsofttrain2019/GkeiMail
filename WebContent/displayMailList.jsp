@@ -49,6 +49,7 @@
 	<ul>
 		<li><button id="button-new" class="rectangle-button">新規作成</button></li>
 		<li><button id="button-trash" class="rectangle-button">ごみ箱</button></li>
+		<li><button id="button-update" class="rectangle-button" onClick="document.location='DisplayMailListServlet';">更新</button></li>
 	</ul>
 	<div class="float-right">
 		<form>
