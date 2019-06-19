@@ -16,6 +16,7 @@ public class MailDto
 	String comments;
 	LocalDateTime date;
 	String mimeVersion;
+	int userID;
 	List<MailContentDto> contents;
 	public int getMailID() {
 		return this.mailID;
@@ -80,8 +81,8 @@ public class MailDto
 	public String getMimeVersion() {
 		return this.mimeVersion;
 	}
-	public void setMimeVersion(String mimeVension) {
-		this.mimeVersion = mimeVension;
+	public void setMimeVersion(String mimeVersion) {
+		this.mimeVersion = mimeVersion;
 	}
 	public List<MailContentDto> getContents() {
 		return this.contents;
@@ -94,6 +95,12 @@ public class MailDto
 	}
 	public void putContent(MailContentDto dto) {
 		this.contents.add(dto);
+	}
+	public int getUserID() {
+		return this.userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 }
 

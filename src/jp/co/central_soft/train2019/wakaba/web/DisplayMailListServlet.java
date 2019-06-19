@@ -36,9 +36,6 @@ public class DisplayMailListServlet extends HttpServlet {
 		DisplayMailListBean bean = new DisplayMailListBean();
 
 		MailService service = new MailService();
-
-		//service.receiveMail(1);
-
 		// TODO ダミーのログインデータ
 		List<MailDto> mails = service.getMailList((new LoginInfo()).getUserID());
 
