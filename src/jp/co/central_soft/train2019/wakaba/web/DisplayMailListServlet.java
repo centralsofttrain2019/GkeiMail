@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.DisplayMailListBean;
-import jp.co.central_soft.train2019.wakaba.bean.MailDto;
 import jp.co.central_soft.train2019.wakaba.domain.LoginInfo;
+import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 import jp.co.central_soft.train2019.wakaba.service.MailService;
 
 /**
