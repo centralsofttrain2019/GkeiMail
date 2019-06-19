@@ -3,6 +3,7 @@ package jp.co.central_soft.train2019.wakaba.service;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
