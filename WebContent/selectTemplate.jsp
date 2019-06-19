@@ -48,6 +48,7 @@ var purposeTypes = {};
 <% for (PurposeTypeDto purposeType: bean.getPurList()) { %>
 	purposeTypes[<%= purposeType.getPurposeTypeID() %>] = {
 		name: '<%=purposeType.getMashiMashiType().getName() %>',
+		description: '<%=purposeType.getMashiMashiType().getDescription() %>',
 		element1: '<%=purposeType.getMashiMashiType().getElement1() %>',
 		element2: '<%=purposeType.getMashiMashiType().getElement2() %>',
 		element3: '<%=purposeType.getMashiMashiType().getElement3() %>',
@@ -107,7 +108,10 @@ var purposeTypes = {};
 					<br>
 
 					<div class="inline-block wide-margin">
-						<span class="span-wide" id="preview"><%=bean.getPurList().get(0).getMashiMashiType().getName() %></span>
+						<span class="span-wide" id="preview">
+						<%=bean.getPurList().get(0).getMashiMashiType().getName() %>
+						</span>
+
 						<label class="common-radio-button">
 							<input type="radio" name="mashimashi" value="1" checked="checked">
 							<span id ="element1"><%=bean.getPurList().get(0).getMashiMashiType().getElement1() %></span>
@@ -124,10 +128,18 @@ var purposeTypes = {};
 
 						</label>
 
+						<br>
+						<span class="span-wide" id="description">
+						<%=bean.getPurList().get(0).getMashiMashiType().getDescription() %>
+						</span>
+
+
 						<script>
 						var hoge = function(num){
 							var el = document.getElementById("preview");
 							el.innerHTML = purposeTypes[num].name;
+							var el = document.getElementById("description");
+							el.innerHTML = purposeTypes[num].description;
 							var el = document.getElementById("element1");
 							el.innerHTML = purposeTypes[num].element1;
 							var el = document.getElementById("element2");
