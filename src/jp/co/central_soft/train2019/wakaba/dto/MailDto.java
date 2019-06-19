@@ -1,4 +1,4 @@
-package jp.co.central_soft.train2019.wakaba.bean;
+package jp.co.central_soft.train2019.wakaba.dto;
 
 import java.time.LocalDateTime;
 

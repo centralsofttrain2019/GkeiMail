@@ -14,10 +14,10 @@ import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.Mailer;
 import org.simplejavamail.mailer.MailerBuilder;
 
-import jp.co.central_soft.train2019.wakaba.bean.MailDto;
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailDao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
+import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
 
 public class MailService

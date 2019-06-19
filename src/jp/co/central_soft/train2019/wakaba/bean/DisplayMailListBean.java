@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.co.central_soft.train2019.wakaba.dto.MailDto;
+
 public class DisplayMailListBean
 {
 	public class MailInformation {
