@@ -16,6 +16,9 @@ dependencies {
 	api 'com.sun.mail:javax.mail:1.6.2'
 	api 'org.simplejavamail:simple-java-mail:5.1.7'
 	api 'org.slf4j:slf4j-log4j12:1.7.26'
+
+	implementation 'org.simplejavamail:simple-java-mail:5.1.7'
+	implementation 'org.slf4j:slf4j-log4j12:1.7.26'
 	testImplementation 'junit:junit:4.12'
 	tomcat 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42',
 	       'org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2',
