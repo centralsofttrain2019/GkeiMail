@@ -271,17 +271,31 @@ VALUES (
 2);
 
 INSERT
+INTO User (
+FirstName,
+LastName,
+Gender
+)
+VALUES (
+'アンパン',
+'マン',
+'WOMAN'
+);
+
+INSERT
 INTO Mail (
 _From,
 _To,
 Subject,
-_Date
+_Date,
+UserID
 )
 VALUES (
 'ampanman@central-soft.co.jp',
 'bykinman@central-soft.co.jp',
 'やめるんだバイキンマン',
-'2019-01-01'
+'2019-01-01',
+1
 );
 
 INSERT
