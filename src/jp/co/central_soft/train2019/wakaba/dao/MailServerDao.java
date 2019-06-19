@@ -34,7 +34,6 @@ public class MailServerDao
 			{
 				serverDto.setSMTPServer(rs.getString("SMTPServer"));
 				serverDto.setSMTPPort(rs.getInt("SMTPPort"));
-				System.out.println("SMTPServer"+ serverDto.getSMTPServer() + "Port" + serverDto.getSMTPPort());
 			}
 		}
 		return serverDto;

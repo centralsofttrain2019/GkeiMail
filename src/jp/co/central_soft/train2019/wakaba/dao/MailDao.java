@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.co.central_soft.train2019.wakaba.bean.MailDto;
+import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 
 public class MailDao
 {
