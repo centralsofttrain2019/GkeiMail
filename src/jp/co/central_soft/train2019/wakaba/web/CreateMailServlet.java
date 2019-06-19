@@ -38,6 +38,7 @@ public class CreateMailServlet extends HttpServlet {
 
 			CreateMailBean bean = new CreateMailBean();
 			bean.setContent(content);
+			bean.setTemplateBottonLabel("テンプレート修正");
 
 			request.setAttribute("bean", bean);
 			rd = request.getRequestDispatcher("/createMail.jsp");
