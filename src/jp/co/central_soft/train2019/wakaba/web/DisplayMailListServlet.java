@@ -1,6 +1,7 @@
 package jp.co.central_soft.train2019.wakaba.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.DisplayMailListBean;
 import jp.co.central_soft.train2019.wakaba.bean.MailDto;
+import jp.co.central_soft.train2019.wakaba.domain.LoginInfo;
+import jp.co.central_soft.train2019.wakaba.service.MailService;
 
 /**
  * Servlet implementation class DisplayMailListServlet
@@ -31,9 +34,17 @@ public class DisplayMailListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DisplayMailListBean bean = new DisplayMailListBean();
-		bean.putFromDtoToMail(new MailDto());
-		System.out.println(bean.getMailInformations().get(0).getJoinedString());
 
+		MailService service = new MailService();
+		// TODO ダミーのログインデータ
+		List<MailDto> mails = service.getMailList((new LoginInfo()).getUserID());
+
+		for(MailDto mail: mails) {
+			bean.putFromDtoToMail(mail);
+		}
+		// System.out.println(bean.getMailInformations().get(0).getJoinedString());
+
+		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("/displayMailList.jsp");
 		rd.forward(request, response);
 	}

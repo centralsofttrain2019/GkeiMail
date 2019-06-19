@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="jp.co.central_soft.train2019.wakaba.bean.DisplayMailListBean.MailInformation" %>
+<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DisplayMailListBean" scope="request" />
 
 <!DOCTYPE html>
 
@@ -63,9 +65,9 @@
 		<div class="content"><div class="inner">
 			<label class="common-list-box wide-margin block mail-list" style="padding: 0;">
 				<select class="mail-list" style="width: 100%;" name="mail-list" size="15">
-				<option value="0">項目A</option>
-				<option value="1">項目B</option>
-				<option value="2">項目C</option>
+				<% for(MailInformation entry: bean.getMailInformations()) { %>
+				<option value="<%=entry.getId() %>"><%=entry.getJoinedString() %></option>
+				<% } %>
 				</select>
 			</label>
 
