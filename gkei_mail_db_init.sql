@@ -270,6 +270,36 @@ VALUES (
 1,
 2);
 
+INSERT
+INTO Mail (
+_From,
+_To,
+Subject,
+_Date
+)
+VALUES (
+'ampanman@central-soft.co.jp',
+'bykinman@central-soft.co.jp',
+'やめるんだバイキンマン',
+'2019-01-01'
+);
+
+INSERT
+INTO MailContent (
+Name,
+ContentType,
+ContentDisposition,
+ContentBinary,
+MailID
+)
+VALUES (
+'バイバイ',
+'text/plain',
+'INLINE',
+0x69048AEFDD010E,
+1
+);
+
 INSERT INTO mailserver (`ServerID`,`SMTPServer`,`SMTPPort`,`POPServer`,`POPPort`)
 VALUES (1,'smtp.gmail.com',587,'pop.gmail.com',995);
 INSERT INTO mailserver (`ServerID`,`SMTPServer`,`SMTPPort`,`POPServer`,`POPPort`)
