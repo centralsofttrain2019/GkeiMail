@@ -51,6 +51,7 @@
 	<div class="float-right">
 		<form>
 			<label class="common-text-box">
+				<span>検索</span>
 				<input type="text">
 			</label>
 		</form>

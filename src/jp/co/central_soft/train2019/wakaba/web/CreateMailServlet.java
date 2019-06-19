@@ -24,7 +24,6 @@ public class CreateMailServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		System.out.println(fromPage);
 		if (fromPage.equals("send")) {
-			System.out.println("aa");
 			String atesaki = request.getParameter("atesaki");
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
