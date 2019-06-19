@@ -3,6 +3,7 @@ package jp.co.central_soft.train2019.wakaba.service;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -22,11 +23,14 @@ import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
 
 public class MailService
 {
+	private List<String> to =new  ArrayList<String>();
 	public void sendMail(String atesaki, String kenmei, String honbun, int id) throws ServletException
 	{
 		MailServerDto serverDto = this.getServerInformation(id);
-		String mailAddress;
-		sendBySimpleJavaMail(atesaki, kenmei, honbun, serverDto);
+		System.out.println(atesaki);
+		this.to.add(atesaki);
+		System.out.println(atesaki + to.get(0));
+		sendBySimpleJavaMail(to, kenmei, honbun, serverDto);
 
 	}
 
@@ -35,7 +39,7 @@ public class MailService
 		MailServerDto serverDto = null;
 		try( Connection con = Dao.getConnection() ){
 			MailServerDao dao = new MailServerDao(con);
-			serverDto = dao.getSMTPInformation(id);
+			serverDto = dao.getServerInformation(id);
 		} catch ( ClassNotFoundException|SQLException e) {
 			e.printStackTrace();
 			throw new ServletException(e);
@@ -43,23 +47,25 @@ public class MailService
 		return serverDto;
 	}
 
-	 private static void sendBySimpleJavaMail(String atesaki, String kenmei, String honbun,MailServerDto serverDto)
+	 private static void sendBySimpleJavaMail(List<String> list, String kenmei, String honbun,MailServerDto serverDto)
 	 {
 		 	Email email = EmailBuilder.startingBlank()
-	                .from("kikutaro_from", "tibikuribo@gmail.com")
-	                .to("kikutaro_to", "kunita.test@gmail.com")
-	                .withSubject("Test subject")
-	                .withPlainText("Fxxkin'")
+	                .from("kikutaro_from", "kunita.test@gmail.com")
+	                .to("kikutaro_to",list)
+	                .withSubject(kenmei)
+	                .withPlainText(honbun)
 	                .buildEmail();
 		 	try {
 				EmailConverter.emailToMimeMessage(email)
 						.writeTo(System.out);
+				System.out.println("yuya");
 			} catch (IOException | MessagingException e) {
 				// TODO 自動生成された catch ブロック
+				System.out.println("kunita");
 				e.printStackTrace();
 			}
 	        Mailer mailer = MailerBuilder
-	                .withSMTPServer("smtp.gmail.com", 587,"tibikuribo@gmail.com","yu0716ya")
+	                .withSMTPServer(serverDto.getSMTPServer(), serverDto.getSMTPPort(),"kunita.test@gmail.com","aa11aa11")
 //	                .withTransportStrategy(TransportStrategy.SMTP_TLS)
 //	                .withProxy("socksproxy.host.com", 1080, "proxy user", "proxy password")
 //	                .withSessionTimeout(10 * 1000)

@@ -12,7 +12,7 @@ public class MailServerDao
 	private Connection con;
 
 	private static final String FIND_BY_KEY =
-			"SELECT SMTPServer,SMTPPort "
+			"SELECT * "
 			+ "FROM  mailserver "
 			+ "WHERE ServerID = ?";
 
@@ -21,7 +21,7 @@ public class MailServerDao
 		this.con = con;
 	}
 
-	public MailServerDto getSMTPInformation(int id) throws SQLException
+	public MailServerDto getServerInformation(int id) throws SQLException
 	{
 		MailServerDto serverDto = new MailServerDto();
 
@@ -34,7 +34,8 @@ public class MailServerDao
 			{
 				serverDto.setSMTPServer(rs.getString("SMTPServer"));
 				serverDto.setSMTPPort(rs.getInt("SMTPPort"));
-				System.out.println("SMTPServer"+ serverDto.getSMTPServer() + "Port" + serverDto.getSMTPPort());
+				serverDto.setPOPServer(rs.getString("POPServer"));
+				serverDto.setPOPPort(rs.getInt("POPPort"));
 			}
 		}
 		return serverDto;
