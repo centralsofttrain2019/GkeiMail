@@ -1,5 +1,6 @@
 
 plugins {
+	id 'eclipse-wtp'
 	id 'java-library'
 	id 'war'
 	id 'com.bmuschko.tomcat' version '2.5'
@@ -22,9 +23,36 @@ dependencies {
 	api fileTree(dir: 'WebContent/WEB-INF/lib', include: '*.jar')
 }
 
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
 project.webAppDirName = 'WebContent'
 project.sourceSets.main.java.srcDirs = ['src']
 project.sourceSets.main.resources.srcDirs = ['src']
+
+eclipse {
+	classpath {
+		defaultOutputDir = file('bin')
+		file.whenMerged {
+			entries.each { entry ->
+				if (entry.kind == 'src' && entry.hasProperty('output')) {
+					entry.output = null
+				}
+			}
+		}
+	}
+	wtp {
+		facet {
+			facet name: 'jst.java', version: '1.8'
+			facet name: 'jst.web', version: '3.1'
+			facet name: 'wst.jsdt.web', version: '1.0'
+		}
+		component {
+            deployName = 'GkeiMail'
+            contextPath  = 'GkeiMail'
+        }
+	}
+}
 
 tomcat {
     httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
