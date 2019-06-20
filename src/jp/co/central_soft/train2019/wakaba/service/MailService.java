@@ -153,7 +153,7 @@ public class MailService
 		List<MailDto> dtos = null;
 		try( Connection con = Dao.getConnection() ){
 			MailDao dao = new MailDao(con);
-			dtos = dao.findByUserID(userID);
+			dtos = dao.findByUserIDWithoutContent(userID);
 		} catch ( ClassNotFoundException | SQLException e ) {
 			throw new ServletException(e);
 		}
