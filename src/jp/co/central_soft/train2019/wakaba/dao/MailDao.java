@@ -1,4 +1,4 @@
-package jp.co.central_soft.train2019.wakaba.dao;
+	package jp.co.central_soft.train2019.wakaba.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,7 +48,7 @@ public class MailDao
 		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_USERID)) {
 			pstmt.setInt(1, userID);
 			try(ResultSet rs = pstmt.executeQuery()) {
-				if(rs.next()) {
+				while(rs.next()) {
 					MailDto dto = new MailDto();
 					dto.setFrom(rs.getString("_From"));
 					dto.setTo(rs.getString("_To"));
