@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.DisplayMailListBean;
 import jp.co.central_soft.train2019.wakaba.domain.LoginInfo;
+import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
 import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 import jp.co.central_soft.train2019.wakaba.service.MailService;
 
@@ -33,18 +34,21 @@ public class DisplayMailListServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DisplayMailListBean bean = new DisplayMailListBean();
 
 		MailService service = new MailService();
+		MailFolderEnum folder = MailFolderEnum.valueOf(request.getParameter("folder"));
 		// TODO ダミーのログインデータ
-		List<MailDto> mails = service.getMailList((new LoginInfo()).getUserID());
+		List<MailDto> mails = service.getMailListInFolder((new LoginInfo()).getUserID(), folder);
 		List<MailDto> maillist = service.receiveMail(1);
 
-		Collections.reverse(maillist);
-		for(MailDto mail: maillist) {
+		Collections.reverse(mails);
+		for(MailDto mail: mails) {
 			bean.putFromDtoToMail(mail);
 		}
+		bean.setFolder(folder);
 		// System.out.println(bean.getMailInformations().get(0).getJoinedString());
 
 		request.setAttribute("bean", bean);
@@ -55,6 +59,7 @@ public class DisplayMailListServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

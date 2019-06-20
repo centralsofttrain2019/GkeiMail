@@ -69,7 +69,7 @@
 	<div id="section">
 		<div class="content"><div class="inner">
 			<label class="common-list-box wide-margin block" style="padding: 0;">
-				<span>件名 / 発信者 / 日付</span>
+				<span>[<%=bean.getFolder() %>] 件名 / 発信者 / 日付</span>
 				<select class="mail-list" style="width: 100%;" name="mail-list" size="15" >
 				<% for(MailInformation entry: bean.getMailInformations()) { %>
 				<option value="<%=entry.getId() %>"><%=entry.getJoinedString() %></option>
@@ -84,9 +84,9 @@
 	</form>
 	<div id="sidebar"><div class="inner">
 		<ul class="sidebar-menu">
-			<li><a class="sidebar-button" href="javascript:void(0)">受信箱</a></li>
-			<li><a class="sidebar-button" href="javascript:void(0)">下書き</a></li>
-			<li><a class="sidebar-button" href="javascript:void(0)">送信済み</a></li>
+			<li><a href="DisplayMailListServlet?folder=INBOX" class="sidebar-button">受信箱</a></li>
+			<li><a href="DisplayMailListServlet?folder=DRAFTS" class="sidebar-button">下書き</a></li>
+			<li><a href="DisplayMailListServlet?folder=SENT" class="sidebar-button">送信済み</a></li>
 		</ul>
 	</div></div>
 </div>

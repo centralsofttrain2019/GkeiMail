@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.central_soft.train2019.wakaba.bean.DisplayTemplateListBean;
 
 //テンプレート宛先とか選択する画面のやつ
-@WebServlet("/ReceivedMailServlet")
-public class ReceivedMailServlet extends HttpServlet
+@WebServlet("/DisplayMailDetailsServlet")
+public class DisplayMailDetailsServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
@@ -22,11 +22,11 @@ public class ReceivedMailServlet extends HttpServlet
 			HttpServletResponse response)
 					throws ServletException, IOException
 	{
-
+/*
 		String ate = request.getParameter("atesaki");
 		String nai = request.getParameter("naiyou");
 		String mashi = request.getParameter("mashimashi");
-
+*/
 		//Service sev = new Service();
 		//TemplateDto dto = sev.findTemplateByKey(1);
 		DisplayTemplateListBean bean = new DisplayTemplateListBean();
