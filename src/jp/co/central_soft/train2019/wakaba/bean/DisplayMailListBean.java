@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
 import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 
 public class DisplayMailListBean
@@ -42,6 +43,7 @@ public class DisplayMailListBean
 		}
 	}
 	private List<MailInformation> mailInformations = new ArrayList<>();
+	private MailFolderEnum folder;
 	public void putFromDtoToMail(MailDto dto) {
 		MailInformation entry = new MailInformation();
 		entry.setId(dto.getMailID());
@@ -52,6 +54,12 @@ public class DisplayMailListBean
 	}
 	public List<MailInformation> getMailInformations() {
 		return this.mailInformations;
+	}
+	public MailFolderEnum getFolder() {
+		return this.folder;
+	}
+	public void setFolder(MailFolderEnum folder) {
+		this.folder = folder;
 	}
 }
 

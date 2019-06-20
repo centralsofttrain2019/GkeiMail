@@ -154,7 +154,7 @@ public class MailDao
 	{
 		List<MailDto> dtos = new ArrayList<>();
 
-		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_USERID)) {
+		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_USERID_WITH_FOLDER)) {
 			pstmt.setInt(1, userID);
 			pstmt.setString(2, folder.name());
 			try(ResultSet rs = pstmt.executeQuery()) {

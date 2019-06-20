@@ -47,6 +47,7 @@ public class DisplayMailListServlet extends HttpServlet {
 		for(MailDto mail: mails) {
 			bean.putFromDtoToMail(mail);
 		}
+		bean.setFolder(folder);
 		// System.out.println(bean.getMailInformations().get(0).getJoinedString());
 
 		request.setAttribute("bean", bean);
