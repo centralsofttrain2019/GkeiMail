@@ -44,10 +44,13 @@
 	<p class="non-margin">G系メール(メール一覧表示画面)</p>
 </div></div>
 
+<form id="createMailForm" action="CreateMailServlet">
+<input type="hidden" name="fromPage" value="create"></form>
+
 <div id="navigation"><div class="inner">
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
-		<li><button id="button-new" class="rectangle-button" onclick="document.location='CreateMailServlet';">新規作成</button></li>
+		<li><button id="button-new" class="rectangle-button" onclick="createMailForm.submit()">新規作成</button></li>
 		<li><button id="button-trash" class="rectangle-button">ごみ箱</button></li>
 		<li><button id="button-update" class="rectangle-button" onClick="document.location='DisplayMailListServlet';">更新</button></li>
 	</ul>
