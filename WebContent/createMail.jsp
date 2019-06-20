@@ -32,7 +32,13 @@
 	font-size: 70%;
 }
 </style>
-
+<script>
+window.onload = function(){
+	if(<%=bean.isFlag()%>){
+		window.alert("件名または本文を入れてください");
+	}
+}
+</script>
 <meta charset="UTF-8">
 <meta name="description" content="G系メール">
 <title>メール作成画面</title>
