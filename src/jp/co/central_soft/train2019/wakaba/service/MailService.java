@@ -121,16 +121,17 @@ public class MailService
 			for (Message msg : msgs)
 			{
 				MailDto dto = new MailDto();
-				System.out.println("---------------------------------");
-				System.out.println("Email Number " + msg.getMessageNumber());
-				System.out.println("Subject: " + msg.getSubject());
-				System.out.println("From: " + msg.getFrom()[0]);
-				System.out.println("Text: " + msg.getContent().toString());
-				System.out.println("Date: " + msg.getSentDate());
+//				System.out.println("---------------------------------");
+//				System.out.println("Email Number " + msg.getMessageNumber());
+//				System.out.println("Subject: " + msg.getSubject());
+//				System.out.println("From: " + msg.getFrom()[0]);
+//				System.out.println("Text: " + msg.getContent().toString());
+//				System.out.println("Date: " + msg.getSentDate());
 				Instant instant = msg.getSentDate().toInstant();
 //				dto.setMessageID(msg.getMessageNumber());
-				dto.setSubject(msg.getSubject());
-				dto.setFrom( msg.getFrom()[0].toString());
+//				dto.setSubject(EmailConverter.mimeMessageToEmail((MimeMessage) msg).getPlainText()); //本文
+				dto.setSubject(msg.getSubject().toString());//件名
+				dto.setFrom( msg.getFrom()[0].toString()); //送信元
 				dto.setDate(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
 				dtolist.add(dto);
 			}
@@ -139,8 +140,6 @@ public class MailService
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return dtolist;
