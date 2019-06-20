@@ -41,15 +41,15 @@ public class UserDao {
 			UserDto userDto = new UserDto();
 			while(rs.next())
 			{
-				userDto.setUserID	(rs.getString("	UserID	"));
+				userDto.setUserID		(rs.getString("	UserID	"));
 				userDto.setFirstName	(rs.getString("	FirstName	"));
-				userDto.setLastName	(rs.getString("	LastName	"));
-				userDto.setGender	(rs.getString("	Gender	"));
+				userDto.setLastName		(rs.getString("	LastName	"));
+				userDto.setGender		(rs.getString("	Gender	"));
 				userDto.setOccupation	(rs.getString("	Occupation	"));
 				userDto.setOrganization	(rs.getString("	Organization	"));
 				userDto.setDepeartment	(rs.getString("	Depeartment	"));
 				userDto.setSignature	(rs.getString("	Signature	"));
-				userDto.setUserName	(rs.getString("	UserName	"));
+				userDto.setUserName		(rs.getString("	UserName	"));
 				userDto.setUserPassword	(rs.getString("	UserPassword	"));
 
 				userDto.setMailAddress	(rs.getString("	MailAddress	"));
