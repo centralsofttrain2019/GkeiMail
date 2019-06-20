@@ -152,14 +152,16 @@ _From,
 _To,
 Subject,
 _Date,
-UserID
+UserID,
+Folder
 )
 VALUES (
 'ampanman@central-soft.co.jp',
 'bykinman@central-soft.co.jp',
 'やめるんだバイキンマン',
 '2019-01-01',
-1
+1,
+'INBOX'
 );
 
 INSERT
