@@ -19,7 +19,7 @@ public class MailDao
 	private static final String INSERT =
 		  "INSERT "
 		+ "INTO mail ("
-		+ "_From, _To, Cc, Bcc, MessageID, Subject, Keywords, Comments, _Date, MimeVersion, UserID"
+		+ "_From, _To, Cc, Bcc, MessageID, Subject, Keywords, Comments, _Date, MimeVersion, UserID, Folder"
 		+ ")"
 		+ "VALUES ("
 		+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"
@@ -141,6 +141,7 @@ public class MailDao
 					));
 					dto.setMimeVersion(rs.getString("MimeVersion"));
 					dto.setUserID(rs.getInt("UserID"));
+					dto.setFolder(MailFolderEnum.valueOf(rs.getString("Folder")));
 					dtos.add(dto);
 				}
 			}
@@ -175,6 +176,7 @@ public class MailDao
 					));
 					dto.setMimeVersion(rs.getString("MimeVersion"));
 					dto.setUserID(rs.getInt("UserID"));
+					dto.setFolder(MailFolderEnum.valueOf(rs.getString("Folder")));
 					dtos.add(dto);
 				}
 			}
@@ -200,6 +202,7 @@ public class MailDao
 			pstmt.setTime(9, java.sql.Time.valueOf(dto.getDate().toLocalTime()));
 			pstmt.setString(10, dto.getMimeVersion());
 			pstmt.setInt(11, dto.getUserID());
+			pstmt.setString(12, dto.getFolder().name());
 			isSuccess = isSuccess && (pstmt.executeUpdate() == 1);
 		}
 		for(MailContentDto content: dto.getContents()) {
