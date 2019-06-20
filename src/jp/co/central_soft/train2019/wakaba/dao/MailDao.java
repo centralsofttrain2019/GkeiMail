@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.central_soft.train2019.wakaba.domain.ContentDispositionEnum;
+import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
 import jp.co.central_soft.train2019.wakaba.dto.MailContentDto;
 import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 
@@ -35,6 +36,10 @@ public class MailDao
 			  "SELECT * "
 			+ "FROM mail "
 			+ "WHERE MailID = ?";
+	private static final String FIND_BY_USERID_WITH_FOLDER =
+		  "SELECT * "
+		+ "FROM mail "
+		+ "WHERE UserID = ? AND Folder = ?";
 	private static final String FIND_BY_USERID =
 		  "SELECT * "
 		+ "FROM mail "
@@ -51,13 +56,12 @@ public class MailDao
 
 	public MailDto findByMailID(int mailID) throws SQLException
 	{
-		MailDto dto = null;
+		MailDto dto = new MailDto();;
 
 		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_MAILID)) {
 			pstmt.setInt(1, mailID);
 			try(ResultSet rs = pstmt.executeQuery()) {
 				if(rs.next()) {
-					dto = new MailDto();
 					dto.setFrom(rs.getString("_From"));
 					dto.setTo(rs.getString("_To"));
 					dto.setCc(rs.getString("Cc"));
@@ -107,6 +111,13 @@ public class MailDao
 		// return this.findByUserIDWithoutContent(userID);
 	}
 
+	public List<MailDto> findByUserIDInFolder(int userID, MailFolderEnum folder) throws SQLException
+	{
+		throw new UnsupportedOperationException("未実装だよ～～～ん");
+		// TODO WithoutContent
+		// return this.findByUserIDWithoutContent(userID);
+	}
+
 	public List<MailDto> findByUserIDWithoutContent(int userID) throws SQLException
 	{
 		List<MailDto> dtos = new ArrayList<>();
@@ -138,6 +149,39 @@ public class MailDao
 		return dtos;
 	}
 
+
+
+	public List<MailDto> findByUserIDInFolderWithoutContent(int userID, MailFolderEnum folder) throws SQLException
+	{
+		List<MailDto> dtos = new ArrayList<>();
+
+		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_USERID_WITH_FOLDER)) {
+			pstmt.setInt(1, userID);
+			pstmt.setString(2, folder.name());
+			try(ResultSet rs = pstmt.executeQuery()) {
+				while(rs.next()) {
+					MailDto dto = new MailDto();
+					dto.setFrom(rs.getString("_From"));
+					dto.setTo(rs.getString("_To"));
+					dto.setCc(rs.getString("Cc"));
+					dto.setBcc(rs.getString("Bcc"));
+					dto.setMessageID(rs.getString("MessageID"));
+					dto.setSubject(rs.getString("Subject"));
+					dto.setKeywords(rs.getString("Keywords"));
+					dto.setComments(rs.getString("Comments"));
+					dto.setDate(LocalDateTime.of(
+						rs.getDate("_Date").toLocalDate(),
+						rs.getTime("_Date").toLocalTime()
+					));
+					dto.setMimeVersion(rs.getString("MimeVersion"));
+					dto.setUserID(rs.getInt("UserID"));
+					dtos.add(dto);
+				}
+			}
+		}
+
+		return dtos;
+	}
 
 	public boolean insert(MailDto dto) throws SQLException
 	{
