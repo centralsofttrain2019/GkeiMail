@@ -39,7 +39,13 @@ public class DisplayMailListServlet extends HttpServlet {
 		DisplayMailListBean bean = new DisplayMailListBean();
 
 		MailService service = new MailService();
-		MailFolderEnum folder = MailFolderEnum.valueOf(request.getParameter("folder"));
+		String boxName = request.getParameter("folder");
+		MailFolderEnum folder = null;
+		if(boxName==null) {
+			folder = MailFolderEnum.INBOX;
+		}else {
+			folder = MailFolderEnum.valueOf(boxName);
+		}
 		// TODO ダミーのログインデータ
 		List<MailDto> mails = service.getMailListInFolder((new LoginInfo()).getUserID(), folder);
 		service.receiveMail(1);
