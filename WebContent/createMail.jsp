@@ -46,10 +46,11 @@
 	<div id="navigation"><div class="inner">
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
-		<li><form action="DisplayMailListServlet" method="post">
+		<li><form id="return" action="DisplayMailListServlet" method="post">
 		<button id="button-return" class="rectangle-button">戻る</button></form></li>
-		<li><form id="send_form" action="CreateMailServlet" method="post">
-		<button id="button-send" name="fromPage" value="send" class="rectangle-button" onclick="submit()">メール送信</button></form></li>
+		<li>
+		<button id="button-send" class="rectangle-button" onclick="javascript:send_form.submit()">メール送信</button>
+		</li>
 		<li><form id="selectTemplate" action="SelectTemplateServlet" method="post">
 		<button id="select-template" class="rectangle-button temp" onclick="javascript:selectTemplate.submit()">
 		<%=bean.getTemplateBottonLabel()%></button></form></li>
@@ -59,18 +60,21 @@
 	<div id="main">
 		<div id="section">
 			<div class="content"><div class="inner">
-				宛先<input name="atesaki" type="text" size="80"><br> <br>
-				件名<input name="kenmei" type="text" size="80"><br> <br>
-				<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
-					cols="90"><%if(bean.getContent() != null) {%><%=bean.getContent() %><% } %></textarea>
-				<br>
+				<form id="send_form" action="CreateMailServlet" method="post">
+					宛先<input name="atesaki" type="text" size="80"><br> <br>
+					件名<input name="kenmei" type="text" size="80"><br> <br>
+					<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
+						cols="90"><%if(bean.getContent() != null) {%><%=bean.getContent() %><% } %></textarea>
+					<br>
+					<input style="display: none;" name="fromPage" value="send">
+				</form>
 			</div></div>
 		</div>
 		<div id="sidebar"><div class="inner">
 			<ul class="sidebar-menu">
-				<li><a href="" class="sidebar-button">受信箱</a></li>
-				<li><a href="" class="sidebar-button">下書き</a></li>
-				<li><a href="" class="sidebar-button">送信済み</a></li>
+				<li><a href="DisplayMailListServlet?folder=INBOX" class="sidebar-button">受信箱</a></li>
+				<li><a href="DisplayMailListServlet?folder=DRAFTS" class="sidebar-button">下書き</a></li>
+				<li><a href="DisplayMailListServlet?folder=SENT" class="sidebar-button">送信済み</a></li>
 			</ul>
 		</div></div>
 	</div>

@@ -30,6 +30,7 @@ import com.sun.mail.pop3.POP3SSLStore;
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailDao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
+import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
 import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
 
@@ -40,7 +41,6 @@ public class MailService
 		MailServerDto serverDto = this.getServerInformation(id);
 		List<String> toList = new ArrayList<String>();
 		toList.add(atesaki);
-		String mailAddress;
 		sendBySimpleJavaMail(toList, kenmei, honbun, serverDto);
 
 	}
@@ -154,7 +154,19 @@ public class MailService
 		List<MailDto> dtos = null;
 		try( Connection con = Dao.getConnection() ){
 			MailDao dao = new MailDao(con);
-			dtos = dao.findByUserID(userID);
+			dtos = dao.findByUserIDWithoutContent(userID);
+		} catch ( ClassNotFoundException | SQLException e ) {
+			throw new ServletException(e);
+		}
+		return dtos;
+	}
+
+	public List<MailDto> getMailListInFolder(int userID, MailFolderEnum folder) throws ServletException
+	{
+		List<MailDto> dtos = null;
+		try( Connection con = Dao.getConnection() ){
+			MailDao dao = new MailDao(con);
+			dtos = dao.findByUserIDInFolderWithoutContent(userID, folder);
 		} catch ( ClassNotFoundException | SQLException e ) {
 			throw new ServletException(e);
 		}
