@@ -71,4 +71,10 @@ public class MailDao
 
 		return dtos;
 	}
+
+	public void insertMail(String from,String to,String subjects,LocalDateTime date,int userID )
+	{
+
+	}
+	//"_From, _To, Cc, Bcc, MessageID, Subject, Keywords, Comments, _Date, MimeVersion, UserID"
 }
