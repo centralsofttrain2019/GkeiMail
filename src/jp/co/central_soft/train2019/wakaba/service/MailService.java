@@ -38,8 +38,10 @@ public class MailService
 	public void sendMail(String atesaki, String kenmei, String honbun, int id) throws ServletException
 	{
 		MailServerDto serverDto = this.getServerInformation(id);
+		List<String> toList = new ArrayList<String>();
+		toList.add(atesaki);
 		String mailAddress;
-		sendBySimpleJavaMail(atesaki, kenmei, honbun, serverDto);
+		sendBySimpleJavaMail(toList, kenmei, honbun, serverDto);
 
 	}
 
@@ -66,13 +68,13 @@ public class MailService
 		return serverDto;
 	}
 
-	 private static void sendBySimpleJavaMail(String atesaki, String kenmei, String honbun,MailServerDto serverDto)
+	 private static void sendBySimpleJavaMail(List<String> toList, String kenmei, String honbun,MailServerDto serverDto)
 	 {
 		 	Email email = EmailBuilder.startingBlank()
-	                .from("kikutaro_from", "tibikuribo@gmail.com")
-	                .to("kikutaro_to", "kunita.test@gmail.com")
-	                .withSubject("Test subject")
-	                .withPlainText("Fxxkin'")
+	                .from("kikutaro_from", "kunita.test@gmail.com")
+	                .to("kikutaro_to",toList )
+	                .withSubject(kenmei)
+	                .withPlainText(honbun)
 	                .buildEmail();
 		 	try {
 				EmailConverter.emailToMimeMessage(email)
@@ -82,7 +84,7 @@ public class MailService
 				e.printStackTrace();
 			}
 	        Mailer mailer = MailerBuilder
-	                .withSMTPServer("smtp.gmail.com", 587,"tibikuribo@gmail.com","yu0716ya")
+	                .withSMTPServer(serverDto.getSMTPServer(), serverDto.getSMTPPort(),"kunita.test@gmail.com","aa11aa11")
 //	                .withTransportStrategy(TransportStrategy.SMTP_TLS)
 //	                .withProxy("socksproxy.host.com", 1080, "proxy user", "proxy password")
 //	                .withSessionTimeout(10 * 1000)
