@@ -161,8 +161,8 @@ var showPreview = function(str){
 
 			<h1>プレビュー</h1>
 			<div class="preview-view"
-					style="padding: 10px; margin-bottom: 30px; border: 1px solid #333333; background-color: #FAFAFA">
-				<span id="preview"><%=bean.getTemplates().get(0).getTemplateContent() %></span>
+					style="overflow: scroll; padding: 10px; margin-bottom: 30px; border: 1px solid #333333; background-color: #FAFAFA">
+				<pre><span id="preview"><%=bean.getTemplates().get(0).getTemplateContent() %></span></pre>
 			</div>
 			<div style="clear:both;"></div>
 

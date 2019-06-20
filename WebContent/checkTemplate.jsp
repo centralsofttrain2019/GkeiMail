@@ -33,8 +33,11 @@
 					<h1>テンプレート選択</h1>
 					<div style="text-align: center;">
 						<div
-							style="text-align: left; display: inline-block; background: white; width: 80%; height: 500px; padding: 15px; border: 1px solid; border-radius: 10px; word-break: break-all;">
-							<%=bean.getTemplateContent()%></div>
+							style="text-align: left; overflow: scroll; display: inline-block; background: white; width: 80%; height: 500px; padding: 15px; border: 1px solid; border-radius: 10px; word-break: break-all;">
+							<pre>
+							<%=bean.getTemplateContent()%>
+							</pre>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -60,7 +63,7 @@
 				<button class="rounded-rectangle-button big-button" type="button"
 					name="ok" value="ok"
 					onclick="javascript:OK_form.submit()">
-					OK</button>
+					確定</button>
 
 				<button class="rounded-rectangle-button big-button" type="button"
 					name="no" value="no"

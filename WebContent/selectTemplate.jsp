@@ -129,6 +129,9 @@ var purposeTypes = {};
 						</label>
 
 						<br>
+					</div>
+					<br>
+					<div class="inline-block wide-margin" style="white-space: nowrap;">
 						<span class="span-wide" id="description">
 						<%=bean.getPurList().get(0).getMashiMashiType().getDescription() %>
 						</span>
