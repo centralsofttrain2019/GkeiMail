@@ -130,7 +130,7 @@ public class MailService
 				Instant instant = msg.getSentDate().toInstant();
 //				dto.setMessageID(msg.getMessageNumber());
 //				dto.setSubject(EmailConverter.mimeMessageToEmail((MimeMessage) msg).getPlainText()); //本文
-				dto.setSubject(msg.getSubject().toString());
+				dto.setSubject(msg.getSubject().toString());//件名
 				dto.setFrom( msg.getFrom()[0].toString()); //送信元
 				dto.setDate(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
 				dtolist.add(dto);
