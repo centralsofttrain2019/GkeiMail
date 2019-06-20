@@ -5,19 +5,19 @@ import java.util.List;
 
 public class MailDto
 {
-	int mailID;
-	String from;
-	String to;
-	String cc;
-	String bcc;
-	String messageID;
-	String subject;
-	String keywords;
-	String comments;
-	LocalDateTime date;
-	String mimeVersion;
-	int userID;
-	List<MailContentDto> contents;
+	private int mailID;
+	private String from;
+	private String to;
+	private String cc;
+	private String bcc;
+	private String messageID;
+	private String subject;
+	private String keywords;
+	private String comments;
+	private LocalDateTime date;
+	private String mimeVersion;
+	private int userID;
+	private List<MailContentDto> contents;
 	public int getMailID() {
 		return this.mailID;
 	}
