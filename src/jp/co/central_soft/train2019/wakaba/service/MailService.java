@@ -49,8 +49,10 @@ public class MailService
 	{
 		System.out.println("start");
 		MailServerDto serverDto = this.getServerInformation(id);
+
 		List<MailDto> dtolist = new ArrayList<MailDto>();
 		dtolist = receiveJavaMail(serverDto);
+
 		System.out.println("end");
 		return dtolist;
 	}
