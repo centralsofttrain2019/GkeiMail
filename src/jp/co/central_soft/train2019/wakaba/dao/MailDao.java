@@ -56,13 +56,12 @@ public class MailDao
 
 	public MailDto findByMailID(int mailID) throws SQLException
 	{
-		MailDto dto = null;
+		MailDto dto = new MailDto();;
 
 		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_MAILID)) {
 			pstmt.setInt(1, mailID);
 			try(ResultSet rs = pstmt.executeQuery()) {
 				if(rs.next()) {
-					dto = new MailDto();
 					dto.setFrom(rs.getString("_From"));
 					dto.setTo(rs.getString("_To"));
 					dto.setCc(rs.getString("Cc"));
