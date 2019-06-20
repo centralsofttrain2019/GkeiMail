@@ -1,13 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Index.html</title>
+<link rel="stylesheet" href="common.css">
+<title>ログイン画面 - G系メール</title>
+<meta name="description" content="G系メール">
+<meta charset="utf-8">
+<style>
+.margin-tate {
+	margin-top: 4em;
+	margin-bottom: 4em;
+}
+ul {
+	margin-left: auto;
+	margin-right: auto;
+}
+ul li {
+    list-style: none;
+}
+label {
+	    margin-right: 10px;
+	    width:150px;
+	    float: left;
+	}
+</style>
 </head>
 <body>
-<p>こちらは仮画面です！</p>
-<form action="SelectTemplateServlet" method="post">
-	<input type="submit" value="click">
-</form>
+
+<div id="header"><div class="inner">
+	<p class="non-margin">G系メール（ログイン画面）</p>
+</div></div>
+
+<div id="main">
+	<div class="section">
+		<div class="content"><div class="inner">
+			<p>IDとパスワードを入力してください。</p>
+			<form id="login_form" class="align-left margin-tate" method="post" action="LoginServlet">
+				<ul>
+				<li><label>ログインID:</label><input name="userID" size="30"></li>
+				<li><label>パスワード:</label><input name="password" type="password" size="30"></li>
+				</ul>
+			</form>
+		</div></div>
+	</div>
+</div>
+
+<div id="form"><div class="inner">
+	<button class="rounded-rectangle-button big-button" type="button" name="submit"
+			onclick="javascript:login_form.submit()">
+		ログイン
+	</button>
+</div></div>
+
+<div id="footer"><div class="inner">
+	<p class="non-margin">© 2019 アンコちゃんチーム</p>
+</div></div>
 </body>
 </html>
