@@ -17,7 +17,6 @@ import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.URLName;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 
 import org.simplejavamail.converter.EmailConverter;
@@ -31,8 +30,7 @@ import com.sun.mail.pop3.POP3SSLStore;
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailDao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
-import jp.co.central_soft.train2019.wakaba.domain.ContentDispositionEnum;
-import jp.co.central_soft.train2019.wakaba.dto.MailContentDto;
+import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
 import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
 
@@ -43,18 +41,20 @@ public class MailService
 		MailServerDto serverDto = this.getServerInformation(id);
 		List<String> toList = new ArrayList<String>();
 		toList.add(atesaki);
-		String mailAddress;
 		sendBySimpleJavaMail(toList, kenmei, honbun, serverDto);
 
 	}
 
-	public void receiveMail(int id) throws ServletException
+	public List<MailDto> receiveMail(int id) throws ServletException
 	{
 		System.out.println("start");
 		MailServerDto serverDto = this.getServerInformation(id);
+
 		List<MailDto> dtolist = new ArrayList<MailDto>();
-		receiveJavaMail(serverDto);
+		dtolist = receiveJavaMail(serverDto);
+
 		System.out.println("end");
+		return dtolist;
 	}
 
 	public MailServerDto getServerInformation(int id) throws ServletException
@@ -97,13 +97,14 @@ public class MailService
 	        mailer.sendMail(email);
 	  }
 
-	 private static void receiveJavaMail(MailServerDto serverDto) throws ServletException
+	 private static List<MailDto> receiveJavaMail(MailServerDto serverDto)
 	 {
 		String username = "kunita.test@gmail.com";
 		String password = "aa11aa11";
 		//boolean debug = true;
-		List<MailDto> maildtolist = new ArrayList<MailDto>();
-		List<MailContentDto> contentlist = new ArrayList<MailContentDto>();
+		List<MailDto> dtolist = new ArrayList<MailDto>();
+
+
 
 		try {
 			Properties pop3Props = new Properties();
@@ -121,29 +122,20 @@ public class MailService
 			Message[] msgs = folder.getMessages();
 			for (Message msg : msgs)
 			{
-				MailDto mailDto = new MailDto();
-				MailContentDto contentDto = new MailContentDto();
+				MailDto dto = new MailDto();
+//				System.out.println("---------------------------------");
+//				System.out.println("Email Number " + msg.getMessageNumber());
+//				System.out.println("Subject: " + msg.getSubject());
+//				System.out.println("From: " + msg.getFrom()[0]);
+//				System.out.println("Text: " + msg.getContent().toString());
+//				System.out.println("Date: " + msg.getSentDate());
 				Instant instant = msg.getSentDate().toInstant();
-				Email mail = EmailConverter.mimeMessageToEmail((MimeMessage) msg);
-				contentDto.setContentBinary(mail.getPlainText().getBytes()); //本文
-				contentDto.setContentType("text/plain");
-				contentDto.setContentDisposition(ContentDispositionEnum.valueOf("INLINE"));
-
-				contentlist.add(contentDto);
-				mailDto.setContents(contentlist);
-
-				mailDto.setFrom((msg.getFrom()[0].toString())+"<"+mail.getFromRecipient().getAddress()+">");//from
-				mailDto.setTo(mail.getRecipients().get(0).getAddress());//to
-				mailDto.setSubject(msg.getSubject().toString());//件名
-				mailDto.setDate(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));//日付
-
-				try( Connection con = Dao.getConnection() ){
-					MailDao dao = new MailDao(con);
-					dao.insert(mailDto);
-				} catch ( ClassNotFoundException|SQLException e) {
-					e.printStackTrace();
-					throw new ServletException(e);
-				}
+//				dto.setMessageID(msg.getMessageNumber());
+//				dto.setSubject(EmailConverter.mimeMessageToEmail((MimeMessage) msg).getPlainText()); //本文
+				dto.setSubject(msg.getSubject().toString());//件名
+				dto.setFrom( msg.getFrom()[0].toString()); //送信元
+				dto.setDate(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
+				dtolist.add(dto);
 			}
 			folder.close();
 			store.close();
@@ -152,6 +144,8 @@ public class MailService
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
+		return dtolist;
+
 
 	}
 
@@ -161,6 +155,18 @@ public class MailService
 		try( Connection con = Dao.getConnection() ){
 			MailDao dao = new MailDao(con);
 			dtos = dao.findByUserIDWithoutContent(userID);
+		} catch ( ClassNotFoundException | SQLException e ) {
+			throw new ServletException(e);
+		}
+		return dtos;
+	}
+
+	public List<MailDto> getMailListInFolder(int userID, MailFolderEnum folder) throws ServletException
+	{
+		List<MailDto> dtos = null;
+		try( Connection con = Dao.getConnection() ){
+			MailDao dao = new MailDao(con);
+			dtos = dao.findByUserIDInFolderWithoutContent(userID, folder);
 		} catch ( ClassNotFoundException | SQLException e ) {
 			throw new ServletException(e);
 		}
