@@ -41,7 +41,6 @@ public class MailService
 		MailServerDto serverDto = this.getServerInformation(id);
 		List<String> toList = new ArrayList<String>();
 		toList.add(atesaki);
-		String mailAddress;
 		sendBySimpleJavaMail(toList, kenmei, honbun, serverDto);
 
 	}
