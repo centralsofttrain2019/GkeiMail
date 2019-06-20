@@ -68,8 +68,8 @@
 	<form method="POST" ondblclick ="document.location='DisplayMailListServlet';">
 	<div id="section">
 		<div class="content"><div class="inner">
-			<label class="common-list-box wide-margin block mail-list" style="padding: 0;">
-
+			<label class="common-list-box wide-margin block" style="padding: 0;">
+				<span>件名 / 発信者 / 日付</span>
 				<select class="mail-list" style="width: 100%;" name="mail-list" size="15" >
 				<% for(MailInformation entry: bean.getMailInformations()) { %>
 				<option value="<%=entry.getId() %>"><%=entry.getJoinedString() %></option>
