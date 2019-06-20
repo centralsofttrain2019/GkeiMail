@@ -34,6 +34,9 @@ public class CheckTemplateServlet extends HttpServlet {
 
 		//int app = Integer.parseInt(request.getParameter("app"));
 
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+
 		//TemplateService service = new TemplateService();
 		CheckTemplateBean bean = new CheckTemplateBean();
 		bean.setAtesaki( Integer.parseInt( request.getParameter("atesaki") ));
