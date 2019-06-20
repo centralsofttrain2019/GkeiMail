@@ -62,18 +62,23 @@
 </div></div>
 
 <div id="main">
+	<form method="POST" ondblclick =" DisplayMailListServlet">
 	<div id="section">
 		<div class="content"><div class="inner">
 			<label class="common-list-box wide-margin block mail-list" style="padding: 0;">
-				<select class="mail-list" style="width: 100%;" name="mail-list" size="15">
+
+				<select class="mail-list" style="width: 100%;" name="mail-list" size="15" >
 				<% for(MailInformation entry: bean.getMailInformations()) { %>
 				<option value="<%=entry.getId() %>"><%=entry.getJoinedString() %></option>
 				<% } %>
 				</select>
+
 			</label>
 
 		</div></div>
+
 	</div>
+	</form>
 	<div id="sidebar"><div class="inner">
 		<ul class="sidebar-menu">
 			<li><a class="sidebar-button" href="javascript:void(0)">受信箱</a></li>
