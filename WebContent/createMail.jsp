@@ -46,8 +46,10 @@
 	<div id="navigation"><div class="inner">
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
-		<li><form id="return" action="DisplayMailListServlet" method="post">
-		<button id="button-return" class="rectangle-button">戻る</button></form></li>
+		<li><form id="return" action="DisplayMailListServlet" method="get">
+		<button id="button-return" class="rectangle-button">戻る</button>
+		<input type="hidden" name="folder" value="INBOX">
+		</form></li>
 		<li>
 		<button id="button-send" class="rectangle-button" onclick="javascript:send_form.submit()">メール送信</button>
 		</li>
@@ -66,7 +68,7 @@
 					<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
 						cols="90"><%if(bean.getContent() != null) {%><%=bean.getContent() %><% } %></textarea>
 					<br>
-					<input style="display: none;" name="fromPage" value="send">
+					<input type="hidden" name="fromPage" value="send">
 				</form>
 			</div></div>
 		</div>
