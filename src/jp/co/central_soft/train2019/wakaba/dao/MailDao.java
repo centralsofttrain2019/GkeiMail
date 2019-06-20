@@ -1,10 +1,13 @@
 package jp.co.central_soft.train2019.wakaba.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +25,7 @@ public class MailDao
 		+ "_From, _To, Cc, Bcc, MessageID, Subject, Keywords, Comments, _Date, MimeVersion, UserID, Folder"
 		+ ")"
 		+ "VALUES ("
-		+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"
+		+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"
 		+ ")";
 	private static final String INSERT_CONTENT =
 		  "INSERT "
@@ -30,7 +33,7 @@ public class MailDao
 		+ "Name, ContentType, ContentDisposition, ContentBinary, ContentID, MailID"
 		+ ")"
 		+ "VALUES ("
-		+ "?, ?, ?, ?, ?, ?"
+		+ "?, ?, ?, ?, ?, LAST_INSERT_ID() "
 		+ ")";
 	private static final String FIND_BY_MAILID =
 			  "SELECT * "
@@ -48,7 +51,6 @@ public class MailDao
 		  "SELECT * "
 		+ "FROM mailcontent "
 		+ "WHERE MailID = ?";
-
 	public MailDao(Connection con)
 	{
 		this.con = con;
@@ -188,8 +190,8 @@ public class MailDao
 	public boolean insert(MailDto dto) throws SQLException
 	{
 		boolean isSuccess = true;
-
 		try(PreparedStatement pstmt = this.con.prepareStatement(INSERT)) {
+			System.out.println("insertStart");
 			pstmt.setString(1, dto.getFrom());
 			pstmt.setString(2, dto.getTo());
 			pstmt.setString(3, dto.getCc());
@@ -198,8 +200,9 @@ public class MailDao
 			pstmt.setString(6, dto.getSubject());
 			pstmt.setString(7, dto.getKeywords());
 			pstmt.setString(8, dto.getComments());
-			pstmt.setDate(9, java.sql.Date.valueOf(dto.getDate().toLocalDate()));
-			pstmt.setTime(9, java.sql.Time.valueOf(dto.getDate().toLocalTime()));
+			pstmt.setDate(9, new Date(Date.from(
+				ZonedDateTime.of(dto.getDate(), ZoneId.systemDefault()).toInstant()).getTime()
+			));
 			pstmt.setString(10, dto.getMimeVersion());
 			pstmt.setInt(11, dto.getUserID());
 			pstmt.setString(12, dto.getFolder().name());
@@ -207,17 +210,17 @@ public class MailDao
 		}
 		for(MailContentDto content: dto.getContents()) {
 			try(PreparedStatement pstmt = this.con.prepareStatement(INSERT_CONTENT)) {
+
 				pstmt.setString(1, content.getName());
 				pstmt.setString(2, content.getContentType());
 				pstmt.setString(3, content.getContentDisposition().name());
 				pstmt.setBytes(4, content.getContentBinary());
 				pstmt.setString(5, content.getContentID());
-				pstmt.setInt(6, content.getMailID());
+//				pstmt.setInt(6, content.getMailID());
 				isSuccess = isSuccess && (pstmt.executeUpdate() == 1);
 			}
 		}
-
+		System.out.println("insertend");
 		return isSuccess;
 	}
 }
-
