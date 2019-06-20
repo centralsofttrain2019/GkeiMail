@@ -149,6 +149,8 @@ public class MailDao
 		return dtos;
 	}
 
+
+
 	public List<MailDto> findByUserIDInFolderWithoutContent(int userID, MailFolderEnum folder) throws SQLException
 	{
 		List<MailDto> dtos = new ArrayList<>();

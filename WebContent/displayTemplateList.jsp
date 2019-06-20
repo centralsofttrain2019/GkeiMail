@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.Map.Entry" %>
 <%@ page import="jp.co.central_soft.train2019.wakaba.dto.PurposeTypeDto" %>
 <jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DisplayTemplateListBean" scope="request" />

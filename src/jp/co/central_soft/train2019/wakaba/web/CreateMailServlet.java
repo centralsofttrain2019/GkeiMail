@@ -20,9 +20,6 @@ public class CreateMailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-
 		String fromPage = request.getParameter("fromPage");
 		RequestDispatcher rd = null;
 		System.out.println(fromPage);
@@ -41,7 +38,7 @@ public class CreateMailServlet extends HttpServlet {
 			MailService service = new MailService();
 			service.sendMail(atesaki,kenmei,honbun,1);
 
-			rd = request.getRequestDispatcher("/DisplayMailListServlet");
+			rd = request.getRequestDispatcher("/DisplayTemplateListServlet");
 		}
 		else if(fromPage.equals("template")) {
 			String content = request.getParameter("content");

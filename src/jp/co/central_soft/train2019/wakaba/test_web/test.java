@@ -25,7 +25,6 @@ public class test extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("atesaki:" + request.getParameter("atesaki") + "naiyou:" + request.getParameter("naiyou") + "masimasi:" + "keyword:" +request.getParameter("keyword-1")+ "keyword:" +request.getParameter("keyword-2")+ "keyword:" +request.getParameter("keyword-3"));
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -34,7 +33,6 @@ public class test extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

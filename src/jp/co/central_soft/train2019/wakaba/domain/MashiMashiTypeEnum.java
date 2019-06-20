@@ -5,8 +5,8 @@ public enum MashiMashiTypeEnum
 
 	YASAI("野菜","(丁寧度)","ふつう","マシ","マシマシ"),
 	ABURA("油","(申し訳なさ)","ふつう","マシ","マシマシ"),
-	KARAME("からめ","(へりくだり度)","ふつう","マシ","マシマシ"),
-	KATASA("かたさ","(誠意度)","ふつう","カタ","カタカタ");
+	KARAME("からめ","(う)","ふつう","マシ","マシマシ"),
+	KATASA("かたさ","(丁寧度)","ふつう","硬め","バリカタ");
 
 	private String name,description,element1,element2,element3;
 

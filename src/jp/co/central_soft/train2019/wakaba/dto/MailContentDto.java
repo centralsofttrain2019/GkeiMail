@@ -1,16 +1,13 @@
 package jp.co.central_soft.train2019.wakaba.dto;
 
-import jp.co.central_soft.train2019.wakaba.domain.ContentDispositionEnum;
-
 public class MailContentDto
 {
 	private int mailContentID;
 	private String name;
 	private String contentType;
-	private ContentDispositionEnum contentDisposition;
+	private String contentDisposition;
 	private byte[] contentBinary;
 	private String contentID;
-	private int mailID;
 	public int getMailContentID() {
 		return this.mailContentID;
 	}
@@ -29,10 +26,10 @@ public class MailContentDto
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-	public ContentDispositionEnum getContentDisposition() {
+	public String getContentDisposition() {
 		return this.contentDisposition;
 	}
-	public void setContentDisposition(ContentDispositionEnum contentDisposition) {
+	public void setContentDisposition(String contentDisposition) {
 		this.contentDisposition = contentDisposition;
 	}
 	public byte[] getContentBinary() {
@@ -46,12 +43,6 @@ public class MailContentDto
 	}
 	public void setContentID(String contentID) {
 		this.contentID = contentID;
-	}
-	public int getMailID() {
-		return this.mailID;
-	}
-	public void setMailID(int mailID) {
-		this.mailID = mailID;
 	}
 }
 

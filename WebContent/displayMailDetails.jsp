@@ -79,9 +79,9 @@
 	</div>
 	<div id="sidebar"><div class="inner">
 		<ul class="sidebar-menu">
-			<li><a href="DisplayMailListServlet?folder=INBOX" class="sidebar-button">受信箱</a></li>
-			<li><a href="DisplayMailListServlet?folder=DRAFTS" class="sidebar-button">下書き</a></li>
-			<li><a href="DisplayMailListServlet?folder=SENT" class="sidebar-button">送信済み</a></li>
+			<li><a class="sidebar-button" href="javascript:void(0)">受信箱</a></li>
+			<li><a class="sidebar-button" href="javascript:void(0)">下書き</a></li>
+			<li><a class="sidebar-button" href="javascript:void(0)">送信済み</a></li>
 		</ul>
 	</div></div>
 </div>

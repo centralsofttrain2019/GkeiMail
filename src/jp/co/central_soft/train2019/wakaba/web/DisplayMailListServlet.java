@@ -42,7 +42,7 @@ public class DisplayMailListServlet extends HttpServlet {
 		MailFolderEnum folder = MailFolderEnum.valueOf(request.getParameter("folder"));
 		// TODO ダミーのログインデータ
 		List<MailDto> mails = service.getMailListInFolder((new LoginInfo()).getUserID(), folder);
-		List<MailDto> maillist = service.receiveMail(1);
+		service.receiveMail(1);
 
 		Collections.reverse(mails);
 		for(MailDto mail: mails) {
