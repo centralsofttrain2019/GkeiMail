@@ -8,9 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import jp.co.central_soft.train2019.wakaba.dto.LoginInfo;
 import jp.co.central_soft.train2019.wakaba.dto.UserDto;
 import jp.co.central_soft.train2019.wakaba.service.UserService;
 
@@ -28,18 +26,6 @@ public class LoginServlet extends HttpServlet {
 		UserService service = new UserService();
 		UserDto dto = service.getUserByName(userName, password);
 
-		if(dto == null)
-		{
-			RequestDispatcher rd = request.getRequestDispatcher("/loginError.jsp");
-			rd.forward(request, response);
-			return;
-		}
-
-		LoginInfo loginInfo = new LoginInfo();
-		loginInfo.setFromDto(dto);
-
-		HttpSession session = request.getSession();
-		session.setAttribute("LoginInfo",loginInfo);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/DisplayMailListServlet");
 		rd.forward(request, response);

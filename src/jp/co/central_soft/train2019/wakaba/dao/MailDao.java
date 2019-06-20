@@ -56,7 +56,7 @@ public class MailDao
 
 	public MailDto findByMailID(int mailID) throws SQLException
 	{
-		MailDto dto = new MailDto();;
+		MailDto dto = new MailDto();
 
 		try(PreparedStatement pstmt = this.con.prepareStatement(FIND_BY_MAILID)) {
 			pstmt.setInt(1, mailID);
@@ -148,6 +148,8 @@ public class MailDao
 
 		return dtos;
 	}
+
+
 
 	public List<MailDto> findByUserIDInFolderWithoutContent(int userID, MailFolderEnum folder) throws SQLException
 	{

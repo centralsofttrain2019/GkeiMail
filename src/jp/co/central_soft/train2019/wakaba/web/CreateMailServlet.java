@@ -20,9 +20,6 @@ public class CreateMailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-
 		String fromPage = request.getParameter("fromPage");
 		RequestDispatcher rd = null;
 		System.out.println(fromPage);
@@ -30,6 +27,13 @@ public class CreateMailServlet extends HttpServlet {
 			String atesaki = request.getParameter("atesaki");
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
+
+			if(kenmei.equals("") || honbun.equals("") || kenmei.equals(null) || honbun.equals(null)) {
+				CreateMailBean bean = new CreateMailBean();
+				bean.setFlag(true);
+				request.setAttribute("bean",bean);
+				rd = request.getRequestDispatcher("/createMail.jsp");
+			}
 
 			MailService service = new MailService();
 			service.sendMail(atesaki,kenmei,honbun,1);
