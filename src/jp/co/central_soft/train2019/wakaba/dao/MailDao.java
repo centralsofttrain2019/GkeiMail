@@ -1,4 +1,4 @@
-	package jp.co.central_soft.train2019.wakaba.dao;
+package jp.co.central_soft.train2019.wakaba.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -148,6 +148,8 @@ public class MailDao
 
 		return dtos;
 	}
+
+
 
 	public List<MailDto> findByUserIDInFolderWithoutContent(int userID, MailFolderEnum folder) throws SQLException
 	{

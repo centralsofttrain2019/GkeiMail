@@ -32,7 +32,13 @@
 	font-size: 70%;
 }
 </style>
-
+<script>
+window.onload = function(){
+	if(<%=bean.isFlag()%>){
+		window.alert("件名または本文を入れてください");
+	}
+}
+</script>
 <meta charset="UTF-8">
 <meta name="description" content="G系メール">
 <title>メール作成画面</title>
@@ -61,11 +67,11 @@
 		<div id="section">
 			<div class="content"><div class="inner">
 				<form id="send_form" action="CreateMailServlet" method="post">
-					宛先<input name="atesaki" type="text" size="80"><br> <br>
-					件名<input name="kenmei" type="text" size="80"><br> <br>
-					<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
-						cols="90"><%if(bean.getContent() != null) {%><%=bean.getContent() %><% } %></textarea>
-					<br>
+				宛先<input name="atesaki" type="text" size="80"><br> <br>
+				件名<input name="kenmei" type="text" size="80"><br> <br>
+				<textarea name="honbun" placeholder="本文を入力してください。" rows="25"
+					cols="90"><%if(bean.getContent() != null) {%><%=bean.getContent() %><% } %></textarea>
+				<br>
 					<input style="display: none;" name="fromPage" value="send">
 				</form>
 			</div></div>

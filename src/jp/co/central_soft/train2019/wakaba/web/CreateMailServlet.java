@@ -31,6 +31,13 @@ public class CreateMailServlet extends HttpServlet {
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
 
+			if(kenmei.equals("") || honbun.equals("") || kenmei.equals(null) || honbun.equals(null)) {
+				CreateMailBean bean = new CreateMailBean();
+				bean.setFlag(true);
+				request.setAttribute("bean",bean);
+				rd = request.getRequestDispatcher("/createMail.jsp");
+			}
+
 			MailService service = new MailService();
 			service.sendMail(atesaki,kenmei,honbun,1);
 
