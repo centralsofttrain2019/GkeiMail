@@ -41,7 +41,7 @@ public class CreateMailServlet extends HttpServlet {
 			MailService service = new MailService();
 			service.sendMail(atesaki,kenmei,honbun,1);
 
-			rd = request.getRequestDispatcher("/DisplayMailListServlet");
+			rd = request.getRequestDispatcher("/DisplayMailListServlet?folder=INBOX");
 		}
 		else if(fromPage.equals("template")) {
 			String content = request.getParameter("content");
