@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -98,9 +100,8 @@ public class MailService
 		//boolean debug = true;
 		List<MailDto> dtolist = new ArrayList<MailDto>();
 
-		MailDto dto = new MailDto();
 
-		dtolist.add(dto);
+
 		try {
 			Properties pop3Props = new Properties();
 			pop3Props.setProperty("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -117,6 +118,7 @@ public class MailService
 			Message[] msgs = folder.getMessages();
 			for (Message msg : msgs)
 			{
+				MailDto dto = new MailDto();
 				System.out.println("---------------------------------");
 				System.out.println("Email Number " + msg.getMessageNumber());
 				System.out.println("Subject: " + msg.getSubject());
@@ -124,7 +126,14 @@ public class MailService
 				System.out.println("Text: " + msg.getContent().toString());
 				System.out.println("Date: " + msg.getSentDate());
 				Instant instant = msg.getSentDate().toInstant();
+//				dto.setMessageID(msg.getMessageNumber());
+				dto.setSubject(msg.getSubject());
+				dto.setFrom( msg.getFrom()[0].toString());
+				dto.setDate(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
+				dtolist.add(dto);
 			}
+			folder.close();
+			store.close();
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {
