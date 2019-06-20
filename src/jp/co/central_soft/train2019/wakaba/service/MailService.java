@@ -3,9 +3,20 @@ package jp.co.central_soft.train2019.wakaba.service;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Folder;
+import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.Session;
+import javax.mail.Store;
+import javax.mail.URLName;
 import javax.servlet.ServletException;
 
 import org.simplejavamail.converter.EmailConverter;
@@ -13,6 +24,8 @@ import org.simplejavamail.email.Email;
 import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.Mailer;
 import org.simplejavamail.mailer.MailerBuilder;
+
+import com.sun.mail.pop3.POP3SSLStore;
 
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailDao;
@@ -28,6 +41,16 @@ public class MailService
 		String mailAddress;
 		sendBySimpleJavaMail(atesaki, kenmei, honbun, serverDto);
 
+	}
+
+	public List<MailDto> receiveMail(int id) throws ServletException
+	{
+		System.out.println("start");
+		MailServerDto serverDto = this.getServerInformation(id);
+		List<MailDto> dtolist = new ArrayList<MailDto>();
+		dtolist = receiveJavaMail(serverDto);
+		System.out.println("end");
+		return dtolist;
 	}
 
 	public MailServerDto getServerInformation(int id) throws ServletException
@@ -70,6 +93,59 @@ public class MailService
 	        mailer.sendMail(email);
 	  }
 
+	 private static List<MailDto> receiveJavaMail(MailServerDto serverDto)
+	 {
+		String username = "kunita.test@gmail.com";
+		String password = "aa11aa11";
+		//boolean debug = true;
+		List<MailDto> dtolist = new ArrayList<MailDto>();
+
+
+
+		try {
+			Properties pop3Props = new Properties();
+			pop3Props.setProperty("mail.pop3.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+			pop3Props.setProperty("mail.pop3.socketFactory.fallback", "false");
+			pop3Props.setProperty("mail.pop3.port", "995");
+			pop3Props.setProperty("mail.pop3.socketFactory.port", "995");
+			URLName url = new URLName("pop3", "pop.gmail.com", 995, "", username, password);
+			Session session = Session.getInstance(pop3Props, null);
+			Store store = new POP3SSLStore(session, url);
+			store.connect();
+
+			Folder folder = store.getFolder("INBOX");
+			folder.open(Folder.READ_ONLY);
+			Message[] msgs = folder.getMessages();
+			for (Message msg : msgs)
+			{
+				MailDto dto = new MailDto();
+				System.out.println("---------------------------------");
+				System.out.println("Email Number " + msg.getMessageNumber());
+				System.out.println("Subject: " + msg.getSubject());
+				System.out.println("From: " + msg.getFrom()[0]);
+				System.out.println("Text: " + msg.getContent().toString());
+				System.out.println("Date: " + msg.getSentDate());
+				Instant instant = msg.getSentDate().toInstant();
+//				dto.setMessageID(msg.getMessageNumber());
+				dto.setSubject(msg.getSubject());
+				dto.setFrom( msg.getFrom()[0].toString());
+				dto.setDate(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
+				dtolist.add(dto);
+			}
+			folder.close();
+			store.close();
+		} catch (NoSuchProviderException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return dtolist;
+
+
+	}
+
 	public List<MailDto> getMailList(int userID) throws ServletException
 	{
 		List<MailDto> dtos = null;
@@ -81,4 +157,5 @@ public class MailService
 		}
 		return dtos;
 	}
+
 }

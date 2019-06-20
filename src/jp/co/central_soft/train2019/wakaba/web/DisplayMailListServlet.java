@@ -1,6 +1,7 @@
 package jp.co.central_soft.train2019.wakaba.web;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -38,8 +39,10 @@ public class DisplayMailListServlet extends HttpServlet {
 		MailService service = new MailService();
 		// TODO ダミーのログインデータ
 		List<MailDto> mails = service.getMailList((new LoginInfo()).getUserID());
+		List<MailDto> maillist = service.receiveMail(1);
 
-		for(MailDto mail: mails) {
+		Collections.reverse(maillist);
+		for(MailDto mail: maillist) {
 			bean.putFromDtoToMail(mail);
 		}
 		// System.out.println(bean.getMailInformations().get(0).getJoinedString());
