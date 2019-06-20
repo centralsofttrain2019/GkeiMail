@@ -62,7 +62,7 @@
 </div></div>
 
 <div id="main">
-	<form method="POST" ondblclick =" DisplayMailListServlet">
+	<form method="POST" ondblclick ="document.location='DisplayMailListServlet';">
 	<div id="section">
 		<div class="content"><div class="inner">
 			<label class="common-list-box wide-margin block mail-list" style="padding: 0;">
