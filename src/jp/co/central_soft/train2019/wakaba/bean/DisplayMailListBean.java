@@ -44,7 +44,7 @@ public class DisplayMailListBean
 	private List<MailInformation> mailInformations = new ArrayList<>();
 	public void putFromDtoToMail(MailDto dto) {
 		MailInformation entry = new MailInformation();
-		entry.setId(dto.getId());
+		entry.setId(dto.getMailID());
 		entry.setSubject(dto.getSubject());
 		entry.setFrom(dto.getFrom());
 		entry.setDate(dto.getDate());
