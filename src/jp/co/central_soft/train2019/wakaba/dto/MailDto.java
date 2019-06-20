@@ -3,6 +3,8 @@ package jp.co.central_soft.train2019.wakaba.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
+
 public class MailDto
 {
 	private int mailID;
@@ -17,6 +19,7 @@ public class MailDto
 	private LocalDateTime date;
 	private String mimeVersion;
 	private int userID;
+	private MailFolderEnum folder;
 	private List<MailContentDto> contents;
 	public int getMailID() {
 		return this.mailID;
@@ -101,6 +104,12 @@ public class MailDto
 	}
 	public void setUserID(int userID) {
 		this.userID = userID;
+	}
+	public MailFolderEnum getFolder() {
+		return this.folder;
+	}
+	public void setFolder(MailFolderEnum folder) {
+		this.folder = folder;
 	}
 }
 
