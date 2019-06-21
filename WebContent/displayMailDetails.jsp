@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-
+<jsp:useBean id="bean" class="jp.co.central_soft.train2019.wakaba.bean.DisplayMailDetailsBean" scope="request"/>
 <!DOCTYPE html>
 
 <html>
@@ -61,19 +61,19 @@
 			<table class="mail-meta">
 				<tr>
 					<td class="mail-meta-item">件名</td>
-					<td id=>あああ</td>
+					<td id=><%=bean.getSubject() %></td>
 				</tr>
 				<tr>
 					<td class="mail-meta-item">発信者</td>
-					<td id=>あああ</td>
+					<td id=><%=bean.getFrom() %></td>
 				</tr>
 				<tr>
 					<td class="mail-meta-item">日付</td>
-					<td id=>あああ</td>
+					<td id=><%=bean.getDate() %></td>
 				</tr>
 			</table>
 			<div class="mail-body">
-				<span id=>あああ</span>
+				<span id=><%=bean.getComment() %></span>
 			</div>
 		</div></div>
 	</div>
