@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 
 		UserService service = new UserService();
 		UserDto dto = service.getUserByName(name, password);
-		System.out.println(dto.toString());
+		if(dto != null) System.out.println(dto.toString());
 
 		if(dto == null || dto.getUserID()==0)
 		{
