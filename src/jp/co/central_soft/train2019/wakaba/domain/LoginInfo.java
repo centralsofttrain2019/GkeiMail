@@ -33,10 +33,10 @@ public class LoginInfo
 		this.userName = userName;
 	}
 
+
+
 	public int getUserID() {
-		//TODO ダミー
-		return 1;
-//		return userID;
+		return userID;
 	}
 
 	public void setUserID(int userID) {
@@ -44,6 +44,17 @@ public class LoginInfo
 	}
 
 	public void setValuesFromDto(UserDto dto) {
-		//TODO dto作ってから！
+		this.setMailAddress(dto.getMailAddress());
+		this.setMailPassword(dto.getPassword());
+		this.setUserID(dto.getUserID());
+		this.setUserName(dto.getUserName());
 	}
+
+	@Override
+	public String toString() {
+		return "LoginInfo [mailAddress=" + mailAddress + ", mailPassword=" + mailPassword + ", userName=" + userName
+				+ ", userID=" + userID + "]";
+	}
+
+
 }
