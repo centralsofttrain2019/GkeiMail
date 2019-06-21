@@ -22,13 +22,18 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String userName = request.getParameter("userName");
+//		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 
-		UserService service = new UserService();
-		UserDto dto = service.getUserByName(userName, password);
+		String userName =request.getParameter("userName");
+        byte[] bi = userName.getBytes("iso-8859-1");
+        String name = new String( bi, "UTF-8" );
 
-		if(dto == null)
+		UserService service = new UserService();
+		UserDto dto = service.getUserByName(name, password);
+		System.out.println(dto.toString());
+
+		if(dto == null || dto.getUserID()==0)
 		{
 			RequestDispatcher rd = request.getRequestDispatcher("/loginError.jsp");
 			rd.forward(request, response);

@@ -24,7 +24,7 @@ public class UserDao {
 					+	"	    	user	.	MailPassword,	"
 					+	"	    	user	.	MailAddress		"
 					+	"	FROM 	gkei_mail	.	user		"
-					+	"	WHERE UserName = ?";
+					+	"	WHERE UserName = ? ";
 
 
 
@@ -38,21 +38,23 @@ public class UserDao {
 		{
 			stm.setString(1,userName);
 			ResultSet rs = stm.executeQuery();
+
 			UserDto userDto = new UserDto();
 			while(rs.next())
 			{
-				userDto.setUserID		(rs.getString("	UserID	"));
-				userDto.setFirstName	(rs.getString("	FirstName	"));
-				userDto.setLastName		(rs.getString("	LastName	"));
-				userDto.setGender		(rs.getString("	Gender	"));
-				userDto.setOccupation	(rs.getString("	Occupation	"));
-				userDto.setOrganization	(rs.getString("	Organization	"));
-				userDto.setDepeartment	(rs.getString("	Depeartment	"));
-				userDto.setSignature	(rs.getString("	Signature	"));
-				userDto.setUserName		(rs.getString("	UserName	"));
-				userDto.setUserPassword	(rs.getString("	UserPassword	"));
-
-				userDto.setMailAddress	(rs.getString("	MailAddress	"));
+				//System.out.println("start");
+				userDto.setUserID		(rs.getInt(1));
+				userDto.setFirstName	(rs.getString(2));
+				userDto.setLastName		(rs.getString(3));
+				userDto.setGender		(rs.getString(4));
+				userDto.setOccupation	(rs.getString(5));
+				userDto.setOrganization	(rs.getString(6));
+				userDto.setDepeartment	(rs.getString(7));
+				userDto.setSignature	(rs.getString(8));
+				userDto.setUserName		(rs.getString(9));
+				userDto.setUserPassword	(rs.getString(10));
+				userDto.setPassword(rs.getString(11));
+				userDto.setMailAddress	(rs.getString(12));
 
 			}
 			return userDto;
