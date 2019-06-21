@@ -4,8 +4,8 @@ public enum MailFolderEnum
 {
 	INBOX("受信箱"),
 	SENT("送信済み"),
-	DRAFTS("下書き");
-	// TRASH("ごみ箱"),
+	DRAFTS("下書き"),
+	TRASH("ごみ箱");
 
 	private final String NAME;
 

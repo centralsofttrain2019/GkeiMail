@@ -50,7 +50,7 @@ public class DisplayMailListServlet extends HttpServlet {
 		LoginInfo loginInfo = (LoginInfo)request.getSession().getAttribute("LoginInfo");
 //		System.out.println(loginInfo.toString());
 		List<MailDto> mails = service.getMailListInFolder(loginInfo.getUserID(), folder);
-		service.receiveMail(1);
+		if(folder == MailFolderEnum.INBOX) { service.receiveMail(1); }
 
 		Collections.reverse(mails);
 		for(MailDto mail: mails) {

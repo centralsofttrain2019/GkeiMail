@@ -51,7 +51,7 @@
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
 		<li><button id="button-new" class="rectangle-button" onclick="createMailForm.submit()">新規作成</button></li>
-		<li><button id="button-trash" class="rectangle-button">ごみ箱</button></li>
+		<li><button id="button-trash" class="rectangle-button" onclick="document.location='DisplayMailListServlet?folder=TRASH'">ごみ箱</button></li>
 		<li><button id="button-update" class="rectangle-button" onClick="document.location='DisplayMailListServlet';">更新</button></li>
 	</ul>
 	<div class="float-right">
