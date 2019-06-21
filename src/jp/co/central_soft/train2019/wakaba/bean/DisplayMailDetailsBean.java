@@ -1,5 +1,6 @@
 package jp.co.central_soft.train2019.wakaba.bean;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 import jp.co.central_soft.train2019.wakaba.dto.MailContentDto;
@@ -11,7 +12,7 @@ public class DisplayMailDetailsBean {
 	private String subject;
 	private String comment;
 	private LocalDateTime date;
-	private MailContentDto contents;
+	private String honbun;
 
 	public String getFrom() {
 		return from;
@@ -43,14 +44,12 @@ public class DisplayMailDetailsBean {
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
-	public MailContentDto getContents() {
-		return contents;
-	}
-	public void setContents(MailContentDto contents) {
-		this.contents = contents;
+
+	public void setHonbun(MailContentDto contents) throws IOException {
+		this.honbun = new String( contents.getContentBinary() ,"UTF-8");
 	}
 	public String getHonbun() {
-		return new String(this.getContents().getContentBinary());
+		return this.honbun;
 	}
 
 }
