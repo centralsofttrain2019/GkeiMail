@@ -49,5 +49,8 @@ public class DisplayMailDetailsBean {
 	public void setContents(MailContentDto contents) {
 		this.contents = contents;
 	}
+	public String getHonbun() {
+		return new String(this.getContents().getContentBinary());
+	}
 
 }

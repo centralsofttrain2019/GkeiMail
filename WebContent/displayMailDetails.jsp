@@ -75,7 +75,7 @@
 				</tr>
 			</table>
 			<div class="mail-body">
-				<span id=><%=bean.getContents().getContentBinary().toString() %></span>
+				<span id=><%=bean.getHonbun() %></span>
 			</div>
 		</div></div>
 	</div>
