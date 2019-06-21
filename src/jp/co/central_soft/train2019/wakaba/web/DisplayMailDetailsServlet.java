@@ -26,6 +26,9 @@ public class DisplayMailDetailsServlet extends HttpServlet
 					throws ServletException, IOException
 	{
 
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+
 		String strmailID = request.getParameter("mail-list");
 		int mailID = Integer.parseInt(strmailID);
 
@@ -40,7 +43,7 @@ public class DisplayMailDetailsServlet extends HttpServlet
 		bean.setDate( dto.getDate() );
 		bean.setFrom( dto.getFrom() );
 		bean.setComment( dto.getComments() );
-		bean.setContents( dto.getContents().get(0) );
+		bean.setHonbun( dto.getContents().get(0) );
 
 		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("/displayMailDetails.jsp");
