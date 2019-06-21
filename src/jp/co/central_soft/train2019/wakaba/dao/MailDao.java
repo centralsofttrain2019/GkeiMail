@@ -64,7 +64,7 @@ public class MailDao
 			pstmt.setInt(1, mailID);
 			try(ResultSet rs = pstmt.executeQuery()) {
 				if(rs.next()) {
-					dto.setUserID(rs.getInt("UserID"));
+					dto.setMailID(rs.getInt("MailID"));
 					dto.setFrom(rs.getString("_From"));
 					dto.setTo(rs.getString("_To"));
 					dto.setCc(rs.getString("Cc"));
@@ -130,7 +130,7 @@ public class MailDao
 			try(ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
 					MailDto dto = new MailDto();
-					dto.setUserID(rs.getInt("UserID"));
+					dto.setMailID(rs.getInt("MailID"));
 					dto.setFrom(rs.getString("_From"));
 					dto.setTo(rs.getString("_To"));
 					dto.setCc(rs.getString("Cc"));
@@ -166,7 +166,7 @@ public class MailDao
 			try(ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
 					MailDto dto = new MailDto();
-					dto.setUserID(rs.getInt("UserID"));
+					dto.setMailID(rs.getInt("MailID"));
 					dto.setFrom(rs.getString("_From"));
 					dto.setTo(rs.getString("_To"));
 					dto.setCc(rs.getString("Cc"));
