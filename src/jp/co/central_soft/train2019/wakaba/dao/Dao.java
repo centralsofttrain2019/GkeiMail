@@ -15,7 +15,7 @@ public class Dao {
 
 		con = DriverManager.getConnection(
 			"jdbc:mysql://"
-			+ "localhost"
+			+ "52.192.83.47"
 			+ "/"
 			+ "gkei_mail"
 			+ "?serverTimezone=JST",

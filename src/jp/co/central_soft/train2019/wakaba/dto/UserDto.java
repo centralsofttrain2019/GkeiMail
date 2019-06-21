@@ -1,7 +1,7 @@
 package jp.co.central_soft.train2019.wakaba.dto;
 
 public class UserDto {
-	private String	userID	;
+	private int	userID	;
 	private String	firstName	;
 	private String	lastName	;
 	private String	gender	;
@@ -17,11 +17,11 @@ public class UserDto {
 	private String	userName;		// VARCHAR(45) ,
 	private String	userPassword;	// VARCHAR(45) ,
 
-	public String getUserID() {
+	public int getUserID() {
 		return userID;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setUserID(int i) {
+		this.userID = i;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -101,6 +101,15 @@ public class UserDto {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
+	@Override
+	public String toString() {
+		return "UserDto [userID=" + userID + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="
+				+ gender + ", occupation=" + occupation + ", organization=" + organization + ", depeartment="
+				+ depeartment + ", signature=" + signature + ", password=" + password + ", mailAddress=" + mailAddress
+				+ ", usercol=" + usercol + ", user=" + user + ", userName=" + userName + ", userPassword="
+				+ userPassword + "]";
+	}
+
 
 
 }
