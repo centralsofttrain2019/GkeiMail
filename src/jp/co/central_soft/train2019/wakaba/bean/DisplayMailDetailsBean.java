@@ -2,6 +2,8 @@ package jp.co.central_soft.train2019.wakaba.bean;
 
 import java.time.LocalDateTime;
 
+import jp.co.central_soft.train2019.wakaba.dto.MailContentDto;
+
 public class DisplayMailDetailsBean {
 
 	private String from;
@@ -9,6 +11,7 @@ public class DisplayMailDetailsBean {
 	private String subject;
 	private String comment;
 	private LocalDateTime date;
+	private MailContentDto contents;
 
 	public String getFrom() {
 		return from;
@@ -39,6 +42,12 @@ public class DisplayMailDetailsBean {
 	}
 	public void setDate(LocalDateTime date) {
 		this.date = date;
+	}
+	public MailContentDto getContents() {
+		return contents;
+	}
+	public void setContents(MailContentDto contents) {
+		this.contents = contents;
 	}
 
 }

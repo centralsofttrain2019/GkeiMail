@@ -40,6 +40,7 @@ public class DisplayMailDetailsServlet extends HttpServlet
 		bean.setDate( dto.getDate() );
 		bean.setFrom( dto.getFrom() );
 		bean.setComment( dto.getComments() );
+		bean.setContents( dto.getContents().get(0) );
 
 		request.setAttribute("bean", bean);
 		RequestDispatcher rd = request.getRequestDispatcher("/displayMailDetails.jsp");

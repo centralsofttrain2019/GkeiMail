@@ -47,10 +47,12 @@
 	<p class="non-margin">G系メール（メール詳細画面）</p>
 </div></div>
 
+<form id="back_form" action="DisplayMailListServlet">
+</form>
 <div id="navigation"><div class="inner">
 	<img class="logo" src="./logo.png" alt="logo-image" />
 	<ul>
-		<li><button id="button-return" class="rectangle-button">戻る</button></li>
+		<li><button id="button-return" class="rectangle-button" onclick="back_form.submit()">戻る</button></li>
 		<li><button id="button-reply" class="rectangle-button">メール返信</button></li>
 	</ul>
 </div></div>
@@ -73,7 +75,7 @@
 				</tr>
 			</table>
 			<div class="mail-body">
-				<span id=><%=bean.getComment() %></span>
+				<span id=><%=bean.getContents().getContentBinary().toString() %></span>
 			</div>
 		</div></div>
 	</div>
