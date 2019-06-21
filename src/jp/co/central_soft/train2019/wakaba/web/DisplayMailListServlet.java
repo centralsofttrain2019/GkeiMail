@@ -47,7 +47,9 @@ public class DisplayMailListServlet extends HttpServlet {
 			folder = MailFolderEnum.valueOf(boxName);
 		}
 		// TODO ダミーのログインデータ
-		List<MailDto> mails = service.getMailListInFolder((new LoginInfo()).getUserID(), folder);
+		LoginInfo loginInfo = (LoginInfo)request.getSession().getAttribute("LoginInfo");
+//		System.out.println(loginInfo.toString());
+		List<MailDto> mails = service.getMailListInFolder(loginInfo.getUserID(), folder);
 		service.receiveMail(1);
 
 		Collections.reverse(mails);
