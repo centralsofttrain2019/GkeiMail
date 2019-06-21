@@ -160,6 +160,18 @@ public class MailService
 		}
 	}
 
+	public MailDto getMail(int mailID) throws ServletException
+	{
+		MailDto dto = null;
+		try( Connection con = Dao.getConnection() ){
+			MailDao dao = new MailDao(con);
+			dto = dao.findByMailID(mailID);
+		} catch ( ClassNotFoundException | SQLException e ) {
+			throw new ServletException(e);
+		}
+		return dto;
+	}
+
 	public List<MailDto> getMailList(int userID) throws ServletException
 	{
 		List<MailDto> dtos = null;
