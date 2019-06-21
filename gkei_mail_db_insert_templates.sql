@@ -1,78 +1,3 @@
-set foreign_key_checks = 0;
-
-TRUNCATE TABLE Template;
-TRUNCATE TABLE AddressType;
-TRUNCATE TABLE PurposeType;
-
-set foreign_key_checks = 1;
-
-INSERT
-INTO AddressType(
-AddressTypeName,
-BuiltInType
-)
-VALUES(
-'上司',
-'BUILTIN'
-);
-
-INSERT
-INTO AddressType(
-AddressTypeName,
-BuiltInType
-)
-VALUES(
-'取引先',
-'BUILTIN'
-);
-
-INSERT
-INTO PurposeType(
-PurposeTypeName,
-MashiMashiType,
-BuiltInType
-)
-VALUES(
-'挨拶',
-'KATASA',
-'BUILTIN'
-);
-
-INSERT
-INTO PurposeType(
-PurposeTypeName,
-MashiMashiType,
-BuiltInType
-)
-VALUES(
-'謝罪',
-'ABURA',
-'BUILTIN'
-);
-
-INSERT
-INTO PurposeType(
-PurposeTypeName,
-MashiMashiType,
-BuiltInType
-)
-VALUES(
-'感謝',
-'YASAI',
-'BUILTIN'
-);
-
-INSERT
-INTO PurposeType(
-PurposeTypeName,
-MashiMashiType,
-BuiltInType
-)
-VALUES(
-'依頼',
-'KARAME',
-'BUILTIN'
-);
 
 INSERT
 INTO Template(
@@ -773,5 +698,6 @@ VALUES(
 2
 );
 
-ALTER TABLE `gkei_mail`.`template` 
+ALTER TABLE `gkei_mail`.`template`
 CHARACTER SET = utf8;
+

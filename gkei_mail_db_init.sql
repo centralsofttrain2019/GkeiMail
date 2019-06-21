@@ -1,3 +1,4 @@
+
 INSERT
 INTO AddressType(
 AddressTypeName,
@@ -14,7 +15,7 @@ AddressTypeName,
 BuiltInType
 )
 VALUES(
-'同僚',
+'取引先',
 'BUILTIN'
 );
 
@@ -25,7 +26,7 @@ MashiMashiType,
 BuiltInType
 )
 VALUES(
-'感謝',
+'挨拶',
 'KATASA',
 'BUILTIN'
 );
@@ -49,8 +50,20 @@ MashiMashiType,
 BuiltInType
 )
 VALUES(
-'見舞',
+'感謝',
 'YASAI',
+'BUILTIN'
+);
+
+INSERT
+INTO PurposeType(
+PurposeTypeName,
+MashiMashiType,
+BuiltInType
+)
+VALUES(
+'依頼',
+'KARAME',
 'BUILTIN'
 );
 
@@ -136,11 +149,19 @@ VALUES (
 
 INSERT
 INTO User (
+UserName,
+UserPassword,
+MailAddress,
+MailPassword,
 FirstName,
 LastName,
 Gender
 )
 VALUES (
+'アンパンマン',
+'password',
+'anpanmandayooooo@gmail.com',
+'XFcAguJk9F',
 'アンパン',
 'マン',
 'WOMAN'
@@ -180,8 +201,13 @@ VALUES (
 1
 );
 
-INSERT INTO mailserver (`ServerID`,`SMTPServer`,`SMTPPort`,`POPServer`,`POPPort`)
+INSERT
+INTO mailserver (`ServerID`,`SMTPServer`,`SMTPPort`,`POPServer`,`POPPort`)
 VALUES (1,'smtp.gmail.com',587,'pop.gmail.com',995);
-INSERT INTO mailserver (`ServerID`,`SMTPServer`,`SMTPPort`,`POPServer`,`POPPort`)
+
+INSERT
+INTO mailserver (`ServerID`,`SMTPServer`,`SMTPPort`,`POPServer`,`POPPort`)
 VALUES (2,'smtp.mail.yahoo.co.jp',465,'pop.mail.yahoo.co.jp',995);
+
+
 
