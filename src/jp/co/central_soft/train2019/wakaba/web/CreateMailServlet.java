@@ -31,17 +31,17 @@ public class CreateMailServlet extends HttpServlet {
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
 
-			if(kenmei.equals("") || honbun.equals("") || kenmei.equals(null) || honbun.equals(null)) {
+			if(kenmei == null || honbun == null || kenmei.equals("") || honbun.equals("")) {
 				CreateMailBean bean = new CreateMailBean();
 				bean.setFlag(true);
 				request.setAttribute("bean",bean);
 				rd = request.getRequestDispatcher("/createMail.jsp");
+			} else {
+				MailService service = new MailService();
+				service.sendMail(atesaki,kenmei,honbun,1);
+
+				rd = request.getRequestDispatcher("/DisplayMailListServlet?folder=INBOX");
 			}
-
-			MailService service = new MailService();
-			service.sendMail(atesaki,kenmei,honbun,1);
-
-			rd = request.getRequestDispatcher("/DisplayMailListServlet?folder=INBOX");
 		}
 		else if(fromPage.equals("template")) {
 			String content = request.getParameter("content");
