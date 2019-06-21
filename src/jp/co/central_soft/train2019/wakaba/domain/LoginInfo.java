@@ -45,7 +45,7 @@ public class LoginInfo
 
 	public void setValuesFromDto(UserDto dto) {
 		this.setMailAddress(dto.getMailAddress());
-		this.setMailPassword(dto.getPassword());
+		this.setMailPassword(dto.getMailPassword());
 		this.setUserID(dto.getUserID());
 		this.setUserName(dto.getUserName());
 	}

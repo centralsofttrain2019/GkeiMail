@@ -9,8 +9,8 @@ public class UserDto {
 	private String	organization	;
 	private String	depeartment	;
 	private String	signature	;
-	private String	password	;
 	private String	mailAddress	;
+	private String	mailPassword;
 	private String	usercol	;
 	private String	user	;
 
@@ -65,17 +65,17 @@ public class UserDto {
 	public void setSignature(String signature) {
 		this.signature = signature;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public String getMailAddress() {
 		return mailAddress;
 	}
 	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
+	}
+	public String getMailPassword() {
+		return this.mailPassword;
+	}
+	public void setMailPassword(String mailPassword) {
+		this.mailPassword = mailPassword;
 	}
 	public String getUsercol() {
 		return usercol;
@@ -105,11 +105,9 @@ public class UserDto {
 	public String toString() {
 		return "UserDto [userID=" + userID + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="
 				+ gender + ", occupation=" + occupation + ", organization=" + organization + ", depeartment="
-				+ depeartment + ", signature=" + signature + ", password=" + password + ", mailAddress=" + mailAddress
+				+ depeartment + ", signature=" + signature + ", password=" + mailPassword + ", mailAddress=" + mailAddress
 				+ ", usercol=" + usercol + ", user=" + user + ", userName=" + userName + ", userPassword="
 				+ userPassword + "]";
 	}
-
-
 
 }

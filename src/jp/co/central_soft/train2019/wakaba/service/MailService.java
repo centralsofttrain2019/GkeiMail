@@ -31,12 +31,14 @@ import com.sun.mail.pop3.POP3SSLStore;
 import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailDao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
+import jp.co.central_soft.train2019.wakaba.dao.UserDao;
 import jp.co.central_soft.train2019.wakaba.domain.ContentDispositionEnum;
 import jp.co.central_soft.train2019.wakaba.domain.LoginInfo;
 import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
 import jp.co.central_soft.train2019.wakaba.dto.MailContentDto;
 import jp.co.central_soft.train2019.wakaba.dto.MailDto;
 import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
+import jp.co.central_soft.train2019.wakaba.dto.UserDto;
 
 public class MailService
 {
@@ -53,11 +55,24 @@ public class MailService
 	{
 		System.out.println("start");
 		MailServerDto serverDto = this.getServerInformation(id);
+		UserDto userDto = this.getUserInformation(id);
 
 		List<MailDto> dtolist = new ArrayList<MailDto>();
-		receiveJavaMail(serverDto);
+		receiveJavaMail(serverDto, userDto);
 		System.out.println("end");
 		return dtolist;
+	}
+
+	private UserDto getUserInformation(int userID) throws ServletException {
+		UserDto userDto = null;
+		try( Connection con = Dao.getConnection() ){
+			UserDao dao = new UserDao(con);
+			userDto = dao.getUser(userID);
+		} catch ( ClassNotFoundException|SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
+		return userDto;
 	}
 
 	public MailServerDto getServerInformation(int id) throws ServletException
@@ -100,10 +115,10 @@ public class MailService
 	        mailer.sendMail(email);
 	  }
 
-	 private static void receiveJavaMail(MailServerDto serverDto) throws ServletException
+	 private static void receiveJavaMail(MailServerDto serverDto, UserDto userDto) throws ServletException
 	 {
-		String username = "kunita.test@gmail.com";
-		String password = "aa11aa11";
+		String username = userDto.getMailAddress();
+		String password = userDto.getMailPassword();
 		//boolean debug = true;
 		List<MailDto> maildtolist = new ArrayList<MailDto>();
 		List<MailContentDto> contentlist = new ArrayList<MailContentDto>();
