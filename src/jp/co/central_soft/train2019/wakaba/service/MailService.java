@@ -32,6 +32,7 @@ import jp.co.central_soft.train2019.wakaba.dao.Dao;
 import jp.co.central_soft.train2019.wakaba.dao.MailDao;
 import jp.co.central_soft.train2019.wakaba.dao.MailServerDao;
 import jp.co.central_soft.train2019.wakaba.domain.ContentDispositionEnum;
+import jp.co.central_soft.train2019.wakaba.domain.LoginInfo;
 import jp.co.central_soft.train2019.wakaba.domain.MailFolderEnum;
 import jp.co.central_soft.train2019.wakaba.dto.MailContentDto;
 import jp.co.central_soft.train2019.wakaba.dto.MailDto;
@@ -39,12 +40,12 @@ import jp.co.central_soft.train2019.wakaba.dto.MailServerDto;
 
 public class MailService
 {
-	public void sendMail(String atesaki, String kenmei, String honbun, int id) throws ServletException
+	public void sendMail(String atesaki, String kenmei, String honbun, int id , LoginInfo loginInfo) throws ServletException
 	{
 		MailServerDto serverDto = this.getServerInformation(id);
 		List<String> toList = new ArrayList<String>();
 		toList.add(atesaki);
-		sendBySimpleJavaMail(toList, kenmei, honbun, serverDto);
+		sendBySimpleJavaMail(toList, kenmei, honbun, serverDto,loginInfo);
 
 	}
 
@@ -72,11 +73,11 @@ public class MailService
 		return serverDto;
 	}
 
-	 private static void sendBySimpleJavaMail(List<String> toList, String kenmei, String honbun,MailServerDto serverDto)
+	 private static void sendBySimpleJavaMail(List<String> toList, String kenmei, String honbun,MailServerDto serverDto, LoginInfo loginInfo)
 	 {
 		 	Email email = EmailBuilder.startingBlank()
-	                .from("kikutaro_from", "kunita.test@gmail.com")
-	                .to("kikutaro_to",toList )
+	                .from(loginInfo.getUserName(), loginInfo.getMailAddress())
+	                .to("to",toList )
 	                .withSubject(kenmei)
 	                .withPlainText(honbun)
 	                .buildEmail();
@@ -88,7 +89,7 @@ public class MailService
 				e.printStackTrace();
 			}
 	        Mailer mailer = MailerBuilder
-	                .withSMTPServer(serverDto.getSMTPServer(), serverDto.getSMTPPort(),"kunita.test@gmail.com","aa11aa11")
+	                .withSMTPServer(serverDto.getSMTPServer(), serverDto.getSMTPPort(),loginInfo.getMailAddress(),loginInfo.getMailPassword())
 //	                .withTransportStrategy(TransportStrategy.SMTP_TLS)
 //	                .withProxy("socksproxy.host.com", 1080, "proxy user", "proxy password")
 //	                .withSessionTimeout(10 * 1000)

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.central_soft.train2019.wakaba.bean.CreateMailBean;
+import jp.co.central_soft.train2019.wakaba.domain.LoginInfo;
 import jp.co.central_soft.train2019.wakaba.service.MailService;
 
 @WebServlet("/CreateMailServlet")
@@ -22,7 +23,7 @@ public class CreateMailServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-
+		final int GMail = 1;
 		String fromPage = request.getParameter("fromPage");
 		RequestDispatcher rd = null;
 		System.out.println(fromPage);
@@ -30,7 +31,7 @@ public class CreateMailServlet extends HttpServlet {
 			String atesaki = request.getParameter("atesaki");
 			String kenmei = request.getParameter("kenmei");
 			String honbun = request.getParameter("honbun");
-
+			LoginInfo loginInfo = (LoginInfo)request.getSession().getAttribute("LoginInfo");
 			if(kenmei == null || honbun == null || kenmei.equals("") || honbun.equals("")) {
 				CreateMailBean bean = new CreateMailBean();
 				bean.setFlag(true);
@@ -38,7 +39,7 @@ public class CreateMailServlet extends HttpServlet {
 				rd = request.getRequestDispatcher("/createMail.jsp");
 			} else {
 				MailService service = new MailService();
-				service.sendMail(atesaki,kenmei,honbun,1);
+				service.sendMail(atesaki,kenmei,honbun,GMail,loginInfo);
 
 				rd = request.getRequestDispatcher("/DisplayMailListServlet?folder=INBOX");
 			}
