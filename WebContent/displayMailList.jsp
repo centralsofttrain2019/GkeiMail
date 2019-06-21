@@ -65,12 +65,12 @@
 </div></div>
 
 <div id="main">
-	<form method="POST" ondblclick ="document.location='DisplayMailListServlet';">
+	<form method="POST" action="DisplayMailDetailsServlet" id="list_form">
 	<div id="section">
 		<div class="content"><div class="inner">
 			<label class="common-list-box wide-margin block" style="padding: 0;">
 				<span>[<%=bean.getFolder() %>] 件名 / 発信者 / 日付</span>
-				<select class="mail-list" style="width: 100%;" name="mail-list" size="15" >
+				<select class="mail-list" style="width: 100%;" name="mail-list" size="15" ondblclick ="javascript:list_form.submit()">
 				<% for(MailInformation entry: bean.getMailInformations()) { %>
 				<option value="<%=entry.getId() %>"><%=entry.getJoinedString() %></option>
 				<% } %>
