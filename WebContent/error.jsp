@@ -138,7 +138,7 @@
 <script>
 function load() {
   alert("宛先:(<%= bean.getAddList().get(bean.getAtesaki()-1).getAddressTypeName() %>)   内容:(<%= bean.getPurList().get(bean.getNaiyou()-1).getPurposeTypeName() %>)\nの検索結果はありません");
-  location.href = "http://localhost:8080/GkeiMail/SelectTemplateServlet";
+  location.href = "SelectTemplateServlet";
 }
 
 window.onload = load;
